@@ -7,3 +7,247 @@ Description: Theme for building real estate sites
 Version: 100
 License: Commercial
 */
+
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+	border: 0;
+	font-family: "PT Sans",sans-serif;
+	font-size: 100%;
+	font-style: inherit;
+	font-weight: inherit;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+	display: block;
+}
+
+html {
+	font-family: 'PT Sans', sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust:     100%;
+}
+
+
+body {
+    background: none repeat scroll 0 0 #ffffff;
+    letter-spacing: 0;
+    line-height: 1.5;
+    margin: 0;
+    overflow: visible;
+    padding: 0;
+}
+
+body, p, tr, td, th, ol, ul, li, input {
+	font-size: 17px;
+	color: #707070;
+	font-family: 'PT Sans', sans-serif;
+	font-weight: 400;
+}
+
+@media only screen and (max-width: 1050px) {
+    body {
+        
+    }
+    
+}
+
+strong {
+	font-weight: bold;
+}
+
+.validation_failed {
+    border: 1px solid red !important;
+}
+
+a {
+	font-weight: 400;
+	color: #000;
+	text-decoration: none;
+	font-family: 'PT Sans', sans-serif;
+}
+
+a:hover {
+	text-decoration: underline;
+
+}
+
+* {
+    box-sizing: border-box;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+	font-size:19px;
+    font-weight: 400;
+	font-family: 'PT Serif', serif;
+}
+
+h2 {
+	font-size: 40px;
+	font-weight: bold;
+	font-family: 'PT Serif', serif;
+	text-align: center;
+}
+h3 {
+	font-size: 40px;
+	font-weight: bold;
+	font-family: 'PT Serif', serif;
+	text-align: center;
+} 
+
+section, footer {
+	padding: 10px 0; 
+	position: relative;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.page__universal-wrapper {
+    margin: 0 auto;
+	max-width: 1200px;
+	min-width: 600px;
+    text-align: left;
+	padding: 15px 0;
+	position: relative;
+	clear: both;
+}
+
+
+a, img, a img {
+	outline: 0;
+	border: 0;
+}
+
+.entry-content {
+	display: block;
+}
+
+p {
+	line-height: 1.5;
+}
+
+article p {
+	padding: 5px 0;
+}
+.clearfix:before,
+.clearfix:after {
+  content: "";
+  display: table;
+}
+ 
+.clearfix:after {
+  clear: both;
+}
+ 
+.clearfix {
+  zoom: 1; /* ie 6/7 */
+}
+	
+/*header*/
+
+header {
+    background-color: rgba(219, 219, 219, 0.75); 
+	position: absolute;
+    width: 100%;
+    z-index: 3;
+}
+header .page__universal-wrapper { 
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1200px;
+	padding: 20px 0;
+	display: table;
+	position: relative;
+	table-layout: fixed;
+}
+
+
+.head-universal__col p {
+	font-size: 22px;
+	
+}
+
+.head-universal__col.head-universal__col_logo {
+	text-align: center;
+}
+.head-universal__col.head-universal__col_clock {
+	left: 20px;
+	position: relative;
+	text-align: center;
+	top: 6px;
+}
+
+
+.head-universal__col.head-universal__col_last {
+	text-align: right;
+}
+
+.head-universal__col_logo img {
+
+}
+
+
+/*breadcrumbs*/
+
+#breadcrumbs {
+	padding: 0;
+	color: #000;
+	font-weight: bold;
+	text-decoration: none;
+
+}
+#breadcrumbs .page__universal-wrapper {
+	padding: 0;
+	
+}
+
+#breadcrumbs a {
+	color: #00b6cb;
+	font-weight: 400;
+	text-decoration: underline;
+}
+
+
+
+/*info-block*/
+
+.shadow-wrapper {
+	background: rgba(0, 0, 0, 0.45);
+}
+
+.shadow-wrapper--light {
+	background: rgb(238, 237, 236);
+}
+ 
+ 
+ 
+
+/*Main page*/
+  
+/*Inner Content*/
+
+
+
+
+article ul {
+	padding-left: 35px;
+}
+
+

@@ -1,0 +1,43 @@
+
+@media all and (max-width: 1024px) {
+    body {
+        min-width: 720px;
+    }
+}
+
+@media all and (max-width: 880px) {
+	@-ms-viewport { width: 720px;} 
+	
+	header {
+		min-width: 720px;
+		padding: 3px;
+	}
+
+}
+
+	
+
+
+@media (max-width: 1200px) { 
+
+}
+
+
+
+@media (max-width: 1025px) {
+	
+}
+	
+
+@media (max-width: 850px) { /* для экранов, меньше 1000px, см про адаптивную вёрстку */
+	
+	article {
+		padding: 5px;
+	}
+	
+	
+}
+
+#menu-mobile { 
+	display: none;
+}

@@ -1,0 +1,16 @@
+.header--inner {
+	display: block;
+	position: relative;
+}
+
+article {
+	padding-bottom: 50px;
+}
+
+article p {
+	padding: 10px 0;
+}
+article a {
+	color: #3366bb;
+	text-decoration: underline;
+}

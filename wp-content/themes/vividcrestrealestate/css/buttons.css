@@ -1,0 +1,186 @@
+
+.head-universal__col {
+	box-sizing: border-box;
+	display: table-cell;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: bottom;
+}
+
+.universal_row--wrapper {
+	min-height: 260px;
+	margin-top: 20px;
+}
+
+.universal_row {
+	width: 100%;
+	padding: 20px 0;
+	display: table;
+	table-layout: fixed;
+}
+
+
+.universal_row.three_cols > .head-universal__col.head-universal__col_sec {
+	text-align: center;
+}
+
+.universal-button__wrapper {
+	display: inline-block;
+}
+
+.universal-button {
+	background-color: #fff;
+	color: #FFF;
+	border-color: #8f8a8f #332f33 #332f33 #8f8a8f;
+	border-radius: 2px;
+	border-style: solid;
+	border-width: 1px;
+	display: table;
+	height: 70px;
+	max-width: 290px;
+	min-width: 289px;
+	text-align: center;
+	transition: all 0.3s ease 0s;
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 1;
+	text-decoration: none;
+}
+
+.universal-button:hover {
+	cursor: pointer;
+	text-decoration: none;
+	border-color: #332f33 #8f8a8f #8f8a8f #332f33;
+}
+
+
+.universal-button__wrapper--inner {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.head-universal__col.head-universal__col_first {
+	
+}
+
+.head-universal__col_last  > .universal-button__wrapper > .universal-button {
+}
+
+.head-universal__col_last{
+	text-align: right;
+}
+
+.head-universal__col_sec   {
+	text-align: center;
+}
+
+.universal-button.grey {
+	background-color: #544d54;
+}
+.universal-button.red {
+	background-color: #ff0000;
+} 
+
+.universal-button.green {
+	background-color: #005555;
+}
+
+.universal-button.light_grey {
+	background-color: #f2f2f5; 
+	color: #3c3c3b;
+}
+
+
+.universal_button,
+.universal_button--green {
+	background-color: #005555;
+	border-color: #589090 #003333 #003333 #589090;
+	border-radius: 2px;
+	border-style: solid;
+	border-width: 1px;
+	color: #fff !important;
+	display: block;
+	font-size: 22px;
+	font-weight: bold;
+	margin: 32px auto 0;
+	min-width: 220px;
+	padding: 10px;
+	text-align: center;
+	width: 60%;
+}
+.universal_button--red {
+	background-color: #ff0000;
+	border-color: #ff6666 #9c0000 #9c0000 #ff6666;
+	margin: 20px auto;
+}
+.universal_button:hover {
+	cursor: pointer;
+}
+
+.universal_button--red-inner {
+	max-width: 280px;
+	padding: 5px;
+}
+
+.button-wrapper--row {
+	width: 80%;
+	margin: 20px auto;
+	
+}
+
+
+.button-wrapper--small-inline {
+	display: inline-block;
+	margin: 0 auto;
+	text-align: center;
+	width: 48%;
+}
+
+
+
+.universal-button.universal-button--small {
+	height: 50px;
+	margin: 0 auto;
+	max-width: 230px;
+    min-width: 220px;
+}
+
+
+.universal_button_wrapper--two {
+	display: block;
+	padding: 0 10px;
+	text-align: center;
+	
+}
+.universal_button_wrapper--two > .universal_button {
+	display: inline-block;
+	max-width: 300px;
+	padding: 5px;
+}
+.universal_button_wrapper--two > .universal_button.universal_button--red {
+	margin-right: 50px;
+}
+
+
+.head-universal__col_sec--popup {
+	background-color: rgba(255, 255, 255, 0.5);
+	padding: 25px 50px;
+	position: absolute;
+	margin-top: 0px;
+}
+
+.universal-button--small-main:first-child {
+	margin-bottom: 20px;
+}
+.universal-button--small-main > div {
+	font-size: 20px;
+	max-width: 220px;
+	padding: 0 20px;
+}
+.head-universal__col.head-universal__col--align.head-universal__col_sec--popup {
+	padding-top: 25px;
+}
+.head-universal__col.head-universal__col--align {
+	vertical-align: middle !important;
+	padding-top: 80px;
+}

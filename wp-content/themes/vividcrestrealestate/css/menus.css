@@ -1,0 +1,32 @@
+.main_menu-wrapper {
+	width: 100%;
+	padding: 0 120px;
+	
+}
+
+
+.main_menu-wrapper--inner ul > li{
+    display: inline-block;
+    list-style: outside none none;
+    margin: 0;
+}
+
+.main_menu-wrapper--inner ul > li > a {
+    color: #000;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 30px;
+    text-decoration: underline;
+    z-index: 3;
+}
+
+.main_menu-wrapper--inner.main_menu-wrapper--footer ul > li > a{
+	padding: 15px 18px;
+}
+
+.main_menu-wrapper--inside-wrapper .main_menu-wrapper--inner ul > li > a {
+	padding: 15px 50px;
+}
+
+

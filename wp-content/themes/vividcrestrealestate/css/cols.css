@@ -1,0 +1,28 @@
+.content_title--small {
+	font-weight: bold;
+	font-size: 24px;
+}
+
+.page__universal-two_cols--wrapper {
+	padding: 0 75px;
+}
+
+.page__universal-two_cols--wrapper.page__universal-two_cols--inner-wrapper .layout__col_half {
+	max-width: 510px;
+}
+
+.page__universal-two_cols--wrapper.page__universal-two_cols--inner-wrapper .content__wrapper p{
+	text-align: justify;
+	color: #000;
+}
+
+.layout__col_half {
+	max-width: 480px;
+	display: inline-block;
+	width: 45%;
+}
+
+.layout__col_half.layout__col_half--second {
+	float: right;
+}
+
