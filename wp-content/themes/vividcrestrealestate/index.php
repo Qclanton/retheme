@@ -23,8 +23,6 @@
 		<script src="<?php echo get_template_directory_uri(); ?>/js/required_ie9.js"></script>
 	<![endif]-->
 </head>
-<?php global $wp_query ?>
-<?php $template_part = define_template_part() ?>	
 <!--[if lt IE 9]>
    <script>
       document.createElement('header');
@@ -36,20 +34,20 @@
    </script>
 <![endif]-->
 <body>
-	<header <?= $template_part !== 'main' ? "class='header--inner'" : "" ?>>
+	<header>
 	
 	</header>
     
     <!-- Content -->
-	<?= render_template_part($template_part, ['post'=>get_post($wp_query->queried_object_id)]) ?>
+    Will be content
 
 	<footer>
 		<div class="page__universal-wrapper"> 
-			<?php wp_footer() ?>
 		</div>
 	</footer>
 	<a id="scroller" class="btn_top" href="#" style="display: none">
 		<img alt="home" src="">
 	</a>
+    <?php wp_footer() ?>
 </body>
 </html>
