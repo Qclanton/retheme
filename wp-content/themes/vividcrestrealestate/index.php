@@ -4,9 +4,11 @@
 	<meta charset=utf-8>
 	<title> </title>
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/style.css" />
-	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700,400italic,700italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
-	<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/header.css" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/sections.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/buttons.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/menus.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/cols.css" />
@@ -35,14 +37,51 @@
 <![endif]-->
 <body>
 	<header>
-	
+		<div class="universal-wrapper sup-header clearfix">
+			<div class="universal-wrapper--inner">
+				<div class="header-wrapper header-wrapper--left">
+					youremail@mail.com
+				</div>
+				<div class="header-wrapper header-wrapper--right">
+					<div class="menu-wrapper menu-wrapper--top">
+					+1545445555
+					</div>
+				</div>
+			</div>
+		</div>
+		<section class="universal-wrapper header clearfix">
+			<div class="universal-wrapper--inner">
+				<div class="logo-wrapper">
+					<a href="<?= site_url(); ?>">
+						<img src="<?= get_template_directory_uri(); ?>/images/logo.png" />		
+					</a>
+				</div>
+				<div class="header-menu">
+					<nav class="top-menu">
+						<? wp_nav_menu(['theme_location'=>"top-menu"]); ?>
+					</nav>
+				</div>
+			</div>
+		</section>
 	</header>
     
+	<section class="universal-wrapper map-block-wrapper">
+		<div class="universal-wrapper--inner">
+		</div>
+	</section>
+	<section class="universal-wrapper content-block-wrapper">
+		<div class="universal-wrapper--inner">
+			<h1>Will be content</h1>
+		</div>
+	</section>
+	
+	
     <!-- Content -->
-    Will be content
 
-	<footer>
-		<div class="page__universal-wrapper"> 
+
+	<footer class="universal-wrapper footer-block-wrapper">
+		<div class="universal-wrapper--inner">
+			Will be footer
 		</div>
 	</footer>
 	<a id="scroller" class="btn_top" href="#" style="display: none">
