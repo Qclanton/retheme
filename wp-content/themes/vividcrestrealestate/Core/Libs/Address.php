@@ -8,8 +8,8 @@ class Address
         // Set default data
         $default_info = (object)[
             'address' => $addrress_string,
-            'country' => "Unknown",
-            'city' => "Unknown",
+            'country' => "",
+            'city' => "",
             'latitude' => 0,
             'longitude' => 0            
         ];

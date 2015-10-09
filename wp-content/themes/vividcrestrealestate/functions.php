@@ -46,3 +46,10 @@ add_action("wp_loaded", function() {
     
 	$wp_rewrite->flush_rules();
 });	
+
+
+
+
+// Ajax hanlers
+add_action("wp_ajax_search_properties", ["\Vividcrestrealestate\Core\Ajax", "searchProperties"]);
+add_action("wp_ajax_nopriv_search_properties", ["\Vividcrestrealestate\Core\Ajax", "searchProperties"]);
