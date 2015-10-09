@@ -30,5 +30,5 @@ spl_autoload_register(function($class) {
 // Test
 $Properties = new \Vividcrestrealestate\Core\Properties();
 $properties = $Properties->get(1);
-// echo "<pre>"; var_dump($properties); "</pre>";
+echo "<pre>"; var_dump($properties); "</pre>";
 

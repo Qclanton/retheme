@@ -77,8 +77,20 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
     
     protected function getOne($primary) 
     {
+        // Get the property
         $property = parent::getOne($primary);
-        $property->info = (new PropertyInfo)->get(["`property_id`='{$property->id}'"]);
+        
+        // Init additional section
+        $property->additional = new \stdClass;
+        
+        // Get additional info
+        $info = (new PropertyInfo)->get(["`property_id`='{$property->id}'"]);
+        
+        // Attach additional info to the property
+        foreach ($info as $param) {
+            $property->additional->{$param->key} = $param->value;
+        }
+        
         
         return $property;
     }

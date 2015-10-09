@@ -9,10 +9,13 @@ abstract class Data {
 	public $values_types;
 	public $editable_fields;
 	public $deleted_marker_column = false;
-	public $primary_field = 'id';
-	public $primary_field_type = '%d';
+	public $primary_field = "id";
+	public $primary_field_type = "%d";
 	public $date_fields = [];
 	
+    
+    
+    
 	
 	protected function defineDefaultExemplar() 
     {
@@ -53,7 +56,7 @@ abstract class Data {
     {
 		if (!$this->deleted_marker_column) {
 			if (isset($this->fields['deleted_fl'])) {
-				$this->deleted_marker_column = 'deleted_fl';
+				$this->deleted_marker_column = "deleted_fl";
 			}
 		}
 	}
@@ -103,28 +106,43 @@ abstract class Data {
 	
 	protected function setOne($exemplar) 
     { 
-		if (empty($exemplar->{$this->primary_field})) { $exemplar->{$this->primary_field}=null; }
-		
+		if (empty($exemplar->{$this->primary_field})) { 
+            $exemplar->{$this->primary_field} = null; 
+        }		
 		
 		if (!empty($this->date_fields)) {
 			foreach ($this->date_fields as $name=>$field) {
 				if ($exemplar->{$name} == $field['default']) {
-					$exemplar->{$name} = date('Y-m-d H:i:s');
+					$exemplar->{$name} = date("Y-m-d H:i:s");
 				}
 			}
 		}
 		
+        
+        
 		$query = "INSERT INTO " . $this->Db->prefix . $this->table . " VALUES (" . implode(',', $this->values_types) . ")";
         
         if (!empty($this->editable_field))	{
             $query .= " ON DUPLICATE KEY UPDATE 1=1, " . implode(",", $this->editable_fields);
         }
 
+
+
 		$params = [$query];
-		foreach ($this->fields as $name=>$field) { $params[] = $exemplar->{$name}; }
-		foreach ($this->fields as $name=>$field) { if ($field['editable_fl'] == true) { $params[] = $exemplar->{$name}; } }
+        
+		foreach ($this->fields as $name=>$field) { 
+            $params[] = $exemplar->{$name}; 
+        }
+        
+		foreach ($this->fields as $name=>$field) { 
+            if ($field['editable_fl'] == true) { 
+                $params[] = $exemplar->{$name}; 
+            } 
+        }
 		
-		return $this->Db->query(call_user_func_array([$this->Db, 'prepare'], $params));
+        
+        
+		return $this->Db->query(call_user_func_array([$this->Db, "prepare"], $params));
 	}
 	
 	protected function setAll($exemplars) 
@@ -133,7 +151,10 @@ abstract class Data {
 		
 		foreach ($exemplars as $exemplar) {
 			$exemplar = (object)$exemplar;
-			if (!isset($exemplar->{$this->primary_field})) { $exemplar->{$this->primary_field} = null; }
+            
+			if (!isset($exemplar->{$this->primary_field})) { 
+                $exemplar->{$this->primary_field} = null; 
+            }
 
 			$existed_exemplar = $this->get($exemplar->{$this->primary_field});
 			$exemplar = (object)array_merge((array)$existed_exemplar, (array)$exemplar);
@@ -160,7 +181,9 @@ abstract class Data {
 		$query = "SELECT * FROM " . $this->Db->prefix . $this->table . " WHERE `" . $this->primary_field . "`=" . $this->primary_field_type;
 		$exemplar = $this->Db->get_row($this->Db->prepare($query, $primary));
 		
-		if (empty($exemplar)) { $exemplar = $this->default_exemplar; }
+		if (empty($exemplar)) { 
+            $exemplar = $this->default_exemplar; 
+        }
 		
 		return $exemplar;
 	}
@@ -168,6 +191,7 @@ abstract class Data {
 	protected function getAll($criterion=null) 
     {
 		$query = "SELECT * FROM " . $this->Db->prefix . $this->table;
+        
 		if (!empty($criterion)) {
 			if (count($criterion) == 1) {
                 $criterion['custom'] = $criterion[0];
@@ -191,17 +215,22 @@ abstract class Data {
 				$query .= " LIMIT " . $criterion['limit'];
 			}
 		}
+        
 		$exemplars = $this->Db->get_results($query);
 		
+        
 		return $exemplars;
 	}
 	
+    
+    
 	
 	
 	public function delete_constatly($id) 
     {
 		$this->delete($id, true);
 	}
+    
 	public function delete($id, $constatly = false) 
     {
 		return (($constatly || $this->deleted_marker_column == false) ? $this->remove($id) : $this->markAsDeleted($id));
@@ -214,16 +243,14 @@ abstract class Data {
 		
 		return $result;
 	}
+    
 	protected function remove($id) 
     {
 		$query = "DELETE FROM " . $this->Db->prefix . $this->table . " WHERE `id`=%d";		
 		$result = $this->Db->query($this->Db->prepare($query, $id));
 		
 		return $result;
-	}
-	
-	
-	
+	}	
 	
 	public function restore($id) 
     {
@@ -233,10 +260,11 @@ abstract class Data {
 		return $result;	
 	}
 	
+    
 	
 	
 	
-	public function simplify($object_list, $value, $key=null, $type='object') 
+	public function simplify($object_list, $value, $key=null, $type="object") 
     {
 		$simplified = [];
 		
@@ -245,13 +273,14 @@ abstract class Data {
 			
 			if (empty($key)) {
 				$simplified[] = $object->{$value};
-			}
-			else {
+			} else {
 				$simplified[$object->{$key}] = $object->{$value};
 			}	
 		}
 		
-		if ($type == 'object') { $simplified = (object)$simplified; }
+		if ($type == "object") { 
+            $simplified = (object)$simplified; 
+        }
 		
 		return $simplified;
 	}
