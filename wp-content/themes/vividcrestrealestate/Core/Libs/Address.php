@@ -10,6 +10,8 @@ class Address
             'address' => $addrress_string,
             'country' => "Unknown",
             'city' => "Unknown",
+            'latitude' => 0,
+            'longitude' => 0            
         ];
         
         
@@ -27,7 +29,9 @@ class Address
             !isset($api_data->status) || 
             $api_data->status !== "OK" || 
             !isset($api_data->results[0]->address_components) ||
-            !isset($api_data->results[0]->formatted_address)
+            !isset($api_data->results[0]->formatted_address) ||
+            !isset($api_data->results[0]->geometry->location->lat) ||
+            !isset($api_data->results[0]->geometry->location->lng)            
         ) {                
             return $default_info;
         }
@@ -39,6 +43,8 @@ class Address
         $result = $api_data->results[0];
         $address_components = $result->address_components;        
         $info->address = $result->formatted_address;
+        $info->latitude = $result->geometry->location->lat;
+        $info->longitude = $result->geometry->location->lng;
         
         foreach ($address_components as $component) {
             // Check object
