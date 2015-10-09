@@ -10,6 +10,8 @@ class Address
             'address' => $addrress_string,
             'country' => "",
             'city' => "",
+            'sublocality' => "",
+            'neighborhood' => "",
             'latitude' => 0,
             'longitude' => 0            
         ];
@@ -61,7 +63,11 @@ class Address
                 $info->country = $component->long_name;                
             } elseif (in_array("locality", $component->types)) {
                 $info->city = $component->long_name;  
-            }  
+            } elseif (in_array("sublocality", $component->types)) {
+                $info->sublocality = $component->long_name;  
+            } elseif (in_array("neighborhood", $component->types)) {
+                $info->neighborhood = $component->long_name;  
+            } 
         }
         
         

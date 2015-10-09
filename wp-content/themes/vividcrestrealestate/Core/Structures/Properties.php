@@ -31,6 +31,16 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
 			'default' => "",
 			'editable_fl' => true
 		],
+        'sublocality' => [
+			'type' => "%s",
+			'default' => "",
+			'editable_fl' => true
+		],
+        'neighborhood' => [
+			'type' => "%s",
+			'default' => "",
+			'editable_fl' => true
+		],
         'latitude' => [
 			'type' => "%f",
 			'default' => 0,

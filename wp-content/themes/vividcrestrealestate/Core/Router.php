@@ -56,11 +56,15 @@ class Router
         if (!empty($search->address)) {
             $recognized = Libs\Address::recognize($search->address);
             
-            if (!empty($recognized->city)) {
+            if (!empty($recognized->neighborhood)) {
+                $criterion = ["`neighborhood`='{$recognized->neighborhood}'"];
+            } elseif (!empty($recognized->sublocality)) {
+                $criterion = ["`sublocality`='{$recognized->sublocality}'"];
+            } elseif(!empty($recognized->city)) {
                 $criterion = ["`city`='{$recognized->city}'"];
             } elseif(!empty($recognized->country)) {
                 $criterion = ["`country`='{$recognized->country}'"];
-            }
+            } 
         }
         
         return $criterion;
