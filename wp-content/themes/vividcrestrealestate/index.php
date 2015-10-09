@@ -77,8 +77,8 @@
 	
 	
     <!-- Content -->
-
-
+    <?= \Vividcrestrealestate\Core\Template::loadPart(); ?>
+    
 	<footer class="universal-wrapper footer-block-wrapper">
 		<div class="universal-wrapper--inner">
 			Will be footer

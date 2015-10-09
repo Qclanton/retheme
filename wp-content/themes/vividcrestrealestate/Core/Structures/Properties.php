@@ -1,5 +1,5 @@
 <?php
-namespace Vividcrestrealestate\Core;
+namespace Vividcrestrealestate\Core\Structures;
 
 class Properties extends \Vividcrestrealestate\Core\Libs\Data 
 {
