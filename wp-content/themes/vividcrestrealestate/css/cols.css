@@ -7,13 +7,8 @@
 	padding: 0 75px;
 }
 
-.page__universal-two_cols--wrapper.page__universal-two_cols--inner-wrapper .layout__col_half {
+.page__universal-two_cols--inner-wrapper .layout__col_half {
 	max-width: 510px;
-}
-
-.page__universal-two_cols--wrapper.page__universal-two_cols--inner-wrapper .content__wrapper p{
-	text-align: justify;
-	color: #000;
 }
 
 .layout__col_half {
@@ -23,6 +18,30 @@
 }
 
 .layout__col_half.layout__col_half--second {
+	float: right;
+}
+
+
+/*80-20*/
+
+.layout__col {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.layout__col--wide {
+	max-width: 910px;
+	width: 75%;
+}
+
+.layout__col--small {
+	max-width: 265px;
+	min-width: 250px;
+	width: 20%;
+	
+}
+
+.layout__col--second {
 	float: right;
 }
 

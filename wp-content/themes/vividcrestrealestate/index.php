@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/responsive.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/header.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/sections.css" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/content.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/buttons.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/menus.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/cols.css" />
@@ -70,8 +71,13 @@
 		</div>
 	</section>
 	<section class="universal-wrapper content-block-wrapper">
-		<div class="universal-wrapper--inner">
-			<h1>Will be content</h1>
+		<div class="universal-wrapper--inner clearfix two_cols">
+			<div class="layout__col layout__col--wide">
+				<h1>Will be content h1</h1>
+			</div>
+			<div class="layout__col layout__col--small layout__col--second">
+				<h5>Mortgage Calculator</h5>
+			</div>			
 		</div>
 	</section>
 	

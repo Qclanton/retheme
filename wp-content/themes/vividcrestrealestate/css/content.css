@@ -1,0 +1,14 @@
+.universal-wrapper.content-block-wrapper {
+	padding: 0;
+}
+
+
+
+.universal-wrapper.content-block-wrapper > .universal-wrapper--inner {
+}
+
+
+
+article ul {
+	padding-left: 35px;
+}

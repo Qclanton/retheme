@@ -1,33 +1,41 @@
 
 @media all and (max-width: 1024px) {
     body {
-        min-width: 720px;
+        min-width: 450px;
     }
 }
 
-@media all and (max-width: 880px) {
-	@-ms-viewport { width: 720px;} 
-	
-	header {
-		min-width: 720px;
-		padding: 3px;
-	}
-
-}
-
 	
 
 
-@media (max-width: 1200px) { 
+@media (max-width: 1100px) { 
 
 }
 
 
 
 @media (max-width: 1025px) {
-	
+	.layout__col,
+	.layout__col.layout__col--wide,
+	.layout__col.layout__col--small {
+		display: block !important;
+		float: none !important;
+		width: 100%;
+		min-width: 400px;
+		max-width: 1000px;
+		margin: 10px auto;
+	}
 }
+
+@media all and (max-width: 880px) {
+	@-ms-viewport { width: 450px;} 
 	
+	.universal-wrapper {
+		min-width: 450px;
+		padding: 3px;
+	}
+
+}
 
 @media (max-width: 850px) { /* для экранов, меньше 1000px, см про адаптивную вёрстку */
 	
@@ -35,9 +43,17 @@
 		padding: 5px;
 	}
 	
-	
+	.logo-wrapper,
+	.header-menu  {
+		display: block !important;
+		margin: 0 auto;
+		width: 100% !important;
+		text-align: center;
+	}
 }
 
 #menu-mobile { 
 	display: none;
 }
+
+
