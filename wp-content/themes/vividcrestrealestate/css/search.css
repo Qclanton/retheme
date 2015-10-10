@@ -1,0 +1,94 @@
+
+
+select {
+  -webkit-appearance: none;
+  background-image: url('../images/arrow.png');
+  background-position: right 12px center;
+  background-repeat: no-repeat;
+  /* for FF */
+  -moz-appearance: none;
+  text-indent: 0.01px; 
+  text-overflow: '';
+  /* for IE */
+  -ms-appearance: none;
+  appearance: none!important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type='number'] {
+    -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.search_form, 
+.search_form-main {
+	width: 100%;
+}
+
+.search_form > .universal_line-wrapper {
+	text-align: left;
+	width: 100%;
+	display: table;
+	padding: 5px 0;
+}
+
+.search_form > .universal_line-wrapper.universal_line-wrapper--short {
+	width: 49.5%;
+	display: inline-block;
+	vertical-align: top;
+}
+.search_form > .universal_line-wrapper.universal_line-wrapper--short:nth-child(2n) {
+	float: right;
+}
+
+.universal_cell-wrapper {
+	display: inline-block;
+	width: 49%;
+	vertical-align: top;
+}
+.search_form > .universal_line-wrapper .universal_cell-wrapper:last-child {
+	float: right;
+	text-align: right;
+}
+
+
+.universal_line-wrapper.universal_line-wrapper--three-cells > .universal_cell-wrapper {
+	width: 33%;
+}
+
+
+
+.universal_line-wrapper input,
+.universal_line-wrapper select {
+	background-color: #fff;
+	border: 1px solid #b3b3b3;
+	color: #707070;
+	display: inline-block;
+	padding: 10px;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+	border-radius: 2px;
+}
+
+.universal_line-wrapper select {
+	padding: 10px 30px 10px 10px;
+}
+
+.universal_line-wrapper .universal_cell-wrapper input,
+.universal_line-wrapper .universal_cell-wrapper select {
+	width: 100%;
+	vertical-align: top;
+}
+
+
