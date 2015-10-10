@@ -74,12 +74,12 @@
 	<section class="universal-wrapper content-block-wrapper">
 		<div class="universal-wrapper--inner clearfix two_cols">
 			<div class="layout__col layout__col--wide">
-				<form class="search_form-main search_form">
+				<form class="search_form-main search_form search_form--small">
 					<h1>Search Form</h1>
 					<div class="universal_line-wrapper">
 						<input type="text" placeholder="City, Postal Code, Neighborhood, or Condo" value="" name="quick_terms">
 					</div>
-					<div class="universal_line-wrapper universal_line-wrapper--short">
+					<div class="universal_line-wrapper">
 						<div class="universal_cell-wrapper">
 							<select>
 								<option value="none" selected="selected">Bathrooms</option>
@@ -103,7 +103,7 @@
 							</select>
 						</div>
 					</div>
-					<div class="universal_line-wrapper universal_line-wrapper--short">
+					<div class="universal_line-wrapper">
 						<div class="universal_cell-wrapper">
 							<input type="number" name="min_list_price" placeholder="Min Price">
 						</div>

@@ -92,3 +92,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
+.search_form--small {
+	max-width: 330px !important;
+	display: block;
+}
+.search_form--small .universal_line-wrapper input,
+.search_form--small .universal_line-wrapper select {
+	width: 100%;
+	vertical-align: top;
+	font-size: 14px;
+	padding: 7px;
+}
