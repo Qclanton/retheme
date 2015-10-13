@@ -8,8 +8,13 @@
 			<div class="universal__cell property property--first">
 				<div class="property__image">
 					<a href="">
+						<span class="label__icon--small icon--green">Open House</span>						
 						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
 					</a>
+					<div class="carousel-arrows--small">
+						<div class="carousel-arrow--prev"></div>
+						<div class="carousel-arrow--next"></div>
+					</div>
 				</div>
 				<div class="property__info-line">
 					<a href="">
@@ -35,8 +40,13 @@
 			<div class="universal__cell property">
 				<div class="property__image">
 					<a href="">
+						<span class="label__icon--small icon--blue">New Offer</span>
 						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
 					</a>
+					<div class="carousel-arrows--small">
+						<div class="carousel-arrow--prev"></div>
+						<div class="carousel-arrow--next"></div>
+					</div>
 				</div>
 				<div class="property__info-line">
 					<a href="">
@@ -62,8 +72,13 @@
 			<div class="universal__cell property">
 				<div class="property__image">
 					<a href="">
+						<span class="label__icon--small icon--green">Open House</span>
 						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
 					</a>
+					<div class="carousel-arrows--small">
+						<div class="carousel-arrow--prev"></div>
+						<div class="carousel-arrow--next"></div>
+					</div>
 				</div>
 				<div class="property__info-line">
 					<a href="">
@@ -89,8 +104,13 @@
 			<div class="universal__cell property property--last">
 				<div class="property__image">
 					<a href="">
+						<span class="label__icon--small icon--red">New Offer</span>
 						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
 					</a>
+					<div class="carousel-arrows--small">
+						<div class="carousel-arrow--prev"></div>
+						<div class="carousel-arrow--next"></div>
+					</div>
 				</div>
 				<div class="property__info-line">
 					<a href="">

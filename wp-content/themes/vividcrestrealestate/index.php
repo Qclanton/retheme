@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/buttons.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/menus.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/cols.css" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/slider.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/jquery.arcticmodal-0.3.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/page_inner.css" />
 	<link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/favicon.png" />	
