@@ -1,4 +1,13 @@
 <?php
+// Load js
+add_action("wp_enqueue_scripts", function() {
+    wp_enqueue_script("free-form-sender", get_template_directory_uri() . "/js/tabs.js", ["jquery"]);   
+});
+
+
+
+
+
 // Autoload
 spl_autoload_register(function($class) {
     // Set params
@@ -22,6 +31,8 @@ spl_autoload_register(function($class) {
         require $file;
     }
 });
+
+require __DIR__ . "/Core/Libs/ThirdParty/autoload.php";
 
 
 

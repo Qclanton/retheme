@@ -68,11 +68,6 @@
 		</section>
 	</header>
 
-	<section class="universal-wrapper map-block-wrapper">
-		<div class="universal-wrapper--inner">
-            <?= \Vividcrestrealestate\Core\Template::loadPart("search_form"); ?>
-		</div>
-	</section>
 	
     <!-- Content -->
     <?= \Vividcrestrealestate\Core\Template::loadPart(); ?>

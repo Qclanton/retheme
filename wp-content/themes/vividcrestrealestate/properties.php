@@ -1,7 +1,3 @@
 <h1>Properties</h1>
-<form name="search-properties" action="/properties" method="POST">
-    Address: <input type="text" name="search[address]">
-    
-    <input type="submit" value="search">   
-</form>
-<pre><?php var_dump($properties); ?></pre>
+<?= \Vividcrestrealestate\Core\Template::loadPart("search_form"); ?>
+<pre><?php var_dump($rets_properties); ?></pre>

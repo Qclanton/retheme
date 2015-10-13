@@ -38,6 +38,11 @@ class Router
                 $criterion = self::makeCriterion($search);              
                 
                 $data->properties = $Properties->get($criterion);
+                // Test
+                $Rets = new Libs\Rets("http://rets.torontomls.net:6103/rets-treb3pv/server/login", "D14rsy", "Ls$7326");
+                $Rets->login();
+                
+                $data->rets_properties = $Rets->getProperties();
                 break;
                 
             case "property":
