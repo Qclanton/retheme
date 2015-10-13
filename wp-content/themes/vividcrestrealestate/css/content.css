@@ -1,3 +1,8 @@
+.title__border-bottom {
+	border-bottom: 1px dashed #94ca4c;
+	padding: 15px 0;
+}
+
 .universal-wrapper.content-block-wrapper {
 	padding: 0;
 }
@@ -12,3 +17,115 @@
 article ul {
 	padding-left: 35px;
 }
+
+
+/*4 cols property main*/
+
+.universal_line-wrapper.four__cols {
+	text-align: center;
+	padding: 30px 0;
+}
+
+
+.universal_line-wrapper.four__cols .universal__cell.property:nth-child(2) {
+	padding-left: 10px;
+	padding-right: 30px;
+}
+
+.universal_line-wrapper.four__cols .universal__cell.property:nth-child(3) {
+	padding-left: 30px;
+	padding-right: 10px;
+}
+
+.universal__cell.property {
+	display: table-cell;
+	vertical-align: top;
+	width: 24.7%;   
+	padding-left: 20px;
+    padding-right: 20px;
+	text-align: justify;
+	min-width: 200px;
+}
+
+
+.universal__cell.property--first {
+	padding-left: 0;
+	padding-right: 40px;
+	margin-left:  0;
+}
+.universal__cell.property--last {
+	padding-right: 0;
+	padding-left: 40px;
+	margin-right:  0;
+}
+
+.property__image {
+	overflow: hidden;
+	max-height: 180px;
+	border-radius: 3px 3px 0 0;
+}
+
+.property__image img {
+	display: block;
+	width: 100%;
+}
+
+
+.property__info-line {
+	padding: 0 10px;
+	background-color: #0097d6;
+	color: #fff;
+}
+
+.property__info-line p {
+	color: #fff;
+	display: block;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	vertical-align: top;
+	width: 100%;
+}
+.property__description ul {
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.6);
+	border-radius: 0 0 3px 3px;
+}
+
+.property__description ul > li {
+	display: inline-block;
+	list-style: none;
+	font-size: 15px;
+	padding: 3px;
+	color: #fff;
+}
+
+
+.property__description ul > li:last-child::after {
+	display: none;
+}
+.property__description ul > li::after {
+	color: #fff;
+	content: "|";
+	font-size: 13px;
+	left: 4px;
+	position: relative;
+}
+
+.property__description a:hover {
+	text-decoration: none;
+}
+
+.property__description p {
+	font-size: 14px;
+	padding: 15px;
+	text-align: center;
+	color: #000;
+}
+
+.property__description p:hover {
+	text-decoration: underline;
+}
+
+
+
