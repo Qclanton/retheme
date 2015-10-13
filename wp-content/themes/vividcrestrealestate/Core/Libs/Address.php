@@ -12,6 +12,7 @@ class Address
             'city' => "",
             'sublocality' => "",
             'neighborhood' => "",
+            'postal_code' => "",
             'latitude' => 0,
             'longitude' => 0            
         ];
@@ -67,6 +68,8 @@ class Address
                 $info->sublocality = $component->long_name;  
             } elseif (in_array("neighborhood", $component->types)) {
                 $info->neighborhood = $component->long_name;  
+            } elseif (in_array("postal_code", $component->types)) {
+                $info->postal_code = $component->long_name;  
             } 
         }
         

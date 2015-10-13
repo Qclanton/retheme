@@ -193,7 +193,7 @@ abstract class Data {
 		$query = "SELECT * FROM " . $this->Db->prefix . $this->table;
         
 		if (!empty($criterion)) {
-			if (count($criterion) == 1) {
+			if (isset($criterion[0]) && count($criterion) == 1) {
                 $criterion['custom'] = $criterion[0];
             }
             
@@ -201,8 +201,18 @@ abstract class Data {
 				$query .= " WHERE " . $criterion['custom'];
 			}
 			
+            
+            
+            if (isset($criterion['confines'])) {
+                $query .= " WHERE 1=1";
+                
+                foreach ($criterion['confines'] as $confine) {
+                    $query .= " AND {$confine}";
+                }
+            }
 			
 			
+            
 			if (isset($criterion['orderby'])) {
 				$query .= " ORDER BY `" . $criterion['orderby'] . "`";
 				
