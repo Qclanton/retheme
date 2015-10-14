@@ -7,7 +7,7 @@
 }
 
 h2.title--colored {
-	background-color: rgba(0, 0, 0, 0.6);
+	background-color: #544d54;
 	border-radius: 3px 3px 0 0;
 	color: #fff;
 	font-size: 30px;
@@ -56,6 +56,6 @@ h2.title--colored {
 	cursor: pointer;
 }
 
-.mortgage__calc-line h2.title--underlined strong {
+h2.title--underlined strong {
 	color: #0c82ba;
 }

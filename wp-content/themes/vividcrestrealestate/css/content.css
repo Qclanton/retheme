@@ -3,6 +3,7 @@
 	padding: 15px 0;
 }
 
+
 .universal-wrapper.content-block-wrapper {
 	padding: 0;
 }
@@ -175,48 +176,6 @@ article ul {
 }
 
 
-/*Property Page*/
-
-.title--underlined {
-	border-top: 3px solid #d5d9dd;
-	border-bottom: 3px solid #d5d9dd;
-	color: #000;
-	display: block;
-	font-size: 30px;
-	font-weight: 300;
-	padding: 15px 0;
-	margin-bottom: 10px;
-}
-
-
-.property__details-line {
-	clear: both;
-}
-.property__details-line-wrapper {
-	display: inline-block;
-	width: 48%;
-	clear: both;
-    border-bottom: 1px solid #d5d9dd;
-}
-
-.property__details-line .property__details-line-wrapper:nth-child(2n) {
-	float: right;
-}
-
-
-.property__details-line-wrapper > .property__details-cell {
-	display: inline-block;
-	width: 100%;
-	padding: 5px 0;
-	
-}
-
-.property__details-title.property__details-cell {
-	font-weight: 800;
-	color: #000;
-}
-
-
 
 
 /*TABS*/
@@ -282,88 +241,3 @@ article ul {
 .box.visible {  
     display: block; /* по умолчанию показываем нужный блок */  
     }  
-
-/*Visual Block*/
-
-.property__mls-number {
-	font-size: 16px;
-	padding-bottom: 10px;
-}
-
-
-.property__visual-wrapper {
-	overflow: hidden;
-	width: 100%;
-	border-radius: 3px;
-	position: relative;
-	margin-top: 30px;
-}
-
-
-/*property styles*/
-
-h2.property__price {
-	color: #000;
-	font-size: 48px;
-	font-weight: 800;
-	margin: 0;
-	padding-top: 15px;
-}
-
-p.property__placed {
-	font-size: 14px;
-	font-weight: 300;
-	padding-bottom: 15px;
-}
-
-.property__description.property__description--big > ul {
-	border-radius: 3px 3px 0 0;
-}
-.property__description.property__description--big > ul > li {
-	font-size: 24px;
-	padding: 8px;
-}
-.property__description.property__description--big > ul > li::after {
-	font-size: 24px;
-	left: 6px;
-	
-}
-
-.property__description--inner {
-    border-left: 1px solid #d5d9dd;
-    border-right: 1px solid #d5d9dd;
-	padding: 20px 20px 0;
-}
-.property__description--inner p {
-	color: #000;
-}
-
-
-.property__main-information {
-    border-left: 1px solid #d5d9dd;
-    border-right: 1px solid #d5d9dd;
-	padding: 20px;
-}
-
-	
-
-.property__visual-tools--wrapper {
-	background-color: rgba(0, 0, 0, 0.6);
-	box-sizing: border-box;
-	color: #fff;
-	margin-top: -60px;
-	padding: 17px;
-	position: absolute;
-	text-align: right;
-	width: 100%;
-	z-index: 300;
-}
-.property__visual-tools--wrapper a,
-.property__visual-tools--wrapper p {
-	color: #fff;
-}
-
-
-.property__blocks--inner {
-	padding: 20px;
-}

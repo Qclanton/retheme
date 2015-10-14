@@ -87,6 +87,9 @@ a.universal-button {
 	color: #3c3c3b;
 }
 
+.universal-button.grey:hover {
+	background-color: #f2f2f5;
+}
 
 .universal_button,
 .universal_button--green {
@@ -180,4 +183,18 @@ a.universal-button {
 .head-universal__col.head-universal__col--align {
 	vertical-align: middle !important;
 	padding-top: 80px;
+}
+
+
+
+.universal-button.button--small {
+	width: 47%;
+	display: inline-block;
+	font-size: 18px;
+	min-width: 230px;
+	margin: 10px 0;
+}
+
+.agent__contact-form .button--small:nth-child(2) {
+	float: right;
 }

@@ -1,0 +1,179 @@
+/*Property Page*/
+
+.title--underlined {
+	border-top: 3px solid #d5d9dd;
+	border-bottom: 3px solid #d5d9dd;
+	color: #000;
+	display: block;
+	font-size: 30px;
+	font-weight: 300;
+	padding: 15px 0;
+	margin: 20px 0;
+}
+
+
+.property__details-line {
+	clear: both;
+}
+.property__details-line-wrapper {
+	display: inline-block;
+	width: 48%;
+	clear: both;
+    border-bottom: 1px solid #d5d9dd;
+}
+
+.property__details-line .property__details-line-wrapper:nth-child(2n) {
+	float: right;
+}
+
+
+.property__details-line-wrapper > .property__details-cell {
+	display: inline-block;
+	width: 100%;
+	padding: 5px 0;
+	
+}
+
+.property__details-title.property__details-cell {
+	font-weight: 800;
+	color: #000;
+}
+
+
+
+/*Visual Block*/
+
+.property__mls-number {
+	font-size: 16px;
+	padding-bottom: 10px;
+}
+
+
+.property__visual-wrapper {
+	overflow: hidden;
+	width: 100%;
+	border-radius: 3px;
+	position: relative;
+	margin-top: 30px;
+}
+
+
+/*property styles*/
+
+h2.property__price {
+	color: #000;
+	font-size: 48px;
+	font-weight: 800;
+	margin: 0;
+	padding-top: 15px;
+}
+
+p.property__placed {
+	font-size: 14px;
+	font-weight: 300;
+	padding-bottom: 15px;
+}
+
+.property__description.property__description--big > ul {
+	border-radius: 3px 3px 0 0;
+}
+.property__description.property__description--big > ul > li {
+	font-size: 24px;
+	padding: 8px;
+}
+.property__description.property__description--big > ul > li::after {
+	font-size: 24px;
+	left: 6px;
+	
+}
+
+.property__description--inner {
+    border-left: 1px solid #d5d9dd;
+    border-right: 1px solid #d5d9dd;
+	padding: 20px 20px 0;
+}
+.property__description--inner p {
+	color: #000; 
+}
+
+
+.property__main-information {
+    border-left: 1px solid #d5d9dd;
+    border-right: 1px solid #d5d9dd;
+    border-bottom: 1px solid #d5d9dd;
+	padding: 20px;
+}
+
+.property__visual-tools--wrapper {
+	background-color: rgba(0, 0, 0, 0.6);
+	box-sizing: border-box;
+	color: #fff;
+	margin-top: -60px;
+	padding: 17px;
+	position: absolute;
+	text-align: right;
+	width: 100%;
+	z-index: 300;
+}
+.property__visual-tools--wrapper a,
+.property__visual-tools--wrapper p {
+	color: #fff;
+}
+
+
+.property__blocks--inner {
+	padding: 20px;
+}
+
+
+/*Agent Contact Form*/
+
+#agent__contact,
+#agent__contact-appointment {
+	display: none;
+	transition: all 0.3s ease 0s;
+}
+
+
+.agent__contact-image {
+	display: inline-block;
+	vertical-align: top;
+	width: 35%;
+}
+.agent__contact-image > img {
+	width: 100%;
+	display: block;
+}
+
+
+.agent__contact-info {
+	width: 55%;
+	margin-left: 30px;
+	display: inline-block;
+	vertical-align: top;
+	float: right;
+}
+
+.agent__contact-info > h2:first-child {
+	margin-top: 0;
+}
+
+.agent__contact-form {
+	margin-top: 10px;
+}
+
+
+
+/*Similar Listings*/
+
+.universal-wrapper.similar-block-wrapper {
+	border-top: 1px dashed #94ca4c;
+	margin-top: 30px;
+}
+.universal-wrapper.similar-block-wrapper h1 {
+	padding-top: 0;
+	text-align: center;
+	font-weight: 500;
+}
+
+

@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/header.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/sections.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/content.css" />
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/search.css" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/form.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/buttons.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/menus.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/cols.css" />
@@ -18,6 +18,10 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/calculator.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/jquery.arcticmodal-0.3.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/page_inner.css" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/property__page.css" />
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/jquery-ui.css" />
+	<link href="<?php echo get_template_directory_uri(); ?>/css/font-awesome.min.css" rel="stylesheet">
 	<link rel="icon" type="image/png" href="<?php echo get_template_directory_uri(); ?>/favicon.png" />	
 	<meta name="viewport" content="width=device-width, initial-scale=0.85, maximum-scale=0.85, user-scalable=0" />
 	<meta name="viewport" content="target-densitydpi=high-dpi" />
