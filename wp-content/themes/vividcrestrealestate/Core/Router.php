@@ -15,6 +15,10 @@ class Router
                     : "properties"
                 );
                 break;
+            
+            case "rets":
+                $template_part = "rets";
+                break;
         }
         
         return $template_part;
@@ -35,20 +39,21 @@ class Router
         // Extract necessary data
         switch ($part) {                
             case "properties":
-                $criterion = self::makeCriterion($search);              
-                
+                $criterion = self::makeCriterion($search);            
                 $data->properties = $Properties->get($criterion);
-                // Test
-                $Rets = new Libs\Rets("http://rets.torontomls.net:6103/rets-treb3pv/server/login", "D14rsy", "Ls$7326");
-                $Rets->login();
-                
-                $data->rets_properties = $Rets->getProperties();
                 break;
                 
             case "property":
                 global $wp_query;
                 $property_id = $wp_query->query_vars['property_id'];
                 $data->property = $Properties->get($property_id);
+                break;
+                
+            case "rets":
+                $Rets = new Libs\Rets("http://rets.torontomls.net:6103/rets-treb3pv/server/login", "D14rsy", "Ls$7326");
+                $Rets->login();
+                
+                $data->rets_data = $Rets->synchronizeProperties();
                 break;
         }
         
