@@ -205,7 +205,7 @@ article ul {
 
 
 .property__details-line-wrapper > .property__details-cell {
-	display: block;
+	display: inline-block;
 	width: 100%;
 	padding: 5px 0;
 	
@@ -361,4 +361,9 @@ p.property__placed {
 .property__visual-tools--wrapper a,
 .property__visual-tools--wrapper p {
 	color: #fff;
+}
+
+
+.property__blocks--inner {
+	padding: 20px;
 }

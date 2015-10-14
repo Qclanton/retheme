@@ -45,7 +45,16 @@
 				
 			</div>
 			
-			<div class="mortgage__calc">
+			<div class="property__contact-form property__blocks">
+				<h2 class="title--colored">Jack Richardson</h2>
+				<div class="property__blocks--inner">
+				
+				</div>
+			</div>
+			
+			
+<!-- Mortgage calculator -->
+			<div class="mortgage__calc property__blocks">
 				<h2 class="title--colored">Mortgage Calculator</h2>
 				<div class="mortgage__calc-line clearfix">
 					<div class="mortgage__calc-cell">
@@ -62,16 +71,6 @@
 						</select>
 					</div>
 					<div class="mortgage__calc-cell">
-						<span>Payment Frequency </span>
-						<select name="payment_frequency">
-							<option value="weekly" selected="selected">Weekly</option>
-							<option value="rapid_weekly">Rapid Weekly</option>
-							<option value="biweekly">Bi-Weekly</option>
-							<option value="rapid_biweekly">Rapid Bi-Weekly</option>
-							<option value="monthly">Monthly</option>
-						</select>
-					</div>
-					<div class="mortgage__calc-cell">
 						<span>Amortization Period</span>
 						<select name="amortization_period">
 							<option value="1"> 1 year </option>
@@ -81,12 +80,22 @@
 							<option value="5"> 5 years </option>
 							<option value="6"> 6 years </option>
 						</select>
+					</div>
+					<div class="mortgage__calc-cell">
+						<span>Payment Frequency </span>
+						<select name="payment_frequency">
+							<option value="weekly" selected="selected">Weekly</option>
+							<option value="rapid_weekly">Rapid Weekly</option>
+							<option value="biweekly">Bi-Weekly</option>
+							<option value="rapid_biweekly">Rapid Bi-Weekly</option>
+							<option value="monthly">Monthly</option>
+						</select>
 					</div>	
-					
+				</div>
+				<div class="mortgage__calc-line clearfix">
 					<h2 class="title--underlined">Your mortgage payment would be - <strong> 889.02$ / Weekly </strong></h2>
 					<a class="blue_button universal-button" href="#" data-action="recalculate">Recalculate</a>
 				</div>
-				
 			</div>
 			
 		</div>

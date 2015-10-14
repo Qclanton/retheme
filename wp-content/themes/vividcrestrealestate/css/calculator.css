@@ -1,3 +1,5 @@
+
+.property__blocks, 
 .mortgage__calc {
 	margin-top: 30px;
 	border: 1px solid #d5d9dd;
@@ -14,14 +16,12 @@ h2.title--colored {
 
 .mortgage__calc-line {
 	padding: 20px;
-	clear: both;
 }
 
 .mortgage__calc-cell {
 	display: inline-block;
-	width: 48%;
+	width: 47%;
 	vertical-align: top;
-	clear: both;
 }
 .mortgage__calc-line .mortgage__calc-cell:nth-child(2n) {
 	float: right;
@@ -32,6 +32,10 @@ h2.title--colored {
 	width: 100%;
 	display: block;
 	padding: 5px 0;
+}
+
+.mortgage__calc-cell input {
+	padding: 11px !important;
 }
 
 .mortgage__calc-cell input,
@@ -52,9 +56,6 @@ h2.title--colored {
 	cursor: pointer;
 }
 
-.mortgage__calc-line h2.title--underlined {
-	margin-top: 20px;
-}
 .mortgage__calc-line h2.title--underlined strong {
 	color: #0c82ba;
 }
