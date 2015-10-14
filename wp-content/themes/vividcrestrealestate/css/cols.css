@@ -7,17 +7,17 @@
 	padding: 0 75px;
 }
 
-.page__universal-two_cols--inner-wrapper .layout__col_half {
+.page__universal-two_cols--inner-wrapper .layout__col-half {
 	max-width: 510px;
 }
 
-.layout__col_half {
-	max-width: 480px;
+.layout__col-half {
+	max-width: 585px;
 	display: inline-block;
-	width: 45%;
+	width: 49%;
 }
 
-.layout__col_half.layout__col_half--second {
+.layout__col-half.layout__col_half--second {
 	float: right;
 }
 

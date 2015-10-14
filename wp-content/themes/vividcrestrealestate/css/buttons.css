@@ -13,9 +13,9 @@
 }
 
 input.universal-button {
-	background-color: #f7f7f7;
-	border: 1px solid #b3b3b3;
-	color: #000;
+	background-color: #0092cc;
+	border: 1px solid #fff;
+	color: #fff;
 	border-radius: 2px;
 	display: block;
 	font-size: 22px;
@@ -26,12 +26,28 @@ input.universal-button {
 	transition: all 0.3s ease 0s;
 }
 
-.universal-button:hover {
+a.universal-button {
 	background-color: #0092cc;
 	border: 1px solid #fff;
+	color: #fff;
+	border-radius: 3px;
+	display: block;
+	font-size: 22px;
+	font-weight: 300;
+	line-height: 1;
+	text-align: center;
+	text-decoration: none;
+	transition: all 0.3s ease 0s;
+	padding: 15px;
+}
+
+
+.universal-button:hover {
+	background-color: #f7f7f7;
+	border: 1px solid #b3b3b3;
+	color: #000;
 	cursor: pointer;
 	text-decoration: none;
-	color: #fff;
 }
 
 

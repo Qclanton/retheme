@@ -134,3 +134,231 @@ article ul {
 .label__icon--small.icon--blue {
 	background-color: rgba(0, 151, 214, 0.8);
 }
+
+
+/*Breadcrumbs*/
+
+.universal-wrapper.breadcrumbs-block-wrapper {
+	background-color: #efefef;
+	border-bottom: 1px solid #d5d9dd;
+	padding: 0;
+}
+.universal-wrapper.breadcrumbs-block-wrapper > .universal-wrapper--inner {
+	padding: 2px 0;
+}
+.universal-wrapper.breadcrumbs-block-wrapper ul > li {
+	color: #0c82ba;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: bold;
+	list-style: outside none none;
+	padding: 0 5px;
+}
+	
+.universal-wrapper.breadcrumbs-block-wrapper ul > li:first-child {
+	padding-left: 0;
+}
+
+.universal-wrapper.breadcrumbs-block-wrapper ul > li > a {
+	color: #878c92;
+}
+.universal-wrapper.breadcrumbs-block-wrapper ul > li > a::after {
+	content: ">";
+	font-size: 11px;
+	left: 6px;
+	position: relative;
+	color: #878c92;
+}
+	
+.universal-wrapper.breadcrumbs-block-wrapper ul > li > a:hover {
+	text-decoration: none;
+}
+
+
+/*Property Page*/
+
+.title--underlined {
+	border-top: 3px solid #d5d9dd;
+	border-bottom: 3px solid #d5d9dd;
+	color: #000;
+	display: block;
+	font-size: 30px;
+	font-weight: 300;
+	padding: 15px 0;
+	margin-bottom: 10px;
+}
+
+
+.property__details-line {
+	clear: both;
+}
+.property__details-line-wrapper {
+	display: inline-block;
+	width: 48%;
+	clear: both;
+    border-bottom: 1px solid #d5d9dd;
+}
+
+.property__details-line .property__details-line-wrapper:nth-child(2n) {
+	float: right;
+}
+
+
+.property__details-line-wrapper > .property__details-cell {
+	display: block;
+	width: 100%;
+	padding: 5px 0;
+	
+}
+
+.property__details-title.property__details-cell {
+	font-weight: 800;
+	color: #000;
+}
+
+
+
+
+/*TABS*/
+
+
+
+.tabs {
+	margin: 20px 0 0 20px;
+	padding: 0;
+	position: absolute;
+	width: 100%;
+	z-index: 20;
+}	
+
+#tab1 {
+	position:relative;
+	z-index:5;}
+#tab2 {
+	position:relative;
+	z-index:4;}
+#tab3 {
+	position:relative;
+	z-index:3;}
+	
+.tabs li {
+	background-color: #efefef;
+	border: 1px solid #d5d9dd;
+	box-sizing: border-box;
+	color: #878c92;
+	display: inline-block;
+	list-style: outside none none;
+	padding: 2px 8px;
+	text-align: center;
+	text-decoration: none;
+	cursor: pointer;
+	margin-right: 10px;
+	border-radius: 3px;
+}	
+
+.tabs > .current {
+	background-color: #0c82ba;
+	color: #ffffff;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+	
+.tabs-content {
+    width:960px;
+    overflow:hidden;
+}
+
+.tabs-content ul li {
+    width:1000px;
+    height:300px;
+}
+.box {  
+	max-height: 480px;
+	min-height: 430px;
+	display: none; /* по умолчанию прячем все блоки */ 
+	overflow: hidden;
+    }  
+
+.box.visible {  
+    display: block; /* по умолчанию показываем нужный блок */  
+    }  
+
+/*Visual Block*/
+
+.property__mls-number {
+	font-size: 16px;
+	padding-bottom: 10px;
+}
+
+
+.property__visual-wrapper {
+	overflow: hidden;
+	width: 100%;
+	border-radius: 3px;
+	position: relative;
+	margin-top: 30px;
+}
+
+
+/*property styles*/
+
+h2.property__price {
+	color: #000;
+	font-size: 48px;
+	font-weight: 800;
+	margin: 0;
+	padding-top: 15px;
+}
+
+p.property__placed {
+	font-size: 14px;
+	font-weight: 300;
+	padding-bottom: 15px;
+}
+
+.property__description.property__description--big > ul {
+	border-radius: 3px 3px 0 0;
+}
+.property__description.property__description--big > ul > li {
+	font-size: 24px;
+	padding: 8px;
+}
+.property__description.property__description--big > ul > li::after {
+	font-size: 24px;
+	left: 6px;
+	
+}
+
+.property__description--inner {
+    border-left: 1px solid #d5d9dd;
+    border-right: 1px solid #d5d9dd;
+	padding: 20px 20px 0;
+}
+.property__description--inner p {
+	color: #000;
+}
+
+
+.property__main-information {
+    border-left: 1px solid #d5d9dd;
+    border-right: 1px solid #d5d9dd;
+	padding: 20px;
+}
+
+	
+
+.property__visual-tools--wrapper {
+	background-color: rgba(0, 0, 0, 0.6);
+	box-sizing: border-box;
+	color: #fff;
+	margin-top: -60px;
+	padding: 17px;
+	position: absolute;
+	text-align: right;
+	width: 100%;
+	z-index: 300;
+}
+.property__visual-tools--wrapper a,
+.property__visual-tools--wrapper p {
+	color: #fff;
+}
