@@ -32,7 +32,7 @@ article ul {
 }
 
 .universal_line-wrapper.four__cols {
-	text-align: center;
+	text-align: left;
 	padding: 30px 0 0;
 }
 
@@ -40,14 +40,22 @@ article ul {
 .universal__cell.property {
 	display: inline-block;
 	vertical-align: top;
-	width: 24.7%;   
-	padding: 0 20px;
+	width: 23.4%;   
+	margin: 0 10px 30px;
 	text-align: justify;
 	min-width: 260px;
-	margin-bottom: 30px;
 }
 
+.universal__cell.property:first-child {
+	margin-left: 0;
+}
 
+.universal__cell.property:nth-child(5n) {
+	margin-left: 0;
+}
+.universal__cell.property:nth-child(4n) {
+	margin-right: 0;
+}
 
 .property__image {
 	border-radius: 3px 3px 0 0;
@@ -110,8 +118,8 @@ article ul {
 
 .property__description p {
 	font-size: 14px;
-	padding: 15px;
-	text-align: center;
+	padding: 15px 0;
+	text-align: justify;
 	color: #000;
 }
 
@@ -119,6 +127,9 @@ article ul {
 	text-decoration: underline;
 }
 
+.property__description .property__description-city {
+	padding-bottom: 0;
+}
 
 
 /*labels*/

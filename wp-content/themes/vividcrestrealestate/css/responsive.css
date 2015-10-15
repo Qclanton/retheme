@@ -8,6 +8,21 @@
 		padding-left: 5px !important;
 		padding-right: 5px !important;
     }
+	
+	.universal_line-wrapper.four__cols {
+		text-align: center !important;
+	}
+	
+	.universal__cell.property:first-child {
+		margin-left: 10px !important;
+	}
+
+	.universal__cell.property:nth-child(5n) {
+		margin-left: 10px !important;
+	}
+	.universal__cell.property:nth-child(4n) {
+		margin-right: 10px !important;
+	}
 }
 @media all and (max-width: 1024px) {
 	
