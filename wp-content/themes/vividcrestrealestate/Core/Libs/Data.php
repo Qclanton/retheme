@@ -122,8 +122,8 @@ abstract class Data {
         
 		$query = "INSERT INTO " . $this->Db->prefix . $this->table . " VALUES (" . implode(',', $this->values_types) . ")";
         
-        if (!empty($this->editable_field))	{
-            $query .= " ON DUPLICATE KEY UPDATE 1=1, " . implode(",", $this->editable_fields);
+        if (!empty($this->editable_fields))	{
+            $query .= " ON DUPLICATE KEY UPDATE `{$this->primary_field}`=LAST_INSERT_ID({$this->primary_field}), " . implode(",", $this->editable_fields);
         }
 
 
@@ -142,7 +142,9 @@ abstract class Data {
 		
         
         
-		return $this->Db->query(call_user_func_array([$this->Db, "prepare"], $params));
+		$result = $this->Db->query(call_user_func_array([$this->Db, "prepare"], $params));
+        
+        return ($result ? $this->Db->insert_id : false);
 	}
 	
 	protected function setAll($exemplars) 

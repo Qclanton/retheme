@@ -1,9 +1,9 @@
 <?php
 namespace Vividcrestrealestate\Core\Structures;
 
-class PropertyInfo extends \Vividcrestrealestate\Core\Libs\Data 
+class FieldsAccordance extends \Vividcrestrealestate\Core\Libs\Data 
 {
-	public $table = "property_info";
+	public $table = "fields_accordance";
     
 	public $fields = [
 		'id' => [
@@ -11,25 +11,25 @@ class PropertyInfo extends \Vividcrestrealestate\Core\Libs\Data
 			'default' => null,
 			'editable_fl' => false
 		],
-        'property_id' => [
-			'type' => "%d",
-			'default' => "",
-			'editable_fl' => true
-		],
-        'title' => [
+        'class' => [
 			'type' => "%s",
 			'default' => "",
 			'editable_fl' => true
 		],
-        'key' => [
+        'field_name' => [
 			'type' => "%s",
 			'default' => "",
 			'editable_fl' => true
 		],
-        'value' => [
+        'field_title' => [
 			'type' => "%s",
 			'default' => "",
 			'editable_fl' => true
 		],
+        'source' => [
+			'type' => "%s",
+			'default' => "VALUE",
+			'editable_fl' => true
+		]
 	];
 }

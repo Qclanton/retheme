@@ -79,6 +79,7 @@ class Rets
     {
         $fields = [
             'ResidentialProperty' => [
+                "Ml_num",
                 "Ad_text",
                 "Addr",
                 "S_r",
@@ -111,9 +112,9 @@ class Rets
         $resource = $this->resource;
         $fields = implode(",", $this->getFields($class));
         
-        $previous_timestamp = date("Y-m-d\TH:00:00", strtotime("-4 days"));
-        $query = "({$timestamp_field}={$previous_timestamp}+)";	
-        // $query = "({$timestamp_field}={$start}+),({$timestamp_field}={$end}-)";
+        // $previous_timestamp = date("Y-m-d\TH:00:00", strtotime("-4 days"));
+        // $query = "({$timestamp_field}={$previous_timestamp}+)";	
+        $query = "({$timestamp_field}={$start}+),({$timestamp_field}={$end}-)";
         
         $result = $this->connection->Search($resource, $class, $query, [
             'QueryType' => "DMQL2",
@@ -123,7 +124,7 @@ class Rets
             'Select' => $fields
         ]);
         
-        echo "<pre>"; var_dump($result->toArray()); echo "</pre>";       
+        // echo "<pre>"; var_dump($result->toArray()); echo "</pre>";       
         return $result->toArray();
     }
     
@@ -131,8 +132,8 @@ class Rets
     {
         $classes = $this->classes;
         $timestamps = [
-            "2015-10-13T11:00:00",
-            "2015-10-13T12:00:00"            
+            "2015-10-14T15:00:00",
+            "2015-10-14T16:00:00"            
         ];
         
         $data = [];
@@ -142,8 +143,13 @@ class Rets
                 $next_timestamp = (isset($timestamps[$i+1]) ? $timestamps[$i+1] : null);
                 
                 if (!is_null($next_timestamp)) {
-                    $data[$timestamp] = $this->getPropertiesByClass($class, $timestamp, $next_timestamp);
-                    $this->storePropertiesData($data[$timestamp]);
+                    // $data[$timestamp] = $this->getPropertiesByClass($class, $timestamp, $next_timestamp);
+                    
+                    // Store raw data. It works!
+                    //(new \Vividcrestrealestate\Core\Structures\ProcessingProperties)->set($data[$timestamp]);
+                    
+                    // Handle raw data
+                    $this->processProperties();
                 }                
             }
             // $properties = $this->getPropertiesByClass($class);
@@ -153,37 +159,36 @@ class Rets
         return $data;
     }
     
-    protected function storePropertiesData($data)
+
+    
+    
+    
+
+    public function processProperties()
     {
+        $ProcessingProperties = new \Vividcrestrealestate\Core\Structures\ProcessingProperties();
         $Properties = new \Vividcrestrealestate\Core\Structures\Properties();
         
-        foreach ($data as $property) {
-            if (empty($property['Addr']) || empty($property['Zip']) || empty($property['Ml_num'])) {
-                continue;
-            }
+        
+        $processing_properties = $ProcessingProperties->get(["`status`='NEW'"]);
+        
+        foreach ($processing_properties as $processing_property) {
+            // Prepare property to save
+            $property = json_decode($processing_property->data);
+            $property->type = "ResidentialProperty"; // So hardcode
             
-            $address = "{$data['Addr']} {$data['Zip']}";
-            $recognized = Address::recognize($address);
+            // Save property
+            $result = $Properties->set($property);
             
-            $to_save = (object)[
-                'mls_id' => $property['Ml_num'],
-                'country' => $recognized->country,
-                'city' => $recognized->city,
-                'sublocality' => $recognized->sublocality,
-                'neighborhood' => $recognized->neighborhood,
-                'postal_code' => $recognized->postal_code,
-                'address' => $recognized->address,
-                'latitude' => $recognized->latitude,
-                'longitude' => $recognized->longitude,
-                'bedrooms' => $property['Br'],
-                'bathrooms' => $property['Bath_tot'],
-                'type' => "Residential",
-                'deal_type' => "buy",
-                'price' => $property['Lp_dol'],
-                'size' => $property['Sqft']
-            ];
-            
-            $Properties->set($to_save);
+            // Mark property as processed
+            $processing_property->status = ($result ? "DONE" : "FAILED");
+            $ProcessingProperties->set($processing_property);
         }
+    }
+    
+    
+    public function attachPropertyImages()
+    {
+        
     }
 }
