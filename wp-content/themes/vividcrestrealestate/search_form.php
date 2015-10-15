@@ -1,5 +1,4 @@
 <form class="search_form-main search_form search_form--small form" name="search-properties" action="/properties" method="POST">
-    <h2>Search Form</h2>
     <div class="universal_line-wrapper">
         <input 
             type="text" 

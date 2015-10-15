@@ -9,6 +9,11 @@
 }
 
 
+.universal-wrapper.block-wrapper--light-grey {
+	background-color: #efefef;
+	border-bottom: 1px solid #d5d9dd;
+	padding: 0;
+}
 
 .universal-wrapper.content-block-wrapper > .universal-wrapper--inner {
 }
@@ -28,7 +33,7 @@ article ul {
 
 .universal_line-wrapper.four__cols {
 	text-align: center;
-	padding: 30px 0;
+	padding: 30px 0 0;
 }
 
 
