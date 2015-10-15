@@ -46,18 +46,20 @@
 			
 			<div class="property__contact-form property__blocks">
 				<h2 class="title--colored">Linda Richardson</h2>
-				<div class="property__blocks--inner">
-					<div class="agent__contact-image">
-						<img src="<?= get_template_directory_uri(); ?>/images/real-estate-agent.jpg" />
-					</div>
-					<div class="agent__contact-info">
-						<h2 class="title--underlined">RealEstate Agent</h2>
-						<p>6850 Yonge St</p>
-						<p>Toronto ON L5N 4J9 Canada</p>
-						<p>Mobile: (416)366-5555</p>
-						<p>Fax: (416)366-5555</p>
-						<p>Skype: linda.richardson</p>
-						<p>Email: linda.richardson@gmail.com</p>
+				<div class="property__blocks--inner clearfix">
+					<div class="clearfix">
+						<div class="agent__contact-image">
+							<img src="<?= get_template_directory_uri(); ?>/images/real-estate-agent.jpg" />
+						</div>
+						<div class="agent__contact-info">
+							<h2 class="title--underlined">RealEstate Agent</h2>
+							<p>6850 Yonge St</p>
+							<p>Toronto ON L5N 4J9 Canada</p>
+							<p>Mobile: (416)366-5555</p>
+							<p>Fax: (416)366-5555</p>
+							<p>Skype: linda.richardson</p>
+							<p>Email: linda.richardson@gmail.com</p>
+						</div>
 					</div>
 					<div class="agent__contact-form">
 						<a class="button--small grey universal-button" data-action="recalculate" href="#">Request information</a>

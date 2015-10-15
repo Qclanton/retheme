@@ -25,8 +25,22 @@
 		max-width: 1000px;
 		margin: 10px auto;
 	}
+	
+	.agent__contact-form  > a.universal-button {
+		display: block !important;
+		float: none !important;
+		width: 100% !important;
+		margin: 10px auto;
+	}
+	
+	.agent__contact-form .button--small:nth-child(2) {
+		float: none !important;
+	}
 }
 
+@media (max-width: 950px) {
+	
+}
 @media all and (max-width: 880px) {
 	@-ms-viewport { width: 450px;} 
 	
