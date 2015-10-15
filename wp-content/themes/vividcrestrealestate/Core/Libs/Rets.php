@@ -206,7 +206,7 @@ class Rets
             
             // Mark property as processed
             $processing_property->status = (!empty($property_id) ? "DONE" : "FAILED");
-            $processing_property->date = date("Y-m-d H:i:s");
+            $processing_property->processing_date = date("Y-m-d H:i:s");
             
             $ProcessingProperties->set($processing_property);
         }
