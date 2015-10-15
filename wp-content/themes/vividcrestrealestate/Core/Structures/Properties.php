@@ -102,6 +102,11 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
 			'type' => "%s",
 			'default' => "",
 			'editable_fl' => true
+		],
+        'main_image' => [
+			'type' => "%s",
+			'default' => "",
+			'editable_fl' => true
 		]
 	];
     
@@ -123,6 +128,8 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
             $property->additional->{$param->key} = $param->value;
         }
         
+        // Attach images
+        $property->images = (new PropertyImages)->get(["`property_id`='{$property->id}'"]);
         
         return $property;
     }
@@ -160,7 +167,8 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
             'deal_type' => "buy",
             'price' => $property->Lp_dol,
             'size' => (!empty($property->Sqft) ? $property->Sqft : "0"),
-            'description' => $property->Ad_text
+            'description' => $property->Ad_text,
+            'main_image' => (!empty($property->main_image) ? $property->main_image : get_template_directory_uri() . "/images/property.jpg")
         ]);
         
         

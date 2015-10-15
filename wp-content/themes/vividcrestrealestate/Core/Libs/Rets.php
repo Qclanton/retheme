@@ -168,6 +168,7 @@ class Rets
     {
         $ProcessingProperties = new \Vividcrestrealestate\Core\Structures\ProcessingProperties();
         $Properties = new \Vividcrestrealestate\Core\Structures\Properties();
+        $PropertyImages = new \Vividcrestrealestate\Core\Structures\PropertyImages();
         
         
         $processing_properties = $ProcessingProperties->get(["`status`='NEW'"]);
@@ -177,18 +178,78 @@ class Rets
             $property = json_decode($processing_property->data);
             $property->type = "ResidentialProperty"; // So hardcode
             
+            
+            
             // Save property
-            $result = $Properties->set($property);
+            $property_id = $Properties->set($property);
+            
+            
+            
+            // Save images
+            if ($property_id) {
+                $photos = $this->connection->GetObject($this->resource, "Photo", $property->Ml_num);
+                
+                if (!empty($photos)) {
+                    $saved = $this->saveImages($photos, $property_id);
+                    
+                    // Attach images
+                    if (!empty($saved)) {
+                        $property->main_image = $saved[0]->link;
+                        
+                        $PropertyImages->set($saved);                        
+                        $Properties->set($property);
+                    }                    
+                }
+            }
+
+
             
             // Mark property as processed
-            $processing_property->status = ($result ? "DONE" : "FAILED");
+            $processing_property->status = (!empty($property_id) ? "DONE" : "FAILED");
+            $processing_property->date = date("Y-m-d H:i:s");
+            
             $ProcessingProperties->set($processing_property);
         }
     }
     
-    
-    public function attachPropertyImages()
+    public function saveImages($images, $property_id)
     {
+        $saved = [];
         
+        foreach ($images as $image) {
+            // Define vars
+            $name = $image->getObjectId() . ".jpg";
+            $dir = get_template_directory() . "/images/rets/{$property_id}";            
+            
+            
+            
+            // Create directory		
+            if (!is_dir($dir)) {
+                $is_created = mkdir($dir, 0777, true);
+                
+                if (!$is_created) {
+                    return false;
+                }
+            }         
+            
+            
+            // Save file
+            $result = file_put_contents("{$dir}/{$name}", $image->getContent());
+            
+            if (!$result) {
+                return false;
+            }
+            
+            
+            
+            // Set info about image
+            $saved[] = (object)[
+                'property_id' => $property_id,
+                'link' => get_template_directory_uri() . "/images/rets/{$property_id}/{$name}",
+                'title' => $image->getContentDescription()
+            ];
+        }
+        
+        return $saved;     
     }
 }
