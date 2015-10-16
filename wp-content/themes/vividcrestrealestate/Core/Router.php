@@ -50,10 +50,24 @@ class Router
                 break;
                 
             case "rets":
-                $Rets = new Libs\Rets("http://rets.torontomls.net:6103/rets-treb3pv/server/login", "D14rsy", "Ls$7326");
-                $Rets->login();
+                // Fixing start
+                $start = new \Datetime();
                 
+                
+                // Do the action
+                $Rets = new Libs\Rets("http://rets.torontomls.net:6103/rets-treb3pv/server/login", "D14rsy", "Ls$7326");
+                $Rets->login();                
                 $data->rets_data = $Rets->synchronizeProperties();
+                
+                
+                // Fixing end and interval
+                $end = new \Datetime();
+                $interval = $start->diff($end);
+                
+                
+                // Attach info about execution time
+                $data->execition_time = $interval->format("%s");
+                
                 break;
         }
         

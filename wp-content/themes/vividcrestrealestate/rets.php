@@ -3,5 +3,6 @@
 <ul>
     <?php foreach ($rets_data as $time=>$properties) { ?>
         <li>Time: <?= $time ?>, quantity: <?= count($properties) ?></li>
-    <?php } ?>
+    <?php } ?>    
 </ul>
+<p>Execution time: <?= $execition_time; ?> seconds</p>

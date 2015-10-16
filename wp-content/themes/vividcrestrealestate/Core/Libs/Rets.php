@@ -118,7 +118,7 @@ class Rets
         
         $result = $this->connection->Search($resource, $class, $query, [
             'QueryType' => "DMQL2",
-            'Limit'  => 5, // Unlimited
+            'Limit'  => 999999, // Unlimited
             'Format' => "COMPACT-DECODED", 
             'Count'  => 1,
             'Select' => $fields
@@ -132,8 +132,8 @@ class Rets
     {
         $classes = $this->classes;
         $timestamps = [
-            "2015-10-14T15:00:00",
-            "2015-10-14T16:00:00"            
+            "2015-10-15T15:00:00",
+            "2015-10-15T16:00:00"            
         ];
         
         $data = [];
@@ -142,11 +142,10 @@ class Rets
             foreach ($timestamps as $i=>$timestamp) {
                 $next_timestamp = (isset($timestamps[$i+1]) ? $timestamps[$i+1] : null);
                 
-                if (!is_null($next_timestamp)) {
-                    // $data[$timestamp] = $this->getPropertiesByClass($class, $timestamp, $next_timestamp);
-                    
+                if (!is_null($next_timestamp)) {                                  
                     // Store raw data. It works!
-                    //(new \Vividcrestrealestate\Core\Structures\ProcessingProperties)->set($data[$timestamp]);
+                    // $data[$timestamp] = $this->getPropertiesByClass($class, $timestamp, $next_timestamp);
+                    // (new \Vividcrestrealestate\Core\Structures\ProcessingProperties)->set($data[$timestamp]);
                     
                     // Handle raw data
                     $this->processProperties();
