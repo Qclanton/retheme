@@ -16,7 +16,7 @@ abstract class Administration
     
     public static function getAllowedActions()
     {
-        return get_class_methods();
+        return ["set", "show"];
     }
     
     public static function getView()
