@@ -6,7 +6,7 @@ class Template
     public static function renderPart($view, $vars=[])
     {
         // Define template file and check existance
-        $file = __DIR__ . "/../{$view}.php";
+        $file = get_template_directory() . "/{$view}.php";
         
         if (!file_exists($file)) {
             return false;

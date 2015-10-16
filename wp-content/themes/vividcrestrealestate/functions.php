@@ -62,6 +62,18 @@ add_action("wp_loaded", function() {
 
 
 
+// Admin side
+add_action("admin_menu", function() { 
+    add_menu_page("RETS", "RETS", "edit_posts", "rets", null, "dashicons-admin-multisite", "6.5");
+    
+    add_submenu_page("rets", "Connection", "Connection", "edit_posts", "rets_connection", ["\Vividcrestrealestate\Core\Administration\Connection", "show"]);
+    add_submenu_page("rets", "Exchange", "Exchange", "edit_posts", "rets_exchange", ["\Vividcrestrealestate\Core\Administration\Exchange", "show"]);
+	
+	remove_submenu_page("rets", "rets");
+});
+
+
+
 // Ajax hanlers
 add_action("wp_ajax_search_properties", ["\Vividcrestrealestate\Core\Ajax", "searchProperties"]);
 add_action("wp_ajax_nopriv_search_properties", ["\Vividcrestrealestate\Core\Ajax", "searchProperties"]);
