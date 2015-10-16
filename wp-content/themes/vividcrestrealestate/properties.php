@@ -128,11 +128,25 @@
 		<div class="col--right">
 			<ul>
 				<li class="current"><i class="fa fa-th"></i> Gallery</li>
-				<li><i class="fa fa-list"></i> List</li>
 				<li><i class="fa fa-map-marker"></i> Map</li>
 			</ul>
 		</div>
-		
+	</div>
+	<div class="universal-wrapper--inner clearfix two_cols">
+		<div class="col--left">
+			<div class="universal_line-wrapper">
+				1 - 10 of 150
+			</div>
+		</div>
+		<div class="col--right">
+			<ul>
+				<li class="current"> 1</li>
+				<li> 2</li>
+				<li> 3</li>
+				<li> ...</li>
+				<li> 210</li>
+			</ul>
+		</div>
 	</div>
 	<div class="universal-wrapper--inner clearfix ">
 		
@@ -144,7 +158,7 @@
 
 						<a href="<?= site_url(); ?>/properties/<?=$property->id ?>">
 							<span class="label__icon--small icon--green">Open House</span>						
-							<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
+							<img src="<?=$property->main_image ?> " />
 						</a>
 						<div class="carousel-arrows--small">
 							<div class="carousel-arrow--prev"></div>
@@ -163,7 +177,11 @@
 							<ul>
 								<li><?=$property->bedrooms ?> beds </li>
 								<li><?=$property->bathrooms ?> baths</li>
-								<li>1500 sq.ft.</li>
+								<? if (!empty($property->size)) { ?>
+									<li><?=$property->size ?> sq.ft.</li>
+								<? } else { ?>
+									<li>N/A sq.ft.</li>
+								<? } ?>
 							</ul>
 
 							<p class="property__description-city">

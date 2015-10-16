@@ -43,9 +43,40 @@
 
 /*Visual Block*/
 
+
+.property__visual-tools--wrapper {
+	background-color: rgba(0, 0, 0, 0.6);
+	box-sizing: border-box;
+	color: #fff;
+	margin-top: -60px;
+	padding: 0 15px;
+	position: relative;
+	text-align: left;
+	width: 100%;
+	z-index: 300;
+}
+
+.property__visual-tools--wrapper a,
+.property__visual-tools--wrapper p,
+.property__visual-tools--wrapper span {
+	color: #fff;
+}
+
+.property__visual-tools--wrapper > span {
+	display: inline-block;
+	font-size: 20px;
+	padding: 12px 0;
+	vertical-align: top;
+	width: 30%;
+}
+
+
 .property__mls-number {
+	float: right;
 	font-size: 16px;
-	padding-bottom: 10px;
+	padding: 15px 0;
+	text-align: right;
+	width: 40%;
 }
 
 
@@ -57,6 +88,13 @@
 	margin-top: 30px;
 }
 
+.property__visual-wrapper .box img {
+	width: 100%;
+	max-height: 480px;
+    min-height: 430px;
+	margin: 0 auto;
+	display: block;
+}
 
 /*property styles*/
 
@@ -104,22 +142,6 @@ p.property__placed {
 	padding: 20px;
 }
 
-.property__visual-tools--wrapper {
-	background-color: rgba(0, 0, 0, 0.6);
-	box-sizing: border-box;
-	color: #fff;
-	margin-top: -60px;
-	padding: 17px;
-	position: absolute;
-	text-align: right;
-	width: 100%;
-	z-index: 300;
-}
-.property__visual-tools--wrapper a,
-.property__visual-tools--wrapper p {
-	color: #fff;
-}
-
 
 .property__blocks--inner {
 	padding: 20px;
@@ -138,7 +160,7 @@ p.property__placed {
 .agent__contact-image {
 	display: inline-block;
 	vertical-align: top;
-	width: 35%;
+	width: 39%;
 }
 .agent__contact-image > img {
 	width: 100%;
@@ -147,7 +169,7 @@ p.property__placed {
 
 
 .agent__contact-info {
-	width: 55%;
+	width: 52%;
 	margin-left: 30px;
 	display: inline-block;
 	vertical-align: top;
@@ -174,6 +196,7 @@ p.property__placed {
 	padding-top: 0;
 	text-align: center;
 	font-weight: 500;
+	padding-bottom: 30px;
 }
 
 

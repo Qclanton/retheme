@@ -8,7 +8,8 @@ header {
 /*SupHeader*/
 
 .universal-wrapper.sup-header {
-	background-color: rgba(219, 219, 219, 0.75);
+	background-color: #efefef;
+    border-bottom: 1px solid #d5d9dd;
 }
 
 .universal-wrapper.sup-header .universal-wrapper--inner {
@@ -58,13 +59,15 @@ header .universal-wrapper--inner {
 	display: inline-block;
 	position: relative;
 	width: 20%;
+	vertical-align: middle;
 }
 
 .header-menu {
 	box-sizing: border-box;
-	display: inline-block;
-	float: right;
+	display: table-cell;
+	vertical-align: middle;
 	max-width: 900px;
 	min-width: 406px;
 	width: 70%;
+	text-align: right;
 }

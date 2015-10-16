@@ -47,7 +47,7 @@
 	.layout__col.layout__col--small {
 		display: block !important;
 		float: none !important;
-		width: 100%;
+		width: 100% !important;
 		min-width: 400px;
 		max-width: 1000px;
 		margin: 10px auto;
