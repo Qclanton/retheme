@@ -81,6 +81,7 @@ input[type=number]::-webkit-outer-spin-button {
 	vertical-align: top;
 	width: 100%;
 	border-radius: 2px;
+	cursor: pointer;
 }
 
 .universal_line-wrapper textarea {
@@ -120,6 +121,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 .search_form--small .universal_line-wrapper select {
 	padding-right: 40px;
+}
+
+.universal_line-wrapper select > option {
+	background: #fff none repeat scroll 0 0;
+    color: #707070;
+	border-radius: 3px;
+	border: 0;
 }
 
 
@@ -206,4 +214,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .universal__row-wrapper .search__col.search_col--wide {
 	width: 45%;
+}
+.universal__row-wrapper .search__col .universal_line-wrapper .universal-button {
+	padding: 9.3px;	
 }

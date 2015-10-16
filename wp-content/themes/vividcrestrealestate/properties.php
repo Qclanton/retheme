@@ -99,333 +99,83 @@
 				</div>
 			</div>
 		</form>
-
-
-		
-		
 		
 	</div>
 </section>
 
 <section class="universal-wrapper content-block-wrapper">
-	<div class="universal-wrapper--inner clearfix">
+	<div class="universal-wrapper--inner clearfix two_cols">
+		<div class="col--left">
+			<div class="universal_line-wrapper">
+				<div class="universal_cell-wrapper">
+					<select name=" ">
+						<option selected="selected" value="0">Items per page</option>
+						<option value="15">15</option>
+						<option value="25">25</option>
+						<option value="35">55</option>
+					</select>
+				</div>
+				<div class="universal_cell-wrapper">
+					<select name=" ">
+						<option selected="selected" value="0">Sorting</option>
+						<option value="15">15</option>
+						<option value="25">25</option>
+						<option value="35">55</option>
+					</select>
+				</div>
+			</div>
+		</div>
+		<div class="col--right">
+			<ul>
+				<li class="current"><i class="fa fa-th"></i> Gallery</li>
+				<li><i class="fa fa-list"></i> List</li>
+				<li><i class="fa fa-map-marker"></i> Map</li>
+			</ul>
+		</div>
+		
+	</div>
+	<div class="universal-wrapper--inner clearfix ">
 		
 		<div class="universal_line-wrapper four__cols">
-			<div class="universal__cell property">
-				<div class="property__image">
-					<a href="">
-						<span class="label__icon--small icon--green">Open House</span>						
-						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-					</a>
-					<div class="carousel-arrows--small">
-						<div class="carousel-arrow--prev"></div>
-						<div class="carousel-arrow--next"></div>
+			<? foreach ($properties as $property ) { ?>
+				<div class="universal__cell property">
+					<div class="property__image">
+						<i class="fa fa-star-o"></i>
+
+						<a href="<?= site_url(); ?>/properties/<?=$property->id ?>">
+							<span class="label__icon--small icon--green">Open House</span>						
+							<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
+						</a>
+						<div class="carousel-arrows--small">
+							<div class="carousel-arrow--prev"></div>
+							<div class="carousel-arrow--next"></div>
+						</div>
+					</div>
+					<div class="property__info-line">
+						<a href="<?= site_url(); ?>/properties/<?=$property->id ?>">
+							<p class="property__price">
+								<?=$property->price ?>
+							</p>
+						</a>		
+					</div>
+					<div class="property__description">
+						<a href="<?= site_url(); ?>/properties/<?=$property->id ?>">
+							<ul>
+								<li><?=$property->bedrooms ?> beds </li>
+								<li><?=$property->bathrooms ?> baths</li>
+								<li>1500 sq.ft.</li>
+							</ul>
+
+							<p class="property__description-city">
+								<strong><?=$property->address ?></strong>
+							</p>
+							<p>
+								<?=$property->description ?> 
+							</p>
+						</a>
 					</div>
 				</div>
-				<div class="property__info-line">
-					<a href="">
-						<p class="property__price">
-							$850 000
-						</p>
-					</a>		
-				</div>
-				<div class="property__description">
-					<a href="">
-						<ul>
-							<li>3 beds </li>
-							<li>2 baths</li>
-							<li>1500 sq.ft.</li>
-						</ul>
-
-						<p class="property__description-city">
-							<strong>San Francisco, CA, 94121, United States</strong>
-						</p>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
-					</a>
-				</div>
-			</div>
-			<div class="universal__cell property">
-				<div class="property__image">
-					<a href="">
-						<span class="label__icon--small icon--blue">New Offer</span>
-						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-					</a>
-					<div class="carousel-arrows--small">
-						<div class="carousel-arrow--prev"></div>
-						<div class="carousel-arrow--next"></div>
-					</div>
-				</div>
-				<div class="property__info-line">
-					<a href="">
-						<p class="property__price">
-							$850 000
-						</p>
-					</a>		
-				</div>
-				<div class="property__description">
-					<a href="">
-						<ul>
-							<li>3 beds </li>
-							<li>2 baths</li>
-							<li>1500 sq.ft.</li>
-						</ul>
-
-						<p class="property__description-city">
-							<strong>San Francisco, CA, 94121, United States</strong>
-						</p>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
-					</a>
-				</div>
-			</div>
-			<div class="universal__cell property">
-				<div class="property__image">
-					<a href="">
-						<span class="label__icon--small icon--green">Open House</span>
-						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-					</a>
-					<div class="carousel-arrows--small">
-						<div class="carousel-arrow--prev"></div>
-						<div class="carousel-arrow--next"></div>
-					</div>
-				</div>
-				<div class="property__info-line">
-					<a href="">
-						<p class="property__price">
-							$850 000
-						</p>
-					</a>		
-				</div>
-				<div class="property__description">
-					<a href="">
-						<ul>
-							<li>3 beds </li>
-							<li>2 baths</li>
-							<li>1500 sq.ft.</li>
-						</ul>
-
-						<p class="property__description-city">
-							<strong>San Francisco, CA, 94121, United States</strong>
-						</p>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
-					</a>
-				</div>
-			</div>
-			<div class="universal__cell property">
-				<div class="property__image">
-					<a href="">
-						<span class="label__icon--small icon--red">New Offer</span>
-						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-					</a>
-					<div class="carousel-arrows--small">
-						<div class="carousel-arrow--prev"></div>
-						<div class="carousel-arrow--next"></div>
-					</div>
-				</div>
-				<div class="property__info-line">
-					<a href="">
-						<p class="property__price">
-							$850 000
-						</p>
-					</a>		
-				</div>
-				<div class="property__description">
-					<a href="">
-						<ul>
-							<li>3 beds </li>
-							<li>2 baths</li>
-							<li>1500 sq.ft.</li>
-						</ul>
-
-						<p class="property__description-city">
-							<strong>San Francisco, CA, 94121, United States</strong>
-						</p>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
-					</a>
-				</div>
-			</div>
-			<div class="universal__cell property">
-				<div class="property__image">
-					<a href="">
-						<span class="label__icon--small icon--red">New Offer</span>
-						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-					</a>
-					<div class="carousel-arrows--small">
-						<div class="carousel-arrow--prev"></div>
-						<div class="carousel-arrow--next"></div>
-					</div>
-				</div>
-				<div class="property__info-line">
-					<a href="">
-						<p class="property__price">
-							$850 000
-						</p>
-					</a>		
-				</div>
-				<div class="property__description">
-					<a href="">
-						<ul>
-							<li>3 beds </li>
-							<li>2 baths</li>
-							<li>1500 sq.ft.</li>
-						</ul>
-
-						<p class="property__description-city">
-							<strong>San Francisco, CA, 94121, United States</strong>
-						</p>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
-					</a>
-				</div>
-			</div>
-			<div class="universal__cell property">
-				<div class="property__image">
-					<a href="">
-						<span class="label__icon--small icon--red">New Offer</span>
-						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-					</a>
-					<div class="carousel-arrows--small">
-						<div class="carousel-arrow--prev"></div>
-						<div class="carousel-arrow--next"></div>
-					</div>
-				</div>
-				<div class="property__info-line">
-					<a href="">
-						<p class="property__price">
-							$850 000
-						</p>
-					</a>		
-				</div>
-				<div class="property__description">
-					<a href="">
-						<ul>
-							<li>3 beds </li>
-							<li>2 baths</li>
-							<li>1500 sq.ft.</li>
-						</ul>
-
-						<p class="property__description-city">
-							<strong>San Francisco, CA, 94121, United States</strong>
-						</p>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
-					</a>
-				</div>
-			</div>
-			<div class="universal__cell property">
-				<div class="property__image">
-					<a href="">
-						<span class="label__icon--small icon--red">New Offer</span>
-						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-					</a>
-					<div class="carousel-arrows--small">
-						<div class="carousel-arrow--prev"></div>
-						<div class="carousel-arrow--next"></div>
-					</div>
-				</div>
-				<div class="property__info-line">
-					<a href="">
-						<p class="property__price">
-							$850 000
-						</p>
-					</a>		
-				</div>
-				<div class="property__description">
-					<a href="">
-						<ul>
-							<li>3 beds </li>
-							<li>2 baths</li>
-							<li>1500 sq.ft.</li>
-						</ul>
-
-						<p class="property__description-city">
-							<strong>San Francisco, CA, 94121, United States</strong>
-						</p>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
-					</a>
-				</div>
-			</div>
-			<div class="universal__cell property">
-				<div class="property__image">
-					<a href="">
-						<span class="label__icon--small icon--red">New Offer</span>
-						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-					</a>
-					<div class="carousel-arrows--small">
-						<div class="carousel-arrow--prev"></div>
-						<div class="carousel-arrow--next"></div>
-					</div>
-				</div>
-				<div class="property__info-line">
-					<a href="">
-						<p class="property__price">
-							$850 000
-						</p>
-					</a>		
-				</div>
-				<div class="property__description">
-					<a href="">
-						<ul>
-							<li>3 beds </li>
-							<li>2 baths</li>
-							<li>1500 sq.ft.</li>
-						</ul>
-
-						<p class="property__description-city">
-							<strong>San Francisco, CA, 94121, United States</strong>
-						</p>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
-					</a>
-				</div>
-			</div>
-			<div class="universal__cell property">
-				<div class="property__image">
-					<a href="">
-						<span class="label__icon--small icon--red">New Offer</span>
-						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-					</a>
-					<div class="carousel-arrows--small">
-						<div class="carousel-arrow--prev"></div>
-						<div class="carousel-arrow--next"></div>
-					</div>
-				</div>
-				<div class="property__info-line">
-					<a href="">
-						<p class="property__price">
-							$850 000
-						</p>
-					</a>		
-				</div>
-				<div class="property__description">
-					<a href="">
-						<ul>
-							<li>3 beds </li>
-							<li>2 baths</li>
-							<li>1500 sq.ft.</li>
-						</ul>
-
-						<p class="property__description-city">
-							<strong>San Francisco, CA, 94121, United States</strong>
-						</p>
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
-					</a>
-				</div>
-			</div>
+			<? } ?>
 		</div>
 	</div>
 </section>

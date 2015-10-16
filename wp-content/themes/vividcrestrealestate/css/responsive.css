@@ -118,4 +118,20 @@
 	display: none;
 }
 
+@media (max-width: 740px) {
+	
+	.universal-wrapper--inner.two_cols {
+		text-align: center;
+	}
+	
+	
+	.col--left,
+	.col--right {
+		float: none !important;
+		width: 100% !important;
+		display: block !important;
+		margin: 15px auto  !important;
+		text-align: center !important;
+	}
+}
 
