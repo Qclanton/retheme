@@ -194,8 +194,17 @@ class Rets
         $saved = [];
         
         foreach ($images as $image) {
+            // Check object
+            $id = $image->getObjectId();         
+            
+            if (empty($name) || $name === "null") {
+                continue;
+            }
+            
+            
+            
             // Define vars
-            $name = $image->getObjectId() . ".jpg";
+            $name = "{$id}.jpg";
             $dir = get_template_directory() . "/images/rets/{$property_id}";            
             
             
