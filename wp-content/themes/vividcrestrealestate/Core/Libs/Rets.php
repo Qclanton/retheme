@@ -23,7 +23,7 @@ class Rets
         return $this;
     }
     
-    public function __construct($url, $login, $password) 
+    public function __construct($url="", $login="", $password="") 
     {
         $this
             ->setCredentials($url, $login, $password)
@@ -106,14 +106,12 @@ class Rets
         return (array_key_exists($class, $fields) ? $fields[$class] : []);
     }
     
-    protected function getPropertiesByClass($class, $start, $end)
+    protected function getProperties($class, $start, $end)
     {
         $timestamp_field = $this->timestamp_field;
         $resource = $this->resource;
         $fields = implode(",", $this->getFields($class));
-        
-        // $previous_timestamp = date("Y-m-d\TH:00:00", strtotime("-4 days"));
-        // $query = "({$timestamp_field}={$previous_timestamp}+)";	
+        	
         $query = "({$timestamp_field}={$start}+),({$timestamp_field}={$end}-)";
         
         $result = $this->connection->Search($resource, $class, $query, [
@@ -123,54 +121,34 @@ class Rets
             'Count'  => 1,
             'Select' => $fields
         ]);
-        
-        // echo "<pre>"; var_dump($result->toArray()); echo "</pre>";       
+            
         return $result->toArray();
     }
+
     
-    public function synchronizeProperties()
+    
+    
+    public static function fetchProperties($class, $start, $end)
     {
-        $classes = $this->classes;
-        $timestamps = [
-            "2015-10-15T15:00:00",
-            "2015-10-15T16:00:00"            
-        ];
+        $ProcessingProperties = new \Vividcrestrealestate\Core\Structures\ProcessingProperties();
         
-        $data = [];
+        $properties = $this->getProperties($class, $start, $end);
+        $ProcessingProperties->set($properties);
         
-        foreach ($classes as $class) {
-            foreach ($timestamps as $i=>$timestamp) {
-                $next_timestamp = (isset($timestamps[$i+1]) ? $timestamps[$i+1] : null);
-                
-                if (!is_null($next_timestamp)) {                                  
-                    // Store raw data. It works!
-                    // $data[$timestamp] = $this->getPropertiesByClass($class, $timestamp, $next_timestamp);
-                    // (new \Vividcrestrealestate\Core\Structures\ProcessingProperties)->set($data[$timestamp]);
-                    
-                    // Handle raw data
-                    $this->processProperties();
-                }                
-            }
-            // $properties = $this->getPropertiesByClass($class);
-            // $properties = implode(",", $this->getFields($class));
-        }
-        
-        return $data;
+        return count($properties);
     }
     
-
-    
-    
-    
-
-    public function processProperties()
+    public function processProperties($batch_size)
     {
         $ProcessingProperties = new \Vividcrestrealestate\Core\Structures\ProcessingProperties();
         $Properties = new \Vividcrestrealestate\Core\Structures\Properties();
         $PropertyImages = new \Vividcrestrealestate\Core\Structures\PropertyImages();
         
         
-        $processing_properties = $ProcessingProperties->get(["`status`='NEW'"]);
+        $processing_properties = $ProcessingProperties->get([
+            'confines' => ["`status`='NEW'"],
+            'limit' => $batch_size
+        ]);
         
         foreach ($processing_properties as $processing_property) {
             // Prepare property to save

@@ -65,4 +65,11 @@ class ProcessingProperties extends \Vividcrestrealestate\Core\Libs\Data
         
         return $this;
     }
+    
+    public function getNumberOfUnprocessed()
+    {
+        $query = "SELECT COUNT(`id`) FROM {$this->Db->prefix}{$this->table} WHERE `status`='NEW'";
+        
+        return $this->Db->get_var($query);
+    }
 }

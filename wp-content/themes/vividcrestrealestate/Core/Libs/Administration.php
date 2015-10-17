@@ -24,6 +24,15 @@ abstract class Administration
         return "admin/manage";
     }
     
+    public static function getPositiveMessages()
+    {
+        return [];
+    }
+    
+    public static function getNegativeMessages()
+    {
+        return [];
+    }
     
     
     
@@ -40,6 +49,10 @@ abstract class Administration
         
         // Get options   
         $options = static::getStoredOptions();
+        
+        // Get messafes
+        $options->positive_messages = static::getPositiveMessages();
+        $options->negative_messages = static::getNegativeMessages();
         
         // Show content
         echo \Vividcrestrealestate\Core\Template::renderPart(static::getView(), $options);
