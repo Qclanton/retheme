@@ -50,6 +50,43 @@
 					</a>
 				</div>		
 			</div>
+			<div class="universal_line-wrapper five__cols main__row">
+				<div class="universal__cell compare-page">
+					<span>
+					</span>
+				</div>
+				<div class="universal__cell compare-page">
+					<p class="property__price"> $2650.0000 </p>
+					<p class="property__description-location">
+						<strong>7057 Gooderham Estates Blvd, Mississauga, ON L5W 1G1, Canada</strong>
+					</p>
+				</div>
+				<div class="universal__cell compare-page">
+					<p class="property__price"> $2650.0000 </p>
+					<p class="property__description-location">
+						<strong>7057 Gooderham Estates Blvd, Mississauga, ON L5W 1G1, Canada</strong>
+					</p>
+				</div>
+				<div class="universal__cell compare-page">
+					<p class="property__price"> $2650.0000 </p>
+					<p class="property__description-location">
+						<strong>7057 Gooderham Estates Blvd, Mississauga, ON L5W 1G1, Canada</strong>
+					</p>
+				</div>
+				<div class="universal__cell compare-page">
+					<p class="property__price"> $2650.0000 </p>
+					<p class="property__description-location">
+						<strong>7057 Gooderham Estates Blvd, Mississauga, ON L5W 1G1, Canada</strong>
+					</p>
+				</div>
+				<div class="universal__cell compare-page">
+					<p class="property__price"> $2650.0000 </p>
+					<p class="property__description-location">
+						<strong>7057 Gooderham Estates Blvd, Mississauga, ON L5W 1G1, Canada</strong>
+					</p>
+				</div>
+			</div>
+			
 			<div class="universal_line-wrapper five__cols">
 				<div class="universal__cell compare-page">
 					<span>
