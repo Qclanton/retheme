@@ -8,6 +8,36 @@ add_action("wp_enqueue_scripts", function() {
 
 
 
+// Define function for generate of an excerpt
+function generate_excerpt($content, $more_text="More", $max_symbols=false, $post_id=false) {
+	$more_button = $more_text;
+	$excerpt = $content;
+
+	if ($post_id) {
+		$permalink = get_permalink($post_id);
+		$more_button = "<a href='{$permalink}'>{$more_text}</a>";
+	}
+
+	if (substr_count($content, "<!--more") !== 0) {
+		$excerpt = explode("<!--more", $content)[0];
+	}
+
+	if ($max_symbols) {
+		$excerpt = substr($excerpt, 0, $max_symbols) . "...";
+	}
+
+    if (!empty($more_button)) {
+        $excerpt = "{$excerpt} {$more_button}";
+    }
+    
+    
+	return $excerpt;
+}
+
+
+
+
+
 // Autoload
 spl_autoload_register(function($class) {
     // Set params

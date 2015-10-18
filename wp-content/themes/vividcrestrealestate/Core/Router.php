@@ -57,7 +57,7 @@ class Router
                 // Do the action
                 $Rets = new Libs\Rets("http://rets.torontomls.net:6103/rets-treb3pv/server/login", "D14rsy", "Ls$7326");
                 $Rets->login();                
-                $data->rets_data = $Rets->synchronizeProperties();
+                // $data->rets_data = $Rets->synchronizeProperties();
                 
                 
                 // Fixing end and interval
@@ -122,6 +122,7 @@ class Router
         
 
         $criterion['confines'] = $confines;
+        $criterion['limit'] = 120;
 
         
         
