@@ -11,9 +11,11 @@
 
 
 .universal-wrapper.block-wrapper--light-grey {
-	background-color: #d5d9dd;
 	border-bottom: 1px solid #d5d9dd;
 	padding: 0;
+}
+.block-wrapper--light-grey {
+	background-color: #d5d9dd; 
 }
 
 .universal-wrapper.block-wrapper--light-blue {
@@ -166,6 +168,7 @@ article ul {
 
 .property__description .property__description-city {
 	padding-bottom: 0;
+	min-height: 60px;
 }
 
 

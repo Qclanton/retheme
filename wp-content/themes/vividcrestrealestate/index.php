@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/page_inner.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/property__page.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/properties.css" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/compare.css" />
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/jquery-ui.css" />
 	<link href="<?php echo get_template_directory_uri(); ?>/css/font-awesome.min.css" rel="stylesheet">

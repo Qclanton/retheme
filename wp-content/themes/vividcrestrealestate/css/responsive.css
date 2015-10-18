@@ -110,7 +110,7 @@
 		display: block !important;
 		margin: 0 auto;
 		width: 100% !important;
-		text-align: center;
+		text-align: center !important;
 	}
 }
 
