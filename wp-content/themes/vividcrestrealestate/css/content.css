@@ -57,9 +57,10 @@ article ul {
 	margin-left: 0;
 }
 
-.universal__cell.property:nth-child(5n) {
+.universal__cell.property:nth-child(4n+5) {
 	margin-left: 0;
 }
+
 .universal__cell.property:nth-child(4n) {
 	margin-right: 0;
 }
