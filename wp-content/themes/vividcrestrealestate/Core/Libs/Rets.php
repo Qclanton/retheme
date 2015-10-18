@@ -142,7 +142,7 @@ class Rets
     {
         $ProcessingProperties = new \Vividcrestrealestate\Core\Structures\ProcessingProperties();
         $Properties = new \Vividcrestrealestate\Core\Structures\Properties();
-        $PropertyImages = new \Vividcrestrealestate\Core\Structures\PropertyImages();
+        $PropertyInfo = new \Vividcrestrealestate\Core\Structures\PropertyInfo();
         
         
         $processing_properties = $ProcessingProperties->get([
@@ -153,32 +153,37 @@ class Rets
         foreach ($processing_properties as $processing_property) {
             // Prepare property to save
             $property = json_decode($processing_property->data);
-            $property->type = "ResidentialProperty"; // So hardcode
+            $property->type = $processing_property->class;
             
             
+            // Save info about photo
+            $photos = $this->connection->GetObject($this->resource, "Photo", $property->Ml_num);
             
+            if (!empty($photos)) {
+                $photos_ids = $this->saveImages($photos, $property->Ml_num);         
+                
+                if (!empty($photos_ids)) {
+                    $property->main_image = get_template_directory_uri() . "/images/rets/{$property->Ml_num}/{$photos_ids[0]}.jpg";
+                }          
+            }
+
+
+
             // Save property
             $property_id = $Properties->set($property);
             
             
             
-            // Save images
-            if ($property_id) {
-                $photos = $this->connection->GetObject($this->resource, "Photo", $property->Ml_num);
-                
-                if (!empty($photos)) {
-                    $saved = $this->saveImages($photos, $property_id);
-                    
-                    // Attach images
-                    if (!empty($saved)) {
-                        $property->main_image = $saved[0]->link;
-                        
-                        $PropertyImages->set($saved);                        
-                        $Properties->set($property);
-                    }                    
-                }
+            // Save Images Info
+            if (!empty($property_id) && !empty($photos_ids)) {
+                $PropertyInfo->set((object)[
+                    'property_id' => $property_id,
+                    'title' => "",
+                    'key' => "images_ids",
+                    'value' => implode(",", $photos_ids)
+                ]);
             }
-
+            
 
             
             // Mark property as processed
@@ -189,53 +194,63 @@ class Rets
         }
     }
     
-    public function saveImages($images, $property_id)
+    protected function saveImages($images, $property_id)
     {
-        $saved = [];
+        $ids = [];
         
-        foreach ($images as $image) {
+        foreach ($images as $i=>$image) {
             // Check object
             $id = $image->getObjectId();         
             
-            if (empty($name) || $name === "null") {
+            if (empty($id) || $id === "null") {
                 continue;
             }
             
             
             
-            // Define vars
-            $name = "{$id}.jpg";
-            $dir = get_template_directory() . "/images/rets/{$property_id}";            
-            
-            
-            
-            // Create directory		
-            if (!is_dir($dir)) {
-                $is_created = mkdir($dir, 0777, true);
+            // Save main image
+            if ($i == 0) {
+                // Define vars
+                $name = "{$id}.jpg";
+                $path = "images/rets/{$property_id}";
+                $dir = get_template_directory() . "/{$path}";
                 
-                if (!$is_created) {
-                    return false;
-                }
-            }         
-            
-            
-            // Save file
-            $result = file_put_contents("{$dir}/{$name}", $image->getContent());
-            
-            if (!$result) {
-                return false;
+                // Create directory		
+                if (!is_dir($dir)) {
+                    $is_created = mkdir($dir, 0777, true);
+                    
+                    if (!$is_created) {
+                        return false;
+                    }
+                }  
+                
+                $this->saveImage($image->getContent(), "{$dir}/{$name}");
             }
             
             
             
-            // Set info about image
-            $saved[] = (object)[
-                'property_id' => $property_id,
-                'link' => get_template_directory_uri() . "/images/rets/{$property_id}/{$name}",
-                'title' => $image->getContentDescription()
-            ];
+            // Save image id    
+            $ids[] = $id;
         }
         
-        return $saved;     
+        return $ids;
+    }
+    
+    public function saveImage($binary, $file, $width=640, $height=480, $quality=70)
+    {        
+        $Imagick = new \Imagick();
+        $Imagick->readImageBlob($binary);
+        $Imagick->setImageFormat("jpeg");
+        
+        if ($Imagick->getImageWidth() > $width) {
+            $Imagick->resizeImage($width, $height , FILTER_GAUSSIAN, 1);   
+        }        
+        
+        $Imagick->setImageCompression($Imagick::COMPRESSION_JPEG);
+        $Imagick->setImageCompressionQuality($quality);
+        $Imagick->stripImage();
+        $result = $Imagick->writeImage($file);
+        
+        return $result;
     }
 }

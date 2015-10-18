@@ -50,7 +50,7 @@ class Router
             case "property":
                 global $wp_query;
                 $property_id = $wp_query->query_vars['property_id'];
-                $data->property = $Properties->get($property_id);
+                $data->property = $Properties->getDetailed($property_id);
                 break;
                 
             case "rets":
@@ -59,8 +59,11 @@ class Router
                 
                 
                 // Do the action
-                $Rets = new Libs\Rets("http://rets.torontomls.net:6103/rets-treb3pv/server/login", "D14rsy", "Ls$7326");
-                $Rets->login();                
+                $credentials = Administration\Connection::getStoredOptions();
+                $Rets = new Libs\Rets($credentials->url, $credentials->login, $credentials->password);
+                $Rets->login();
+                $processed_property = $Rets->processProperties(1);
+                $data->property = $processed_property; 
                 // $data->rets_data = $Rets->synchronizeProperties();
                 
                 

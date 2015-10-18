@@ -1,6 +1,3 @@
-
-
-
 <section class="universal-wrapper breadcrumbs-block-wrapper">
 	<div class="universal-wrapper--inner">
 		<ul>
@@ -183,7 +180,7 @@
 					<li><?=$property->bathrooms ?> baths</li>
 					<li><?=$property->size ?> sq.ft.</li>
 					<? if(!empty($property->additional->Yr_built)) { ?>
-						<li>built <?=$property->additional->Yr_built ?></li>
+						<li>built <?=$property->additional->Yr_built->value ?></li>
 					<? } ?>
 				</ul>
 			</div>
@@ -198,38 +195,14 @@
 			<div class="property__main-information">
 				<h2 class="title--underlined">Property Details</h2>
 				<div class="property__details-line">
-					<div class="property__details-line-wrapper">
-						<div class="property__details-title property__details-cell">Building Type: </div>
-						<div class="property__details-info property__details-cell">Detached </div>
-					</div>
-					<div class="property__details-line-wrapper">
-						<div class="property__details-title property__details-cell">Building Type: </div>
-						<div class="property__details-info property__details-cell">Detached </div>
-					</div>
-					<div class="property__details-line-wrapper">
-						<div class="property__details-title property__details-cell">Building Type: </div>
-						<div class="property__details-info property__details-cell">Detached </div>
-					</div>
-					<div class="property__details-line-wrapper">
-						<div class="property__details-title property__details-cell">Building Type: </div>
-						<div class="property__details-info property__details-cell">Detached </div>
-					</div>
-					<div class="property__details-line-wrapper">
-						<div class="property__details-title property__details-cell">Property Type: </div>
-						<div class="property__details-info property__details-cell">Condo </div>
-					</div>
-					<div class="property__details-line-wrapper">
-						<div class="property__details-title property__details-cell">Building Type: </div>
-						<div class="property__details-info property__details-cell">Detached </div>
-					</div>
-					<div class="property__details-line-wrapper">
-						<div class="property__details-title property__details-cell">Building Type: </div>
-						<div class="property__details-info property__details-cell">Detached </div>
-					</div>
-				</div>
-				
-			</div>
-					
+                    <?php foreach ($property->additional as $param) { ?>
+                        <div class="property__details-line-wrapper">                        
+                            <div class="property__details-title property__details-cell"><?=$param->title ?>:</div>
+                            <div class="property__details-info property__details-cell"><?=$param->value ?></div>                        
+                        </div>
+                    <?php } ?>
+				</div>				
+			</div>					
 		</div>	
 	</div>
 </section>
@@ -370,17 +343,12 @@
 		</div>
 	</div>
 </section>
-			<pre>
-			<?php var_dump($property); ?>
-			</pre>
-
 <!--
 
 <section class="universal-wrapper content-block-wrapper">
 		<div class="universal-wrapper--inner clearfix two_cols">
 			<div class="layout__col layout__col--wide">
 				<h1>Property</h1>
-				<?php var_dump($property); ?>
 				
 				
 			</div>

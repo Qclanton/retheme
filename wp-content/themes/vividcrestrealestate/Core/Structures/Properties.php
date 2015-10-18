@@ -111,29 +111,34 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
 	];
     
     
-    
-    protected function getOne($primary) 
+       
+    public function getDetailed($id)
     {
         // Get the property
-        $property = parent::getOne($primary);
+        $property = $this->get($id);
         
         // Init additional section
-        $property->additional = new \stdClass;
+        $PropertyInfo = new PropertyInfo();
+        $property->additional = new \stdClass();
         
         // Get additional info
-        $info = (new PropertyInfo)->get(["`property_id`='{$property->id}'"]);
+        $info = $PropertyInfo->get([
+            'confines' => [
+                "`property_id`='{$property->id}'",
+                "`title`!=''"
+            ]
+        ]);
         
         // Attach additional info to the property
         foreach ($info as $param) {
-            $property->additional->{$param->key} = $param->value;
+            $property->additional->{$param->key} = (object)[
+                'title' => $param->title,
+                'value' => $param->value
+            ];
         }
         
-        // Attach images
-        $property->images = (new PropertyImages)->get(["`property_id`='{$property->id}'"]);
-        
-        return $property;
+        return $property;  
     }
-    
     
     
     protected function setOne($property)
