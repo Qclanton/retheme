@@ -78,6 +78,7 @@ add_filter("query_vars", function($vars) {
 add_filter("rewrite_rules_array", function($rules) { 
     $newrules['properties/search/([0-9A-Fa-f]{8})'] = 'index.php?pagename=properties&search_hash=$matches[1]';
 	$newrules['properties/([0-9]{1,10})'] = 'index.php?pagename=properties&property_id=$matches[1]';
+    //$newrules['compare'] = 'index.php?pagename=compare';
     // $newrules['rets/'] = 'index.php?pagename=rets';
     
 	return $newrules + $rules;

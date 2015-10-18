@@ -19,6 +19,10 @@ class Router
             case "rets":
                 $template_part = "rets";
                 break;
+                
+            case "compare":
+                $template_part = "compare";
+                break;
         }
         
         return $template_part;
