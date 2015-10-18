@@ -187,23 +187,23 @@
     },
     {
         "name": "illuminate/contracts",
-        "version": "v5.1.16",
-        "version_normalized": "5.1.16.0",
+        "version": "v5.1.20",
+        "version_normalized": "5.1.20.0",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/contracts.git",
-            "reference": "610aea16e3d91dfd85db4cf43703403a83b7cba2"
+            "reference": "e2b71fdbeeb3438748dca5f497e205888788a883"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/contracts/zipball/610aea16e3d91dfd85db4cf43703403a83b7cba2",
-            "reference": "610aea16e3d91dfd85db4cf43703403a83b7cba2",
+            "url": "https://api.github.com/repos/illuminate/contracts/zipball/e2b71fdbeeb3438748dca5f497e205888788a883",
+            "reference": "e2b71fdbeeb3438748dca5f497e205888788a883",
             "shasum": ""
         },
         "require": {
             "php": ">=5.5.9"
         },
-        "time": "2015-08-31 12:59:22",
+        "time": "2015-09-24 11:16:48",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -231,17 +231,17 @@
     },
     {
         "name": "illuminate/support",
-        "version": "v5.1.16",
-        "version_normalized": "5.1.16.0",
+        "version": "v5.1.20",
+        "version_normalized": "5.1.20.0",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/support.git",
-            "reference": "c5389968d48517b3b51cfd8cd4abd72f0cc1575b"
+            "reference": "cf634d1b61d80ea1d7749ef71e0ab3c088931463"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/support/zipball/c5389968d48517b3b51cfd8cd4abd72f0cc1575b",
-            "reference": "c5389968d48517b3b51cfd8cd4abd72f0cc1575b",
+            "url": "https://api.github.com/repos/illuminate/support/zipball/cf634d1b61d80ea1d7749ef71e0ab3c088931463",
+            "reference": "cf634d1b61d80ea1d7749ef71e0ab3c088931463",
             "shasum": ""
         },
         "require": {
@@ -253,9 +253,10 @@
         },
         "suggest": {
             "jeremeamia/superclosure": "Required to be able to serialize closures (~2.0).",
+            "paragonie/random_compat": "Provides a compatible interface like PHP7's random_bytes() in PHP 5 projects (^1.0.4).",
             "symfony/var-dumper": "Required to use the dd function (2.7.*)."
         },
-        "time": "2015-09-03 15:47:41",
+        "time": "2015-10-12 17:24:03",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -286,24 +287,24 @@
     },
     {
         "name": "illuminate/container",
-        "version": "v5.1.16",
-        "version_normalized": "5.1.16.0",
+        "version": "v5.1.20",
+        "version_normalized": "5.1.20.0",
         "source": {
             "type": "git",
             "url": "https://github.com/illuminate/container.git",
-            "reference": "66621248395705cc64bc1ce9262b99b4bfa606f2"
+            "reference": "4ecdb3df4de7a4587914f44c8e3a129a12ba6eb4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/illuminate/container/zipball/66621248395705cc64bc1ce9262b99b4bfa606f2",
-            "reference": "66621248395705cc64bc1ce9262b99b4bfa606f2",
+            "url": "https://api.github.com/repos/illuminate/container/zipball/4ecdb3df4de7a4587914f44c8e3a129a12ba6eb4",
+            "reference": "4ecdb3df4de7a4587914f44c8e3a129a12ba6eb4",
             "shasum": ""
         },
         "require": {
             "illuminate/contracts": "5.1.*",
             "php": ">=5.5.9"
         },
-        "time": "2015-08-26 23:00:38",
+        "time": "2015-09-24 11:16:48",
         "type": "library",
         "extra": {
             "branch-alias": {
