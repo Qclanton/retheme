@@ -175,12 +175,32 @@
 		font-size: 15px;
 	}
 	
-	
-	
 	.universal_line-wrapper.five__cols .universal__cell.compare > .property__image {
 		height: 60px !important;
 	}
 	
+	/*Compare Page*/
+	
+	
+	.unversal__row-wrapper .universal_line-wrapper.five__cols:first-child {
+		display: none !important;
+	}
+	
+	.universal__cell.compare-page {
+		min-width: 65px !important;
+	}
+	
+	.universal__cell.compare-page p.property__price {
+		font-size: 12px !important;
+	}
+	
+	.universal__cell.compare-page p.property__description-location {
+		font-size: 10px !important;
+	}
+	
+	.universal_line-wrapper.five__cols .universal__cell.compare-page span {
+		font-size: 12px !important;
+	}
 	
 }
 
