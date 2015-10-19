@@ -135,24 +135,26 @@
 	<div class="universal-wrapper--inner clearfix two_cols">
 		<div class="col--left">
 			<div class="universal_line-wrapper">
-				1 - 10 of 150
+				1 - 8 of <?= count($properties) ?>
 			</div>
 		</div>
 		<div class="col--right">
-			<ul>
-				<li class="current"> 1</li>
-				<li> 2</li>
-				<li> 3</li>
+			<ul class="pagintaion">
+                <li class="current">1</li>
+                <li>2</li>
+                <li>3</li>
 				<li> ...</li>
-				<li> 210</li>
+				<li><?= ceil(count($properties)/8) ?></li>
 			</ul>
 		</div>
 	</div>
 	<div class="universal-wrapper--inner clearfix ">
 		
 		<div class="universal_line-wrapper four__cols">
-			<? foreach ($properties as $property ) { ?>
-				<div class="universal__cell property">
+			<?php foreach ($properties as $i=>$property) { ?>
+                <?php $page = ceil(($i+1)/8); ?>
+
+				<div data-page="<?=$page ?>" <?=$page != 1 ? "style='display:none'" : "" ?> class="universal__cell property">
 					<div class="property__image">
 						<i class="fa fa-star-o"></i>
 
@@ -168,7 +170,7 @@
 					<div class="property__info-line">
 						<a href="<?= site_url(); ?>/properties/<?=$property->id ?>">
 							<p class="property__price">
-								<?=$property->price ?>
+								<?= ceil($property->price) ?>
 							</p>
 						</a>		
 					</div>
