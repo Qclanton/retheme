@@ -140,12 +140,19 @@
 		</div>
 		<div class="col--right">
 			<ul class="pagintaion">
-                <li class="current">1</li>
-                <li>2</li>
-                <li>3</li>
-				<li> ...</li>
-				<li><?= ceil(count($properties)/8) ?></li>
-			</ul>
+                <?php $total_pages =  ceil(count($properties)/8); ?>
+                    <li data-page="0" class="previous" style="display:none">«</li>
+                    <li data-page="1" class="page-button current">1</li>
+                    <li class="separator" style="display:none">...</li>                    
+                
+                <?php for ($page=2; $page<ceil(count($properties)/8); $page++) { ?>
+                    <li data-page="<?=$page ?>" class="page-button" <?=$page > 3 ? "style='display:none'" : "" ?>><?=$page ?></li>
+                <?php } ?>
+                
+                    <li class="separator">...</li>
+                    <li data-page="<?=$total_pages ?>" class="page-button" <?=$total_pages < 5 ? "style='display:none'" : "" ?>><?=$total_pages ?></li>
+                    <li data-page="4" class="next" <?=$total_pages < 4 ? "style='display:none'" : "" ?>>»</li>
+            </ul>
 		</div>
 	</div>
 	<div class="universal-wrapper--inner clearfix ">
