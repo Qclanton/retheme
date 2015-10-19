@@ -23,6 +23,9 @@ class Router
             case "compare":
                 $template_part = "compare";
                 break;
+                
+            case "map":
+                $template_part = "map";
         }
         
         return $template_part;
@@ -31,7 +34,7 @@ class Router
     public static function loadData($part)
     {          
         // Load structures
-        if (in_array($part, ["properties", "property"])) {
+        if (in_array($part, ["map", "properties", "property"])) {
             $Properties = new Structures\Properties();
         }
         
@@ -41,12 +44,13 @@ class Router
              
         
         // Extract necessary data
-        switch ($part) {                
+        switch ($part) {
+            case "map":                  
             case "properties":
                 $criterion = self::makeCriterion($search);            
                 $data->properties = $Properties->get($criterion);
-                break;
-                
+                break;            
+              
             case "property":
                 global $wp_query;
                 $property_id = $wp_query->query_vars['property_id'];

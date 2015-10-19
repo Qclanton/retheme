@@ -1,6 +1,19 @@
 <?php
 // Load js
 add_action("wp_enqueue_scripts", function() {
+    $template_part = \Vividcrestrealestate\Core\Router::definePart();
+    
+    if ($template_part == "map") {
+        // Load Google Maps Api Library
+        wp_enqueue_script("google-maps-api", "https://maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry");
+        
+        // Load clusteriztion library
+        wp_enqueue_script("google-maps-clusterization", "https://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js");
+        
+        // Load handler
+        wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/map.js", ["jquery"]);  
+    }
+    
     wp_enqueue_script("vividcrest-tabs", get_template_directory_uri() . "/js/tabs.js", ["jquery"]);
     
     wp_enqueue_script("vividcrest-properties-pagination", get_template_directory_uri() . "/js/properties/pagination.js", ["jquery"]);

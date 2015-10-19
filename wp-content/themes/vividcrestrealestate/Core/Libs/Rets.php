@@ -128,7 +128,7 @@ class Rets
     
     
     
-    public static function fetchProperties($class, $start, $end)
+    public function fetchProperties($class, $start, $end)
     {
         $ProcessingProperties = new \Vividcrestrealestate\Core\Structures\ProcessingProperties();
         
