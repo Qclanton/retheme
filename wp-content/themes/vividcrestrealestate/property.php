@@ -1,16 +1,9 @@
 <section class="universal-wrapper breadcrumbs-block-wrapper">
 	<div class="universal-wrapper--inner">
-		<ul>
-			<li>
-				<a href="">Home</a>
-			</li>
-			<li>
-				<a href="">Search</a>
-			</li>
-			<li> <?=$property->address ?></li>
-		</ul>			
+        <?= \Vividcrestrealestate\Core\Template::renderBreadcrumbs(); ?>			
 	</div>
 </section>
+
 <section class="universal-wrapper content-block-wrapper">
 	<div class="universal-wrapper--inner clearfix two_cols">
 		<div class="layout__col layout__col-half">
