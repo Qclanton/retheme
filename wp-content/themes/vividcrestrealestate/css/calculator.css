@@ -6,12 +6,15 @@
 	border-radius: 3px;
 }
 
-h2.title--colored {
+.title--colored {
 	background-color: #544d54;
 	border-radius: 3px 3px 0 0;
 	color: #fff;
-	font-size: 30px;
 	padding: 10px 20px;
+}
+
+h2.title--colored { 
+	font-size: 30px;
 }
 
 .mortgage__calc-line {
@@ -58,4 +61,43 @@ h2.title--colored {
 
 h2.title--underlined strong {
 	color: #0c82ba;
+}
+
+
+/*Mortgage Calculator - main page*/
+
+.mortgage__calc.mortgage__calc-main {
+	margin: 0 auto;
+    max-width: 400px;
+}
+.mortgage__calc.mortgage__calc-main > h2 {
+	
+}
+
+.side__blocks {
+	border: 1px solid #d5d9dd;
+	border-radius: 3px;
+}
+
+.side__blocks h4.title--colored {
+	font-size: 22px;
+}
+
+.side__blocks .mortgage__calc-cell {
+	width: 100%;
+	display: block;
+	float: none !important;
+}
+
+.side__blocks .title--underlined {
+	font-size: 20px;
+}
+
+.side__blocks .mortgage__calc-cell input, .side__blocks .mortgage__calc-cell select {
+	padding: 6px !important;
+	
+}
+
+.side__blocks .mortgage__calc-cell span {
+	font-size: 14px;
 }

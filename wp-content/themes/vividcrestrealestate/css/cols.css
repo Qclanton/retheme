@@ -27,17 +27,18 @@
 .layout__col {
 	display: inline-block;
 	vertical-align: top;
+	float: left;
 }
 
 .layout__col--wide {
 	max-width: 910px;
-	width: 75%;
+	width: 74%;
 }
 
 .layout__col--small {
-	max-width: 265px;
+	max-width: 285px;
 	min-width: 250px;
-	width: 20%;
+	width: 25%;
 	
 }
 
