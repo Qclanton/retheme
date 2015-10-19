@@ -30,12 +30,4 @@ class Template
         // Return rendered content
         return $content;
     }
-    
-    public static function loadPart($part=null)
-    {
-        $part = (empty($part) ? Router::definePart() : $part);
-        $data = Router::loadData($part);
-        
-        return self::renderPart($part, $data);
-    }
 }

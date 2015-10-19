@@ -1,8 +1,13 @@
 
+<section class="universal-wrapper map-block-wrapper">
+	<div class="universal-wrapper--inner">
+		<?= \Vividcrestrealestate\Core\Template::renderPart("search_form"); ?>
+	</div>
+</section>
 <section class="universal-wrapper content-block-wrapper">
 	<div class="universal-wrapper--inner clearfix two_cols">
 		<div class="title__border-bottom">
-			<h1>Latest Properties</h1>
+			<h1>Recent Properties</h1>
 		</div>
 		<div class="universal_line-wrapper four__cols">
 			<div class="universal__cell property property--first">
@@ -134,25 +139,21 @@
 				</div>
 			</div>
 		</div>
-			
-		
-		
 		
 	</div>
 </section>
 
 
-<!--
-TWO blocks content
-	<section class="universal-wrapper content-block-wrapper">
-		<div class="universal-wrapper--inner clearfix two_cols">
-			<div class="layout__col layout__col--wide">
-				
-				
-			</div>
-			<div class="layout__col layout__col--small layout__col--second">
-				<h4>Mortgage Calculator</h4>
-			</div>			
+<section class="universal-wrapper content-block-wrapper">
+	<div class="universal-wrapper--inner clearfix two_cols">
+		<div class="layout__col layout__col--wide">
+		<div class="title__border-bottom">
+			<h1>Futured Properties</h1>
 		</div>
-	</section>
--->
+
+		</div>
+		<div class="layout__col layout__col--small layout__col--second">
+			<h4>Mortgage Calculator</h4>
+		</div>			
+	</div>
+</section>

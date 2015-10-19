@@ -1,3 +1,8 @@
+<?php
+$part = \Vividcrestrealestate\Core\Router::definePart();
+$data = \Vividcrestrealestate\Core\Router::loadData($part);
+?>
+
 <!doctype html>
 <html lang=ru>
 <head>
@@ -29,6 +34,13 @@
 	<meta name="viewport" content="target-densitydpi=high-dpi" />
 	<meta name="MobileOptimized" content="720"/>
 	<meta name="HandheldFriendly" content="true"/>
+    
+    <script>
+        var Vividcrest = {
+            properties: <?= (isset($data->properties) ? "JSON.parse('" . stripcslashes(json_encode($data->properties, JSON_HEX_APOS | JSON_HEX_QUOT)) . "')" : "null") ?>,
+            property: <?= (isset($data->property) ? "JSON.parse('" . stripcslashes(json_encode($data->property, JSON_HEX_APOS | JSON_HEX_QUOT)) . "')" : "null") ?>
+        };
+    </script>
 	<?= wp_head() ?>
 	<!--[if lt IE 10]>
 		<script src="<?php echo get_template_directory_uri(); ?>/js/placeholder_ie9.js"></script>
@@ -77,7 +89,7 @@
 
 	
     <!-- Content -->
-    <?= \Vividcrestrealestate\Core\Template::loadPart(); ?>
+    <?= \Vividcrestrealestate\Core\Template::renderPart($part, $data); ?>
     
 	<footer class="universal-wrapper footer-block-wrapper">
 		<div class="universal-wrapper--inner">
