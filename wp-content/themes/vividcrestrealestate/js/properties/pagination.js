@@ -22,8 +22,7 @@
         
         
         // Set "previous" button
-        var previousButton = $(this).parent().find('.previous');
-
+        var previousButton = $(this).parent().find('.previous')
         
         if (previousButton.length > 0) {
              previousButton.attr('data-page', page-1);

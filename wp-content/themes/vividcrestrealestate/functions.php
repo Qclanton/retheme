@@ -3,7 +3,8 @@
 add_action("wp_enqueue_scripts", function() {
     wp_enqueue_script("vividcrest-tabs", get_template_directory_uri() . "/js/tabs.js", ["jquery"]);
     
-    wp_enqueue_script("vividcrest-properties-pagination", get_template_directory_uri() . "/js/properties/pagination.js", ["jquery"]); 
+    wp_enqueue_script("vividcrest-properties-pagination", get_template_directory_uri() . "/js/properties/pagination.js", ["jquery"]);
+    wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/sort.js", ["jquery"]);  
 });
 
 

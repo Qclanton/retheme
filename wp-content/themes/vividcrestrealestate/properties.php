@@ -1,6 +1,3 @@
-
-
-
 <section class="universal-wrapper breadcrumbs-block-wrapper">
 	<div class="universal-wrapper--inner">
 		<ul>
@@ -116,11 +113,18 @@
 					</select>
 				</div>
 				<div class="universal_cell-wrapper">
-					<select name=" ">
-						<option selected="selected" value="0">Sorting</option>
-						<option value="15">15</option>
-						<option value="25">25</option>
-						<option value="35">55</option>
+					<select name="properties-sorting">
+                        <option selected="selected" style="display:none">Sorting</option>
+                        
+                        <optgroup label="Ascending">						
+                            <option value="price|asc|number">Price</option>
+                            <option value="publish_date|asc">Date</option>
+                        </optgroup>
+                        
+                        <optgroup label="Descending">						
+                            <option value="price|desc|number">Price</option>
+                            <option value="publish_date|desc">Date</option>
+                        </optgroup>
 					</select>
 				</div>
 			</div>
@@ -157,7 +161,7 @@
 	</div>
 	<div class="universal-wrapper--inner clearfix ">
 		
-		<div class="universal_line-wrapper four__cols">
+		<div class="universal_line-wrapper four__cols properties-list">
 			<?php foreach ($properties as $i=>$property) { ?>
                 <?php $page = ceil(($i+1)/8); ?>
 
@@ -266,7 +270,3 @@
 		</div>
 	</div>
 </section>
-
-
-
-<!--<pre><?php var_dump($properties); ?></pre>-->
