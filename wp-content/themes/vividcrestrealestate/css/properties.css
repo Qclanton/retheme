@@ -7,18 +7,21 @@
 	min-width: 150px;
 	vertical-align: top;
 	width: 45%;
-	margin-top: 15px;
 }
 
 
 .col--right {
-float: right;
-margin-top: 15px;
-max-width: 642px;
-min-width: 150px;
-text-align: right;
-vertical-align: top;
-width: 50%;
+	float: right;
+	max-width: 642px;
+	min-width: 150px;
+	text-align: right;
+	vertical-align: top;
+	width: 50%;
+}
+
+
+.col--left .universal_line-wrapper {
+	margin-top: 10px;
 }
 
 .col--left .universal_cell-wrapper {
@@ -36,7 +39,6 @@ width: 50%;
 }
 
 
-
 .two_cols ul.pagintaion li {
 	font-size: 14px;
 	margin-right: 5px;
@@ -50,6 +52,7 @@ width: 50%;
 	border: 1px solid #d5d9dd;
 	border-radius: 3px;
 	margin-right: 10px;
+	margin-top: 10px;
 	
 }
 .col--right ul li:last-child {
@@ -68,15 +71,12 @@ width: 50%;
 	border: medium none;
 	padding: 0;
 	vertical-align: bottom;
-	color: #0092cc;
 }
 
 .col--right ul li.next,
 .col--right ul li.previous {
-	border: none;
-	padding: 0;
 }
-.col--right ul li.next:hover,
-.col--right ul li.previous:hover {
+.col--right ul li.separator:hover {
 	cursor: none;
+	color: #0092cc;
 }
