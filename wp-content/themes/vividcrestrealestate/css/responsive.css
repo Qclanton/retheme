@@ -158,6 +158,11 @@
 
 @media (max-width: 800px) { 
 	
+	
+	.two_cols ul.pagintaion li {
+		font-size: 12px !important;
+	}
+	
 	.universal_line-wrapper.five__cols .universal__cell.compare {
 		margin-right: 10px !important;
 		width: 7%;

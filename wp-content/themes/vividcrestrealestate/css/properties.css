@@ -12,13 +12,13 @@
 
 
 .col--right {
-	margin-top: 15px;
-	float: right;
-	max-width: 350px;
-	min-width: 150px;
-	text-align: right;
-	vertical-align: top;
-	width: 40%;
+float: right;
+margin-top: 15px;
+max-width: 642px;
+min-width: 150px;
+text-align: right;
+vertical-align: top;
+width: 50%;
 }
 
 .col--left .universal_cell-wrapper {
@@ -33,6 +33,14 @@
 	width: 100%;
 	opacity: 0.8;
 	cursor: pointer;
+}
+
+
+
+.two_cols ul.pagintaion li {
+	font-size: 14px;
+	margin-right: 5px;
+	padding: 5px 12px;
 }
 
 .col--right ul li {
@@ -54,4 +62,21 @@
 	border: 1px solid #0092cc;
 	cursor: pointer;
 	transition: all 0.3s ease 0s;
+}
+
+.col--right ul li.separator {
+	border: medium none;
+	padding: 0;
+	vertical-align: bottom;
+	color: #0092cc;
+}
+
+.col--right ul li.next,
+.col--right ul li.previous {
+	border: none;
+	padding: 0;
+}
+.col--right ul li.next:hover,
+.col--right ul li.previous:hover {
+	cursor: none;
 }
