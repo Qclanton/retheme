@@ -11,11 +11,19 @@
 	max-width: 510px;
 }
 
+
+.layout__col img {
+	max-width: 100%;
+}
+
+
+
 .layout__col-half {
 	max-width: 585px;
 	display: inline-block;
-	width: 49%;
+	width: 47%;
 }
+
 
 .layout__col-half.layout__col_half--second {
 	float: right;

@@ -222,10 +222,8 @@ article ul {
 	padding: 2px 0;
 }
 .universal-wrapper.breadcrumbs-block-wrapper ul > li {
-	color: #0c82ba;
 	display: inline-block;
 	font-size: 13px;
-	font-weight: bold;
 	list-style: outside none none;
 	padding: 0 5px;
 }
@@ -234,10 +232,14 @@ article ul {
 	padding-left: 0;
 }
 
-.universal-wrapper.breadcrumbs-block-wrapper ul > li > a {
-	color: #878c92;
+
+.universal-wrapper.breadcrumbs-block-wrapper ul > li:last-child {
+	font-weight: bold;
+	color: #0c82ba;
+	
 }
-.universal-wrapper.breadcrumbs-block-wrapper ul > li > a::after {
+
+.universal-wrapper.breadcrumbs-block-wrapper ul > li::after {
 	content: ">";
 	font-size: 11px;
 	left: 6px;
@@ -245,6 +247,14 @@ article ul {
 	color: #878c92;
 }
 	
+
+.universal-wrapper.breadcrumbs-block-wrapper ul > li:last-child::after {
+	content: none;
+}
+
+.universal-wrapper.breadcrumbs-block-wrapper ul > li > a {
+	color: #878c92;
+}
 .universal-wrapper.breadcrumbs-block-wrapper ul > li > a:hover {
 	text-decoration: none;
 }
@@ -315,3 +325,52 @@ article ul {
 .box.visible {  
     display: block; /* по умолчанию показываем нужный блок */  
     }  
+
+
+/*Lists*/
+
+
+
+.layout__col-half .list__checked-icon {
+	padding-left: 0;
+	margin-bottom: 10px;
+}
+
+.list__checked-icon li {
+	list-style: none;
+}
+
+.list__checked-icon li p {
+	display: inline-block;
+	width: 80%;
+	vertical-align: top;
+	margin-left: 1%;
+	padding-top: 0;
+}
+
+.list__checked-icon li i {
+	vertical-align: top;
+	margin-top: 5px;
+}
+
+.list__checked-icon li:hover,
+.list__checked-icon li:hover p {
+	color: #0092cc;
+}
+
+
+/*Colored lines*/
+
+.colored__line.colored__line--blue {
+	background-color: rgba(0, 151, 214, 0.8);
+	color: #fff;
+}
+.colored__line.colored__line--blue h1,
+.colored__line.colored__line--blue a {
+	color: #fff;
+	text-align: center;
+}
+.colored__line.colored__line--blue a {
+	font-weight: 800;
+}
+

@@ -139,10 +139,11 @@ a.universal-button {
 
 
 .universal-button.universal-button--small {
-	height: 50px;
 	margin: 0 auto;
 	max-width: 230px;
     min-width: 220px;
+	font-size: 20px;
+	padding: 10px;
 }
 
 

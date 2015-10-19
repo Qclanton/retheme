@@ -219,6 +219,54 @@
 				</div>
 			</div>
 		</div>
+			
+		
+		<div class="layout__col layout__col-half">
+			<div class="title__border-bottom">
+				<h2>Selling Your Property</h2>
+			</div>
+			<article>
+				<img src="http://wpestatetheme.org/wp-content/uploads/2013/06/photodune-317366-family-having-fun-in-countryside-xs.jpg" />
+				<p>
+					The Sale Quick team–unlike any other real estate company–invests 100 percent of our time and resources on Toronto and surrounding area properties.
+				</p>
+				<p>
+					We have a total of 15+ years combined experience dealing exclusively with Toronto buyers and sellers. Over the past year, Sale Quick has maintained many happy and satisfied buyer and sellers. We’re the best at what we do.
+				</p>
+			
+			</article>
+		</div>
+		<div class="layout__col layout__col-half layout__col_half--second">
+			<div class="title__border-bottom">
+				<h2>Our Services</h2>
+			</div>
+			<article>
+				<ul class="list__checked-icon">
+					<li>
+						<i class="fa fa-check-square-o"></i>
+						<p>Provide legal services to initiate and review contracts.</p>
+					</li>
+					<li>
+						<i class="fa fa-check-square-o"></i> 
+						<p>Provide in-house marketing services to produce sales materials, including photography, brochures, and websites, etc.</p>
+					</li>
+					<li>
+						<i class="fa fa-check-square-o"></i>
+						<p>Understand Privacy–not listing with MLS ensures that only our Sales Executives have access to the lockbox.</p>
+					</li>
+					<li>
+						<i class="fa fa-check-square-o"></i>
+						<p>Ensure all repairs are complete and satisfactory and provide lists of reputable repair businesses, inspectors, major lenders and private lenders.</p>
+					</li>
+					<li>
+						<i class="fa fa-check-square-o"></i>
+						<p>Provide referred legal services to initiate and review contracts.</p>
+					</li>
+				</ul>
+						<a class="blue_button universal-button universal-button--small" data-action="recalculate" href="#">Contact us today</a>
+			</article>
+		</div>
+			
 
 		</div>
 		<div class="layout__col layout__col--small layout__col--second">
