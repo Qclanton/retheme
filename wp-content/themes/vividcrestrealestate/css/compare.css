@@ -9,6 +9,16 @@
 }
 
 .compare-block-wrapper > .universal-wrapper--inner {
+	display: block;
+	height: auto;
+	margin: 0 auto;
+	width: 100%;
+	z-index: 30000;
+	position: relative;
+	padding: 0;
+}
+.block-wrapper--light-grey {
+	
 	border-bottom-colors: none;
 	border-left-colors: none;
 	border-right-colors: none;
@@ -19,15 +29,9 @@
 	border-style: solid solid none;
 	border-width: 3px 3px 0;
 	box-sizing: border-box;
-	display: block;
-	height: auto;
-	margin: 0 auto;
 	padding: 20px 20px 10px;
-	width: 100%;
-	z-index: 30000;
 	position: relative;
 }
-
 
 
 .compare__title {
@@ -195,4 +199,19 @@
 	text-align: left;
 	min-height: 65px;
 	padding-top: 3px;
+}
+
+
+/*Compare Button*/
+
+.block-wrapper--light-grey.block-wrapper--small {
+	max-width: 174px;
+	min-width: 156px;
+	padding: 3px 10px;
+	text-align: center;
+	background-color: #0c82ba;
+}
+.block-wrapper--light-grey.block-wrapper--small > a {
+	color: #fff;
+	
 }
