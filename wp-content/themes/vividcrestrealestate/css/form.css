@@ -35,6 +35,11 @@ input[type=number]::-webkit-outer-spin-button {
 .search_form-main {
 	width: 100%;
 }
+.search_form-main {
+	background-color: #fff;
+	padding: 10px;
+	border-radius: 3px;
+}
 
 .form > .universal_line-wrapper {
 	text-align: left;
