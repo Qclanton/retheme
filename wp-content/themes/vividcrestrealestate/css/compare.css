@@ -173,12 +173,14 @@
 
 .universal__cell.compare-page {
 	display: table-cell;
-	min-width: 100px;
+	min-width: 118px;
 	text-align: justify;
 	vertical-align: top;
 	width: 8.2%;
 	padding: 10px 5px;
 }
+
+
 .universal__cell.compare-page img {
 	width: 100%;	
 	display: block;
