@@ -77,9 +77,7 @@
 
 				<div data-page="<?=$page ?>" <?=$page != 1 ? "style='display:none'" : "" ?> class="universal__cell property">
 					<div class="property__image">
-						<i class="fa fa-star-o"></i>
-
-						<a href="<?= site_url(); ?>/properties/<?=$property->id ?>">
+						<a class="property-link" data-property-id="<?=$property->id ?>" href="<?= site_url(); ?>/properties/<?=$property->id ?>">
 							<span class="label__icon--small icon--green">Open House</span>						
 							<img src="<?=$property->main_image ?> " />
 						</a>
@@ -117,72 +115,6 @@
 					</div>
 				</div>
 			<? } ?>
-		</div>
-	</div>
-</section>
-
-<section id="compare-block" class="universal-wrapper compare-block-wrapper">
-	<div class="universal-wrapper--inner">		
-			<div class="block-wrapper--light-grey">
-			<div class="compare__navigation">
-				<i class="fa fa-minus-square-o"></i>
-				<i class="fa fa-times"></i>
-			</div>
-			<div class="compare__title">
-				<h1>Compare Up to 5 properties</h1>
-			</div>
-			<div class="universal_line-wrapper five__cols">
-				<div class="universal__cell compare">
-					<div class="property__image">
-						<i class="fa fa-times"></i>
-						<a href="http://retheme.qcldev.ru/properties/15">
-							<img src="http://retheme.qcldev.ru/wp-content/themes/vividcrestrealestate/images/property.jpg ">
-						</a>
-					</div>
-				</div>
-				<div class="universal__cell compare">
-					<div class="property__image">
-						<i class="fa fa-times"></i>
-						<a href="http://retheme.qcldev.ru/properties/15">
-							<img src="http://retheme.qcldev.ru/wp-content/themes/vividcrestrealestate/images/property.jpg ">
-						</a>
-					</div>
-				</div>
-				<div class="universal__cell compare">
-					<div class="property__image">
-						<i class="fa fa-times"></i>
-						<a href="http://retheme.qcldev.ru/properties/15">
-							<img src="http://retheme.qcldev.ru/wp-content/themes/vividcrestrealestate/images/property.jpg ">
-						</a>
-					</div>
-				</div>
-				<div class="universal__cell compare">
-					<div class="property__image">
-						<i class="fa fa-times"></i>
-						<a href="http://retheme.qcldev.ru/properties/15">
-							<img src="http://retheme.qcldev.ru/wp-content/themes/vividcrestrealestate/images/property.jpg ">
-						</a>
-					</div>
-				</div>
-				<div class="universal__cell compare">
-					<div class="property__image">
-						<i class="fa fa-times"></i>
-						<a href="http://retheme.qcldev.ru/properties/15">
-							<img src="http://retheme.qcldev.ru/wp-content/themes/vividcrestrealestate/images/property.jpg ">
-						</a>
-					</div>
-				</div>
-				<div class="universal__cell compare">
-					<a class="universal-button" href="#">
-						Detailed Compare
-					</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="universal-wrapper--inner">
-		<div class="block-wrapper--light-grey block-wrapper--small">
-			<a href="#">compare details</a>
 		</div>
 	</div>
 </section>

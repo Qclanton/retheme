@@ -12,13 +12,33 @@ add_action("wp_enqueue_scripts", function() {
         
         // Load handler
         wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/map.js", ["jquery"]);  
+    } else if ($template_part == "properties") {
+        // Load lib for cookie
+        wp_enqueue_script("jquery-cookies",  get_template_directory_uri() . "/js/libs/jquery.cookie.js", ["jquery"]);
+        
+        wp_enqueue_script("vividcrest-properties-pagination", get_template_directory_uri() . "/js/properties/pagination.js", ["jquery"]);
+        wp_enqueue_script("vividcrest-properties-compare", get_template_directory_uri() . "/js/properties/compare.js", ["jquery"]);
+        wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/sort.js", ["jquery"]);
     }
+    
     
     wp_enqueue_script("vividcrest-tabs", get_template_directory_uri() . "/js/tabs.js", ["jquery"]);
     
-    wp_enqueue_script("vividcrest-properties-pagination", get_template_directory_uri() . "/js/properties/pagination.js", ["jquery"]);
-    wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/sort.js", ["jquery"]);  
+
 });
+
+
+
+
+
+// Register menus
+if (function_exists("register_nav_menus")) {
+    add_action("init", function() { 
+        register_nav_menus([
+            'top-menu' => "top-menu", 
+        ]);  
+    }); 
+}
 
 
 

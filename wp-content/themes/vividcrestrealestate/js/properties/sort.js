@@ -17,8 +17,7 @@
             // New property block
             properties_html += '<div data-page="' + page + '" ' + hidden + ' class="universal__cell property">';
             properties_html += '   <div class="property__image">';
-            properties_html += '       <i class="fa fa-star-o"></i>';
-            properties_html += '       <a href="' + property.link + '">';
+            properties_html += '       <a class="property-link" data-property-id="' + property.id + '" href="' + property.link + '">';
             properties_html += '           <span class="label__icon--small icon--green">Open House</span>';
             properties_html += '           <img src="' + property.main_image + '" />';
             properties_html += '       </a>';
@@ -56,7 +55,11 @@
         
         
         // Set first page
-        $('ul.pagintaion li.page-button[data-page="1"]').click();   
+        $('ul.pagintaion li.page-button[data-page="1"]').click();
+        
+        
+        // Add comparsion
+        $('.property').addCompareLinks();
     }
     
     
