@@ -37,12 +37,42 @@
             var isShown = property.isShown || false;
 
             if (!isShown) {
-                // Show infowindow                
-                infowindow.setContent(''
-                    +'<h4>' + property.address + '</h4>'
-                    +'<p>' + property.description + '</p>'
-                );
-                
+				property.excerpt = property.description.substring(0, 100) + "...";
+				
+                // Draw infowindow
+				var html = '';
+				
+				html += '<div class="universal__cell property map__property">';
+				html += '<div class="property__image">';
+				html += '<a href="/properties/' + property.id + '">';
+				html += '<span class="label__icon--small icon--green">' + property.type + '</span>';
+				html += '<img src="' + property.main_image + '" / >';
+				html += '</a>';
+				html += '</div>';
+				html += '<div class="property__info-line">';
+				html += '<a href="/properties/' + property.id + '">';
+				html += '<p class="property__price">' + property.price + '</p>';
+				html += '</a>';
+				html += '</div>';
+				html += '<div class="property__description">';
+				html += '<a href="/properties/' + property.id + '">';
+				html += '<ul>';
+				html += '<li>'  + property.bedrooms + ' beds </li>';
+				html += '<li>'  + property.bathrooms + ' baths </li>';
+				html += '<li>'  + property.size + ' sq.ft.</li>';
+				html += '</ul>';
+				html += '</a>';
+				html += '</div>';
+				html += '<div class="property__description--extra">';
+				html += '<a href="/properties/' + property.id + '">';
+				html += '<p>' + property.excerpt + '</p>';
+				html += '</a>';
+				html += '</div>';
+				html += '</div>'
+				
+				
+				// Show infowindow
+                infowindow.setContent(html);                
                 infowindow.open(propertiesMap, this);
             }
             else {

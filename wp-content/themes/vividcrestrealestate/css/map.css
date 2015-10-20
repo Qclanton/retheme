@@ -1,0 +1,40 @@
+.universal-wrapper--transparent {
+	background-color: rgba(255,255,255,0.7);
+	position: absolute;
+	z-index: 300;
+}
+
+.universal-wrapper--transparent .universal-wrapper--inner {
+	padding: 0;
+}
+
+.universal-wrapper--transparent .universal-wrapper--inner .col--right li {
+	margin-top: 0;
+}
+
+.map--wide {
+	width: 100%;
+	min-height: 350px;
+	height: 80vh;
+}
+
+
+.universal__cell.property.map__property {
+	width: 230px;
+}
+
+.universal__cell.property.map__property a:hover{
+	text-decoration: none;
+}
+
+.property__description--extra {
+	padding-top: 5px;
+}
+
+.universal__cell.property.map__property .property__description--extra a:hover {
+	text-decoration: underline;
+}
+
+.property__description--extra p {
+	font-size: 14px;
+}
