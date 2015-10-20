@@ -17,7 +17,7 @@
 	position: relative;
 	padding: 0;
 }
-.block-wrapper--light-grey {
+.universal-wrapper > .block-wrapper--light-grey {
 	
 	border-bottom-colors: none;
 	border-left-colors: none;
@@ -72,16 +72,22 @@
 
 
 .universal_line-wrapper.five__cols .universal__cell.compare > .property__image i {
+	background-color: rgba(0, 0, 0, 0.2);
+	border-radius: 3px;
+	color: #fff;
 	font-size: 17px;
-	color: rgba(230, 0, 0, 0.8);
+	padding: 1px 3px;
 }
 
+.universal_line-wrapper.five__cols .universal__cell.compare > .property__image i:hover {
+	background-color: rgba(0, 0, 0, 0.4);
+}
 .universal_line-wrapper.five__cols .universal__cell.compare > .property__image i:hover::after {
 	content: 'Remove this property';
 	background-color: rgba(230, 0, 0, 0.8);
 	color: #fff;
 	font-size: 12px;
-	top: 17px;
+	top: 18px;
 }
 .universal_line-wrapper.five__cols .universal__cell.compare > a.universal-button {
 	padding: 20px 3px;
@@ -101,8 +107,11 @@
 	top: -1px;
 	vertical-align: top;
 }
+.compare__navigation a {
+	color: #707070;
+}
 
-.compare__navigation i:last-child {
+.compare__navigation a:last-child > i {
 	top: -0.5px;
 	margin-left: 5px;
 	border: 2px solid #707070;
@@ -116,7 +125,12 @@
 	cursor: pointer;
 }
 
-.compare__navigation i:last-child:hover::after {
+.compare__navigation a:hover {
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.compare__navigation a:last-child i:hover::after {
 	content: 'Close compare';
 	background-color: rgba(230, 0, 0, 0.8);
 	
@@ -210,8 +224,10 @@
 	padding: 3px 10px;
 	text-align: center;
 	background-color: #0c82ba;
+	float: right;
 }
 .block-wrapper--light-grey.block-wrapper--small > a {
 	color: #fff;
-	
+	font-family: "Roboto",sans-serif;
+	font-weight: 300;
 }

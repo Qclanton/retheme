@@ -67,7 +67,7 @@ h2.title--underlined strong {
 /*Mortgage Calculator - main page*/
 
 .mortgage__calc.mortgage__calc-main {
-	margin: 0 auto;
+	margin: 0 auto 30px;
     max-width: 400px;
 }
 .mortgage__calc.mortgage__calc-main > h2 {
@@ -77,6 +77,7 @@ h2.title--underlined strong {
 .side__blocks {
 	border: 1px solid #d5d9dd;
 	border-radius: 3px;
+	margin-bottom: 30px;
 }
 
 .side__blocks h4.title--colored {

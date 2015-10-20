@@ -102,6 +102,8 @@ article ul {
 }
 
 
+
+
 .property__image img {
 	display: block;
 	width: 100%;
@@ -214,6 +216,22 @@ article ul {
 	background-color: rgba(0, 151, 214, 0.8);
 }
 
+.label__icon--small.label__icon--right {
+	background-color: #0092cc;
+	color: #fff;
+	border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.label__icon--small.label__icon--right {
+	border-radius: 0 3px;
+}
+.label__icon--right {
+	right: 0;
+}
+.label__icon--small.label__icon--right:hover {
+	cursor: pointer;
+	transition: all 0.7s ease 0s;
+}
 
 /*Breadcrumbs*/
 
