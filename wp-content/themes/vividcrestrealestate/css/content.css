@@ -11,7 +11,8 @@
 
 
 .universal-wrapper.block-wrapper--light-grey {
-	border-bottom: 1px solid #d5d9dd;
+
+	border: none;
 	padding: 0;
 }
 .block-wrapper--light-grey {

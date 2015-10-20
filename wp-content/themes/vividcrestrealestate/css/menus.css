@@ -29,6 +29,49 @@
 
 .header-menu ul > li > a:hover,
 .header-menu ul > li > a:active,
-.header-menu ul > li > a.active {
+.header-menu ul > li.menu-item--current > a  {
 	color: #0092cc;
+}
+
+.header-menu ul  > li > ul {
+	display: none;
+}
+
+.header-menu ul > li:hover > ul {
+	display: block;
+	position: absolute;
+	background-color: #fff;
+	min-width: 225px;
+	max-width: 230px;
+	text-align: left;
+	box-sizing: border-box;
+	border-top: 2px solid #0092cc; 
+}
+
+.header-menu ul > li > ul > li {
+	list-style: none;
+	border-bottom: 1px solid #0092cc; 
+	padding: 3px 15px;
+	display: block;
+}
+
+.header-menu ul  > li > ul > li > a {
+	color: #000;
+	text-transform: none;
+	padding: 0;
+	font-size: 16px;
+}
+
+.header-menu ul > li > ul > li > a {
+	font-weight: 400;
+	text-transform: none;
+
+}
+
+.header-menu ul > li > ul > li:hover {
+	background-color: #0092cc; 
+}
+
+.header-menu ul > li > ul > li:hover > a {
+	color: #fff;
 }
