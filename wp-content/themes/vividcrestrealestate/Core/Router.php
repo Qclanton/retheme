@@ -34,7 +34,7 @@ class Router
     public static function loadData($part)
     {          
         // Load structures
-        if (in_array($part, ["map", "properties", "property"])) {
+        if (in_array($part, ["map", "compare", "properties", "property"])) {
             $Properties = new Structures\Properties();
         }
         
@@ -50,7 +50,39 @@ class Router
                 $criterion = self::makeCriterion($search);            
                 $data->properties = $Properties->get($criterion);
                 break;            
-              
+            
+            case "compare":
+                $comparsions = [];
+                $properties = [];
+                
+               
+                if (!empty($_COOKIE['comparsions'])) {
+                    $decoded = json_decode(stripcslashes($_COOKIE['comparsions']));                    
+                    
+                    if (!json_last_error()) {
+                       $comparsions = $decoded;
+                    }  
+                }                
+                
+                foreach ($comparsions as $comparsion) {
+                    $properties[] = $Properties->getDetailed((int)$comparsion->id);
+                }
+                
+                // TODO: move to admin panel
+                $data->compare_fields = [
+                    'publish_date' => "Publish Date",
+                    'bedrooms' => "Bedrooms",
+                    'bathrooms' => "Bathrooms",
+                    'size' => "Square Feet",
+                    'Extras' => "Extras",
+                    'Gar_type' => "Garage Type",
+                    'Gar_spaces' => "Garage Spaces",
+                    'Bsmt1_out' => "Basement",
+                ];
+                
+                $data->properties = $properties;
+                break;
+                
             case "property":
                 global $wp_query;
                 $property_id = $wp_query->query_vars['property_id'];

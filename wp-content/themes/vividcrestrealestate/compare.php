@@ -1,16 +1,9 @@
- 
 <section class="universal-wrapper breadcrumbs-block-wrapper">
 	<div class="universal-wrapper--inner">
-		<ul>
-			<li>
-				<a href="">Home</a>
-			</li>
-			<li>
-				Compare
-			</li>
-		</ul>			
+        <?= \Vividcrestrealestate\Core\Template::renderBreadcrumbs(); ?>			
 	</div>
 </section>
+
 
 
 <section class="universal-wrapper content-block-wrapper compare-block">
@@ -20,178 +13,54 @@
 		</div>
 		
 		<div class="unversal__row-wrapper">
-			<div class="universal_line-wrapper five__cols">
-				<div class="universal__cell compare-page">
-
-				</div>
-				<div class="universal__cell compare-page">
-					<a href="http://retheme.qcldev.ru/properties/15">
-						<img src="http://retheme.qcldev.ru/wp-content/themes/vividcrestrealestate/images/property.jpg ">
-					</a>				
-				</div>
-				<div class="universal__cell compare-page">
-					<a href="http://retheme.qcldev.ru/properties/15">
-						<img src="http://retheme.qcldev.ru/wp-content/themes/vividcrestrealestate/images/property.jpg ">
-					</a>				
-				</div>
-				<div class="universal__cell compare-page">
-					<a href="http://retheme.qcldev.ru/properties/15">
-						<img src="http://retheme.qcldev.ru/wp-content/themes/vividcrestrealestate/images/property.jpg ">
-					</a>				
-				</div>
-				<div class="universal__cell compare-page">
-					<a href="http://retheme.qcldev.ru/properties/15">
-						<img src="http://retheme.qcldev.ru/wp-content/themes/vividcrestrealestate/images/property.jpg ">
-					</a>
-				</div>		
-				<div class="universal__cell compare-page">
-					<a href="http://retheme.qcldev.ru/properties/15">
-						<img src="http://retheme.qcldev.ru/wp-content/themes/vividcrestrealestate/images/property.jpg ">
-					</a>
-				</div>		
-			</div>
-			<div class="universal_line-wrapper five__cols main__row">
-				<div class="universal__cell compare-page">
-					<span>
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<p class="property__price"> $2650.0000 </p>
-					<p class="property__description-location">
-						<strong>7057 Gooderham Estates Blvd, Mississauga, ON L5W 1G1, Canada</strong>
-					</p>
-				</div>
-				<div class="universal__cell compare-page">
-					<p class="property__price"> $2650.0000 </p>
-					<p class="property__description-location">
-						<strong>7057 Gooderham Estates Blvd, Mississauga, ON L5W 1G1, Canada</strong>
-					</p>
-				</div>
-				<div class="universal__cell compare-page">
-					<p class="property__price"> $2650.0000 </p>
-					<p class="property__description-location">
-						<strong>7057 Gooderham Estates Blvd, Mississauga, ON L5W 1G1, Canada</strong>
-					</p>
-				</div>
-				<div class="universal__cell compare-page">
-					<p class="property__price"> $2650.0000 </p>
-					<p class="property__description-location">
-						<strong>7057 Gooderham Estates Blvd, Mississauga, ON L5W 1G1, Canada</strong>
-					</p>
-				</div>
-				<div class="universal__cell compare-page">
-					<p class="property__price"> $2650.0000 </p>
-					<p class="property__description-location">
-						<strong>7057 Gooderham Estates Blvd, Mississauga, ON L5W 1G1, Canada</strong>
-					</p>
-				</div>
-			</div>
-			
-			<div class="universal_line-wrapper five__cols">
-				<div class="universal__cell compare-page">
-					<span>
-						<strong>
-							Test title
-						</strong>
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-			</div>
-
-			<div class="universal_line-wrapper five__cols">
-				<div class="universal__cell compare-page">
-					<span>
-						<strong>
-							Test title
-						</strong>
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-			</div>
-			<div class="universal_line-wrapper five__cols">
-				<div class="universal__cell compare-page">
-					<span>
-						<strong>
-							Test title
-						</strong>
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-				<div class="universal__cell compare-page">
-					<span>
-						505
-					</span>
-				</div>
-			</div>
-		</div>
-		
-		
-	</div>
+            <div class="universal_line-wrapper five__cols">
+                <div class="universal__cell compare-page"></div>
+                
+                <?php foreach ($properties as $property) { ?>
+                    <div class="universal__cell compare-page">
+                        <a href="/properties/<?=$property->id ?>">
+                            <img src="<?=$property->main_image ?>"/>
+                        </a>				
+                    </div>
+                <?php } ?>
+            </div>
+            
+            <div class="universal_line-wrapper five__cols main__row">
+                <div class="universal__cell compare-page"><span></span></div>
+                
+                <?php foreach ($properties as $property) { ?>
+                    <div class="universal__cell compare-page">
+                        <p class="property__price"> $<?=$property->price ?> </p>
+                        <p class="property__description-location">
+                            <strong><?=$property->address ?></strong>
+                        </p>
+                    </div>
+                <?php } ?>
+            </div>		
+    
+        
+        <?php foreach ($compare_fields as $field=>$title) { ?>
+            <div class="universal_line-wrapper five__cols">
+                    <div class="universal__cell compare-page">
+                        <span>
+                            <strong>
+                                <?=$title ?>
+                            </strong>
+                        </span>
+                    </div> 
+                
+                <?php foreach ($properties as $property) { ?>
+                    <?php $value = (isset($property->{$field}) ? $property->{$field} : (isset($property->additional->{$field}) ? $property->additional->{$field}->value : "")); ?>
+                    
+                    <div class="universal__cell compare-page">
+                        <span>
+                            <?=$value ?>
+                        </span>
+                    </div>
+                <?php } ?>
+            </div>
+        <?php } ?>
+                        	
+        </div>
+    </div>
 </section>

@@ -5,68 +5,113 @@
 	$.cookie.json = true;
     
     
+    // Set cookie settings
+    var cookieSettings = {
+        path: '/',
+        expires: 31
+    }
+    
 	// Get comparsions and set functions for manage
 	var comparsions = {
 		list: $.cookie('comparsions') || [],
 		
+        isCollapsed: $.cookie('comparsionBlockCollapsed') || false,
+        
 		removeBlock: function() {
 			$('section#compare-block').remove();
 		},
 		
+        renderCollapsed: function() {
+            var html = '';
+            
+            html += '<section id="compare-block" class="universal-wrapper compare-block-wrapper">'
+            html += '   <div class="block-wrapper--light-grey block-wrapper--small">';
+            html += '       <a class="expand-compare" href="#">Expand Compare</a>';
+            html += '   </div>';
+            html += '</section>';
+            
+            $('section.content-block-wrapper').after(html);
+        },
+        
+        collapse: function() {
+            this.isCollapsed = true;
+            $.cookie('comparsionBlockCollapsed', true, cookieSettings);
+            
+            this.renderBlock();
+        },
+        
+        expand: function() {
+            this.isCollapsed = false;
+            $.cookie('comparsionBlockCollapsed', false, cookieSettings);
+            
+            this.renderBlock();
+        },
+        
 		renderBlock: function() {
-			var html = '';
-			this.removeBlock();
+            this.removeBlock();
+			var html = '';			
+            
+    
+    
+            if (this.isCollapsed) {
+                console.log(this.isCollapsed);
+                this.renderCollapsed();
+                return;
+            }
+
+            
+            if (this.list.length == 0) {
+                return;
+            }
 			
-			if (this.list.length > 0) {
-				
-							
-				// Draw html
-				html += '<section id="compare-block" class="universal-wrapper compare-block-wrapper">';
-				html += '   <div class="universal-wrapper--inner block-wrapper--light-grey">';
-                html += '       <div class="compare__navigation">';
-                html += '           <a href="#" class="collapse-compare">';	
-                html += '               <i class="fa fa-minus-square-o"></i>';
-                html += '           </a>';	
-                html += '           <a href="#" class="close-compare">';
-                html += '               <i class="fa fa-times"></i>'
-                html += '           </a>';	
-                html += '   </div>';
-                html += '   <div class="compare__title">';	
-                html += '       <h1>Compare Up to 5 properties</h1>';	
-                html += '   </div>';
-                html += '   <div class="universal_line-wrapper five__cols">';	
-				
-				for (var i=0; i<5; i++) {
-					var property = this.list[i] || {id: null, link: '#', image: '#'};
-                    
-                    html += '   <div class="universal__cell compare">';
-                    html += '       <div class="property__image">';
-                    
-                    if (property.id !== null) {
-                        html += '       <a data-property-id="' + property.id + '" class="uncompare-link-block" href="#">';
-                        html += '           <i class="fa fa-times"></i>';
-                        html += '       </a>';
-                        html += '       <a class="property-link" href="' + property.link + '">';
-                        html += '           <img src="' + property.image + '"/>';
-                        html += '       </a>';
-                        
-                    }
-                    
-                    html += '       </div>';
-                    html += '   </div>';
-					
-				}
+	
+    
+            // Draw html
+            html += '<section id="compare-block" class="universal-wrapper compare-block-wrapper">';
+            html += '   <div class="universal-wrapper--inner block-wrapper--light-grey">';
+            html += '       <div class="compare__navigation">';
+            html += '           <a href="#" class="collapse-compare">';	
+            html += '               <i class="fa fa-minus-square-o"></i>';
+            html += '           </a>';	
+            html += '           <a href="#" class="close-compare">';
+            html += '               <i class="fa fa-times"></i>'
+            html += '           </a>';	
+            html += '   </div>';
+            html += '   <div class="compare__title">';	
+            html += '       <h1>Compare Up to 5 properties</h1>';	
+            html += '   </div>';
+            html += '   <div class="universal_line-wrapper five__cols">';	
+            
+            for (var i=0; i<5; i++) {
+                var property = this.list[i] || {id: null, link: '#', image: '#'};
                 
-                html += '       <div class="universal__cell compare">';	
-                html += '           <a class="universal-button to-detailed-compare" href="/compare">';	
-                html += '               Detailed Compare';
-                html += '           </a>';
+                html += '   <div class="universal__cell compare">';
+                html += '       <div class="property__image">';
+                
+                if (property.id !== null) {
+                    html += '       <a data-property-id="' + property.id + '" class="uncompare-link-block" href="#">';
+                    html += '           <i class="fa fa-times"></i>';
+                    html += '       </a>';
+                    html += '       <a class="property-link" href="' + property.link + '">';
+                    html += '           <img src="' + property.image + '"/>';
+                    html += '       </a>';
+                    
+                }
+                
                 html += '       </div>';
                 html += '   </div>';
-                html += '</section>';
-				
-                $('section.content-block-wrapper').after(html);
-			}
+                
+            }
+            
+            html += '       <div class="universal__cell compare">';	
+            html += '           <a class="universal-button to-detailed-compare" href="/compare">';	
+            html += '               Detailed Compare';
+            html += '           </a>';
+            html += '       </div>';
+            html += '   </div>';
+            html += '</section>';
+            
+            $('section.content-block-wrapper').after(html);
 		},
 		
 		find: function(property) {
@@ -87,7 +132,7 @@
 		
 		add: function(property) {
 			this.list.push(property);	
-			$.cookie('comparsions', this.list);
+			$.cookie('comparsions', this.list, cookieSettings);
 			this.renderBlock();
 		},
 		
@@ -99,14 +144,14 @@
 			
 			if (existedPropertyIndex > -1) {
 				this.list.splice(existedPropertyIndex, 1);
-				$.cookie('comparsions', this.list);
+				$.cookie('comparsions', this.list, cookieSettings);
 				this.renderBlock();
 			}
 		},
 		
 		clear: function() {		
 			this.list = [];
-			$.cookie('comparsions', this.list);			
+			$.cookie('comparsions', this.list, cookieSettings);			
 			this.removeBlock();
 		}
 	};
@@ -138,13 +183,20 @@
 		this.on('mouseenter', function() {
 			var property = extractProperty($(this));
             var compareElementWrapper = $(this).find('.property__image');
-
-			if (comparsions.has(property)) {
-				compareElementWrapper.prepend('<a title="Uncompare!" class="uncompare-link" href="#"><i class="fa fa-times"></i> Uncompare</a>');
-			} else if (comparsions.list.length < 5) {
-                compareElementWrapper.prepend('<a title="Compare" class="compare-link" href="#"><i class="fa fa-check"></i> Compare</a>');
+            
+            var hasProperty = comparsions.has(property);
+            var title = (hasProperty ? "Uncompare" : "Compare");
+            var mainClass = (hasProperty ? "uncompare-link" : "compare-link");
+            
+            var html = ''
+            html += '<a title="' + title + '" class="' + mainClass + ' label__icon--small label__icon--right">';
+            html +=     title;
+            html += '</a>';
+            
+            if (comparsions.list.length < 5 || hasProperty) {
+                compareElementWrapper.prepend(html);
             }
-		});		
+        });		
 		
 		this.on('mouseleave', function() { 
 			$(this).find('a.compare-link').remove();
@@ -162,7 +214,7 @@
 			$(this)
 				.removeClass('compare-link')
 				.addClass('uncompare-link')
-				.html('<i class="fa fa-times"></i> Uncompare')
+				.html('Uncompare')
 			;			
 		});
 		
@@ -175,7 +227,7 @@
 			$(this)				
 				.removeClass('uncompare-link')
 				.addClass('compare-link')
-				.html('<i class="fa fa-check"></i> Compare')
+				.html('Compare')
 			;
 		});
 	}
@@ -194,10 +246,16 @@
 		comparsions.clear();
 	});
   
-    // Add handler for "close" compare links
+    // Add handler for "collapse" compare links
 	$('body').on('click', 'a.collapse-compare', function(ev) { 
-		ev.preventDefault();	
+		ev.preventDefault();
 		comparsions.collapse();
+	});
+    
+    // Add handler for "expand" compare links
+    $('body').on('click', 'a.expand-compare', function(ev) { 
+		ev.preventDefault();
+        comparsions.expand();
 	});
 
 
