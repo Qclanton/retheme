@@ -67,7 +67,7 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
         }   
                 
 
-        $fecthed = $Rets->fetchProperties($class, $start, $end);
+        $fetched = $Rets->fetchProperties($class, $start, $end);
         
         self::$positive_messages[] = "Saved {$fetched} properties";
     }
