@@ -42,14 +42,7 @@ class Template
             
             // For category
             if (is_category()) {
-                $category = get_category_by_slug($wp_query->query['category_name']);
-                $parent_categories = get_parent_categories($category);
-                
-                if (!empty($parent_categories)) {
-                    $parent_category = $parent_categories[0];
-                    $crumbs[] = (object)['title'=>$parent_category->name, 'link'=>home_url("/") . $parent_category->slug];
-                }
-                
+                $category = get_category_by_slug($wp_query->query['category_name']);                
                 $crumbs[] = (object)['title'=>$category->name];
              
             
@@ -72,14 +65,7 @@ class Template
                 
                 if (!empty($post_categories)) {
                     $post_main_category = get_category($post_categories[0]);
-                    $parent_categories = get_parent_categories($post_main_category);
-
-                    if (!empty($parent_categories)) {
-                        $parent_category = $parent_categories[0];
-                        $crumbs[] = (object)['title'=>$parent_category->name, 'link'=>home_url("/") . $parent_category->slug];
-                    }
-
-                    $crumbs[] = (object)['title'=>$post_main_category->name, 'link'=>home_url("/") . $post_main_category->slug];
+                    $crumbs[] = (object)['title'=>$post_main_category->name];
                 }
                 
                 if (!empty($parent_post_id)) {

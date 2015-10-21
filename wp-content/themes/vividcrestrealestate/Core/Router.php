@@ -6,7 +6,6 @@ class Router
     public static function definePart()
     {
         global $wp_query;
-        $template_part = "main";
         
         switch ($wp_query->query_vars['pagename']) {
             case "properties":
@@ -26,6 +25,10 @@ class Router
                 
             case "map":
                 $template_part = "map";
+                break;
+                
+            default: 
+                $template_part = (is_front_page() ? "main" : "content");
         }
         
         return $template_part;
@@ -87,6 +90,11 @@ class Router
                 global $wp_query;
                 $property_id = $wp_query->query_vars['property_id'];
                 $data->property = $Properties->getDetailed($property_id);
+                break;
+            
+            case "content":
+                global $wp_query;
+                $data->post = get_post($wp_query->queried_object_id);
                 break;
                 
             case "rets":
