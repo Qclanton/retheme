@@ -10,6 +10,7 @@
         zoom: 10,
         panControl: true,
         zoomControl: true,
+        scrollwheel: false,
         zoomControlOptions: {
             style: google.maps.ZoomControlStyle.SMALL
         }
