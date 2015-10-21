@@ -9,7 +9,8 @@
 		padding-right: 5px !important;
     }
 	
-	.universal_line-wrapper.four__cols {
+	.universal_line-wrapper.four__cols,
+	.universal_line-wrapper.three__cols {
 		text-align: center !important;
 	}
 	
@@ -22,6 +23,9 @@
 	}
 	.universal__cell.property:nth-child(4n) {
 		margin-right: 10px !important;
+	}
+	.testimonial__description {
+		width: 83% !important;
 	}
 }
 @media all and (max-width: 1024px) {
@@ -140,6 +144,30 @@
 		display: block !important;
 		margin: 0 auto;
 		width: 100% !important;
+		text-align: center !important;
+	}
+	
+	.testimonials-wrapper {
+		width: 80%;
+		display: block;
+		margin: 0 auto;
+	}
+	
+	
+	.testimonial__description {
+		width: 100% !important;
+	}
+	.testimonial__image {
+		margin: 0 auto !important;
+		float: none !important;
+	}
+	
+	.testimonial__description h4{
+		text-align: left;
+		text-align: center !important;
+	}
+
+	.testimonial__description p {
 		text-align: center !important;
 	}
 }

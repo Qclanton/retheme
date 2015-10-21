@@ -385,6 +385,42 @@ article ul {
 	color: #707070;
 }
 
+/*Testimonials*/
+
+.testimonial-wrapper {
+	clear: both;
+	border-bottom: 1px dashed rgba(0, 151, 214, 0.8);
+	padding: 10px 0;
+}
+
+.testimonial__image {
+	background-position: center center;
+	border-radius: 50%;
+	display: block;
+	height: 100px;
+	width: 45%;
+	max-width: 100px;
+	float: left;
+	margin-right: 20px;
+}
+
+.testimonial__description {
+	display: inline-block;
+	text-align: left;
+	width: 86%;
+	vertical-align: top;
+}
+.testimonial__description h4{
+	text-align: left;
+}
+
+.testimonial__description p {
+}
+
+.testimonials-wrapper {
+	clear: both;
+	margin-bottom: 30px;
+}
 
 /*Colored lines*/
 
