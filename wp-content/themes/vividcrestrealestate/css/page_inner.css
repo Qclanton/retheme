@@ -14,3 +14,16 @@ article a {
 	color: #3366bb;
 	text-decoration: underline;
 }
+
+
+.content-block--inner article h4 {
+	color: #0c82ba;
+	padding: 15px 0 0;
+}
+
+.content-block--inner article .title__border-bottom {
+	margin-bottom: 0;
+}
+.content-block--inner article table {
+	width: 100%;
+}

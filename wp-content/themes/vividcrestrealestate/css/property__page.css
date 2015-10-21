@@ -9,6 +9,7 @@
 	font-weight: 300;
 	padding: 15px 0;
 	margin: 20px 0;
+	clear: both;
 }
 
 
@@ -184,6 +185,9 @@ p.property__placed {
 	margin-top: 10px;
 }
 
+.agent__contact-form > a.button--small.grey {
+	float: left;
+}
 
 
 /*Similar Listings*/

@@ -5,6 +5,7 @@
     display: inline-block;
     list-style: outside none none;
     margin: 0;
+	position: relative;
 }
 
 .header-menu ul > li:first-child > a {
@@ -74,4 +75,17 @@
 
 .header-menu ul > li > ul > li:hover > a {
 	color: #fff;
+}
+
+.header-menu ul > li > ul > li.menu-item-has-children > a:after {
+content: '»';
+padding-left: 10px;
+position: absolute;
+right: 5px;
+}
+
+.header-menu ul > li > ul > li > ul.sub-menu {
+	left: 100%;
+	position: absolute;
+	top: 0;
 }
