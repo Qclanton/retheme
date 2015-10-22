@@ -6,6 +6,4 @@
         .css('width', '300px')
         .tokenize({displayDropdownOnFocus:true})
     ;
-    
-    console.log($('.search_form select[name="search_property[types][]"]'));
 }) })(jQuery)
