@@ -1,9 +1,9 @@
 (function($) { $(function() { 
     'use strict';
     
-    $('.mortgage__calc input, .mortgage__calc select').on('change', function() {
+    function calculate() {
         // Collect variables from form
-        var calculator = $(this).parents('.mortgage__calc');
+        var calculator = $('.mortgage__calc');
         var mortgageSum = Number(calculator.find('input[name="mortage_sum"]').val());        
         var yearRate = Number(calculator.find('select[name="rate"]').val())
         var period = Number(calculator.find('select[name="amortization_period"]').val());
@@ -12,6 +12,7 @@
         
         // Check params
         if (mortgageSum == 0) {
+            calculator.find('h2').hide();
             return false;
         }
         
@@ -41,6 +42,19 @@
         }
         
         // Show result
-        calculator.find('h2 strong').html(' $' + sum.toFixed(2) + ' / ' + frequencyTitle + ' ');        
+        calculator.find('h2 strong').html(' $' + sum.toFixed(2) + ' / ' + frequencyTitle + ' ');
+        calculator.find('h2').show();        
+    }
+    
+    
+    
+    // Calculate immidiately
+    calculate();
+    
+    
+    
+    // Recalculate after changes
+    $('.mortgage__calc input, .mortgage__calc select').on('change', function() {
+        calculate();
     });
 }) })(jQuery)

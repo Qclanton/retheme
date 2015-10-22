@@ -126,26 +126,23 @@
 				<div class="mortgage__calc-line clearfix">
 					<div class="mortgage__calc-cell">
 						<span>Mortgage Amount</span>
-						<input type="number" placeholder="Mortgage Amount" value=" " name="mortage_sum" >
+						<input type="number" placeholder="Mortgage Amount" value="<?= ceil($property->price) ?>" name="mortage_sum" >
 					</div>
 					<div class="mortgage__calc-cell">
 						<span>Interest Rate</span>
 						<select name="rate">
-							<option value="2.7900"> 2.79% in 1 years </option>
-							<option value="2.3400"> 2.34% in 2 years </option>
-							<option value="2.4000"> 2.40% in 3 years </option>
-							<option value="2.1000" selected="selected"> 2.10% in 5 years </option>
+                                <option value="2.7900"> 2.79% in 1 years </option>
+                                <option value="2.3400"> 2.34% in 2 years </option>
+                                <option value="2.4000"> 2.40% in 3 years </option>
+                                <option value="2.1000" selected="selected"> 2.10% in 5 years </option>
 						</select>
 					</div>
 					<div class="mortgage__calc-cell">
 						<span>Amortization Period</span>
 						<select name="amortization_period">
-							<option value="1"> 1 year </option>
-							<option value="2"> 2 years </option>
-							<option value="3"> 3 years </option>
-							<option value="4"> 4 years </option>
-							<option value="5"> 5 years </option>
-							<option value="6"> 6 years </option>
+                            <?php for ($i=1; $i<=25; $i++) { ?>
+                                <option value="1"> <?=$i ?> year<?=$i !=1 ? "s" : ""?> </option>
+                            <?php } ?>
 						</select>
 					</div>
 					<div class="mortgage__calc-cell">
