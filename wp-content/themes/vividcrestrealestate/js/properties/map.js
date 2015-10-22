@@ -2,8 +2,26 @@
     'use strict';
     
     
+    // Set default center point
+    var centerPoint = {
+        latitude: 43.666667,
+        longitude: -79.416667
+    };
+    
+    
+    // Set center from the first property
+    if (typeof Vividcrest.properties != undefined && Vividcrest.properties.length > 0) {
+        var firstProperty = Vividcrest.properties[0];
+        
+        centerPoint = {
+            latitude: firstProperty.latitude,
+            longitude: firstProperty.longitude,
+        };
+    }
+    
+    
     // Init map
-    var centerMap = new google.maps.LatLng(43.666667, -79.416667); // Toronto hardcoded
+    var centerMap = new google.maps.LatLng(centerPoint.latitude, centerPoint.longitude);
     
     var propertiesMap = new google.maps.Map(document.getElementById('map'), {
         center: centerMap,
@@ -44,7 +62,7 @@
                     openedInfowindow.close();
                 }
 
-                 // Define additional variables
+                // Define additional variables
 				property.excerpt = property.description.substring(0, 100) + "...";
                 property.formattedPrice = Math.ceil(property.price).toString().split(/(?=(?:\d{3})+$)/).join(',');
 				

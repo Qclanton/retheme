@@ -20,7 +20,7 @@ class Address
         
         
         // Send request to api
-        $api_url = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+        $api_url = "https://maps.googleapis.com/maps/api/geocode/json?key=AIzaSyCVqfx4JMQmo90Oj8aM22ob-UUr6WqS6sk&signed_in=true&address=";
         $context = stream_context_create(['http'=>['timeout'=>5]]);         
         $api_data = json_decode(@file_get_contents($api_url . urlencode($addrress_string), false, $context)); 
         
@@ -77,5 +77,64 @@ class Address
         
         // Return collected information
         return $info;
+    }
+    
+    public static function defineIp()
+    {
+        $ip = $_SERVER['REMOTE_ADDR'];
+        
+        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
+            $ip = $_SERVER['HTTP_CLIENT_IP'];
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+            $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }
+
+
+        return $ip;  
+    }
+    
+    public static function recognizeCoordinates($ip=null)
+    {
+        // Define Ip
+        $ip = (!empty($ip) ? $ip : self::defineIp());
+        
+        
+        
+        // Set default data
+        $default_info = (object)[
+            'city' => "Toronto",
+            'latitude' => 43.666667, 
+            'longitude' => -79.416667 
+        ];
+        
+        
+        
+        // Send request to api
+        $api_url = "http://ip-api.com/json/";
+        $context = stream_context_create(['http'=>['timeout'=>5]]);         
+        $api_data = json_decode(@file_get_contents($api_url . $ip, false, $context)); 
+        
+        
+        
+        // Return default data if request failed
+        if (
+            json_last_error() ||
+            !isset($api_data->status) || 
+            $api_data->status !== "success" || 
+            !isset($api_data->city) ||
+            !isset($api_data->lat) ||
+            !isset($api_data->lon)      
+        ) {                
+            return $default_info;
+        }
+        
+        
+        
+        // Return info
+        return (object)[
+            'city' => $api_data->city,
+            'latitude' => $api_data->lat, 
+            'longitude' => $api_data->lon 
+        ];
     }
 }

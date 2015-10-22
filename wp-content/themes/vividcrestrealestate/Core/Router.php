@@ -48,16 +48,28 @@ class Router
     }
         
     public static function loadData($part)
-    {          
+    {    
+        // Define coordinates by ip
+        $coordinates = Libs\Address::recognizeCoordinates();
+              
         // Load structures
         if (in_array($part, ["map", "compare", "properties", "property"])) {
             $Properties = new Structures\Properties();
         }
         
         // Handle search form
-        $search = (isset($_POST['search_property']) ? (object)$_POST['search_property'] : null);
-        $data = (object)['search'=>$search];
-             
+        $search = (isset($_POST['search_property']) ? (object)$_POST['search_property'] : new \stdClass);
+        
+        if (empty($search->address)) {
+            $search->address = $coordinates->city;
+        }
+        
+        // Set default data
+        $data = (object)[
+            'search' => $search
+        ];             
+        
+        
         
         // Extract necessary data
         switch ($part) {
@@ -202,7 +214,7 @@ class Router
         }
         
         
-
+        
         $criterion['confines'] = $confines;
         $criterion['limit'] = 320;
 

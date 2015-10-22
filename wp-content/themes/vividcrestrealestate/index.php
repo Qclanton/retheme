@@ -37,7 +37,7 @@ $data = \Vividcrestrealestate\Core\Router::loadData($part);
 	<meta name="HandheldFriendly" content="true"/>
     
     <script>
-        var Vividcrest = {
+        var Vividcrest = {            
             properties: <?= (isset($data->properties) ? "JSON.parse('" . stripcslashes(json_encode($data->properties, JSON_HEX_APOS | JSON_HEX_QUOT)) . "')" : "null") ?>,
             property: <?= (isset($data->property) ? "JSON.parse('" . stripcslashes(json_encode($data->property, JSON_HEX_APOS | JSON_HEX_QUOT)) . "')" : "null") ?>
         };
