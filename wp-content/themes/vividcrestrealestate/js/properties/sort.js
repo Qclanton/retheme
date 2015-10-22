@@ -12,7 +12,8 @@
             // Property params
             property.link = '/properties/' + property.id;
             property.size = (property.size != 0 ? property.size : 'N/A');
-            property.excerpt = property.description.substring(0, 100) + "...";            
+            property.excerpt = property.description.substring(0, 100) + "...";
+            property.formattedPrice = Math.ceil(property.price).toString().split(/(?=(?:\d{3})+$)/).join(',');      
             
             // New property block
             properties_html += '<div data-page="' + page + '" ' + hidden + ' class="universal__cell property">';
@@ -28,7 +29,7 @@
             properties_html += '   </div>';
             properties_html += '   <div class="property__info-line">';
             properties_html += '       <a href="' + property.link + '">';
-            properties_html += '           <p class="property__price">' + Math.ceil(property.price) + '</p>';
+            properties_html += '           <p class="property__price">$' + property.formattedPrice + '</p>';
             properties_html += '       </a>';
             properties_html += '   </div>';
             properties_html += '   <div class="property__description">';

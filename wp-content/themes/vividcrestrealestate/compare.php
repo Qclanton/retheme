@@ -30,7 +30,7 @@
                 
                 <?php foreach ($properties as $property) { ?>
                     <div class="universal__cell compare-page">
-                        <p class="property__price"> $<?=$property->price ?> </p>
+                        <p class="property__price">$<?=number_format(ceil($property->price)) ?> </p>
                         <p class="property__description-location">
                             <strong><?=$property->address ?></strong>
                         </p>

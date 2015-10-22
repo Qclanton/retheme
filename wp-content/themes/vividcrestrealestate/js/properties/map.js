@@ -46,6 +46,7 @@
 
                  // Define additional variables
 				property.excerpt = property.description.substring(0, 100) + "...";
+                property.formattedPrice = Math.ceil(property.price).toString().split(/(?=(?:\d{3})+$)/).join(',');
 				
                 // Draw infowindow
 				var html = '';
@@ -59,7 +60,7 @@
 				html += '   </div>';
 				html += '   <div class="property__info-line">';
 				html += '       <a href="/properties/' + property.id + '">';
-				html += '           <p class="property__price">' + property.price + '</p>';
+				html += '           <p class="property__price">$' + property.formattedPrice + '</p>';
 				html += '       </a>';
 				html += '   </div>';
 				html += '   <div class="property__description">';

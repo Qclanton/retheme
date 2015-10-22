@@ -98,7 +98,7 @@
 					<div class="property__info-line">
 						<a href="<?= site_url(); ?>/properties/<?=$property->id ?>">
 							<p class="property__price">
-								<?= ceil($property->price) ?>
+								$<?= number_format(ceil($property->price)) ?>
 							</p>
 						</a>		
 					</div>
