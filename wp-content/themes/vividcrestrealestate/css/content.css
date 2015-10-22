@@ -70,6 +70,11 @@ article ul {
 	border-radius: 3px 3px 0 0;
 	height: 180px;
 	position: relative;
+	background-color: #d5d9dd;
+	background-image: url('../images/suburbun_no_photo.png');
+	background-size: 70% 70%;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
 .property__image i {

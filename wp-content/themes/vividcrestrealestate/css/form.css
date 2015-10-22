@@ -81,7 +81,7 @@ input[type=number]::-webkit-outer-spin-button {
 	border: 1px solid #b3b3b3;
 	color: #707070;
 	display: inline-block;
-	padding: 10px;
+	padding: 7px;
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
@@ -201,6 +201,7 @@ input[type=number]::-webkit-outer-spin-button {
 	vertical-align: top;
 	font-size: 14px;
 	padding: 7px;
+	height: 35px;
 }
 
 .universal__row-wrapper {
@@ -220,6 +221,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .universal__row-wrapper .search__col.search_col--wide {
 	width: 45%;
+	vertical-align: top;
 }
 .universal__row-wrapper .search__col .universal_line-wrapper .universal-button {
 	padding: 9.3px;	

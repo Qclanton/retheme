@@ -10,6 +10,7 @@
 			
 			
 			<div class="property__visual-wrapper">
+<!--
 				<ul class="tabs">
 					<li id="tab1" class="current">
 						Photos
@@ -18,6 +19,7 @@
 					</li>
 					<li>Street View</li>
 				</ul>
+-->
 				<div class="box visible">		
 					<img src="<?=$property->main_image ?> " />
 				</div>
@@ -29,7 +31,7 @@
 				</div>
 				
 				<div class="property__visual-tools--wrapper clearfix">
-					<span>10 photos </span>
+<!--					<span>10 photos </span>-->
 					<p class="property__mls-number">MLS# <?=$property->mls_id ?> </p>
 				</div>
 				
