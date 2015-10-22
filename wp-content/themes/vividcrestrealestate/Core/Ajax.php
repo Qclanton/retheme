@@ -3,8 +3,12 @@ namespace Vividcrestrealestate\Core;
 
 class Ajax 
 {   
-    public static function searchProperties()
+    public static function sendFormToAdmin($data)
     {
-        return json_encode(Router::loadData("properties"));
+        if (!isset($_POST['contact'])) {
+            die(0);
+        }
+        
+        die(Forms::sendToAdmin($_POST['contact']));
     }
 }
