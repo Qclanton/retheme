@@ -51,28 +51,31 @@
         
         
         
-        // Show or hide first separator
+        // Show or hide separators
         if (page > 4) {
-            $('ul.pagintaion li.separator:first').show()
-        } else {
-            $('ul.pagintaion li.separator:first').hide()
-        }
-        
-        
-        
-        // Show or hide last separator
-        if (page < (total-2)) {
-            $('ul.pagintaion li.separator:last').show()
-        } else {
-            $('ul.pagintaion li.separator:last').hide()
-        }
+            $('ul.pagintaion li.separator').each(function(index) { 
+                var separator = $(this);
+                
+                if (index == 0) {
+                    (page > 4 
+                        ? separator.show()
+                        : separator.hide()
+                    );
+                } else {
+                    (page < (total-2)
+                        ? separator.show()
+                        : separator.hide()
+                    );
+                }
+            });
+        } 
         
         
         
         // Show only first, last and nearest buttons
         $('ul.pagintaion li.page-button').hide();
-        $('ul.pagintaion li.page-button:first').show();
-        $('ul.pagintaion li.page-button:last').show();
+        $('ul.pagintaion li.page-button-first').show();
+        $('ul.pagintaion li.page-button-last').show();
         
         for (var i=(page-2); i<=(page+2); i++) {
             var button = $('ul.pagintaion li.page-button[data-page="' + i + '"]');
