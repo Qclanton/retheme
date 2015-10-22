@@ -4,14 +4,19 @@ add_action("wp_enqueue_scripts", function() {
     $template_part = \Vividcrestrealestate\Core\Router::definePart();
     
     if ($template_part == "map") {
+        // Load lib for cute multiselect
+        wp_enqueue_script("vividcrest-libs-tokenize", get_template_directory_uri() . "/js/libs/jquery.tokenize.js", ["jquery"]);
+        wp_enqueue_style("vividcrest-jquery-tokenize", get_template_directory_uri() . "/css/jquery.tokenize.css");
+        
         // Load Google Maps Api Library
         wp_enqueue_script("google-maps-api", "https://maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry");
         
         // Load clusteriztion library
         wp_enqueue_script("google-maps-clusterization", "https://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js");
         
-        // Load handler
-        wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/map.js", ["jquery"]);  
+        // Load handlers
+        wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/map.js", ["jquery"]);
+        wp_enqueue_script("vividcrest-handlers-search_form", get_template_directory_uri() . "/js/handlers/search_form.js", ["jquery"]); 
     
     
     
@@ -19,9 +24,15 @@ add_action("wp_enqueue_scripts", function() {
         // Load lib for cookie
         wp_enqueue_script("jquery-cookies",  get_template_directory_uri() . "/js/libs/jquery.cookie.js", ["jquery"]);
         
+        // Load lib for cute multiselect
+        wp_enqueue_script("vividcrest-libs-tokenize", get_template_directory_uri() . "/js/libs/jquery.tokenize.js", ["jquery"]);
+        wp_enqueue_style("vividcrest-jquery-tokenize", get_template_directory_uri() . "/css/jquery.tokenize.css");
+        
         wp_enqueue_script("vividcrest-properties-pagination", get_template_directory_uri() . "/js/properties/pagination.js", ["jquery"]);
         wp_enqueue_script("vividcrest-properties-compare", get_template_directory_uri() . "/js/properties/compare.js", ["jquery"]);
         wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/sort.js", ["jquery"]);
+        
+        wp_enqueue_script("vividcrest-handlers-search_form", get_template_directory_uri() . "/js/handlers/search_form.js", ["jquery"]); 
     
     
     
@@ -36,7 +47,12 @@ add_action("wp_enqueue_scripts", function() {
     
     
     } elseif ($template_part == "main") {
+        // Load lib for cute multiselect
+        wp_enqueue_script("vividcrest-libs-tokenize", get_template_directory_uri() . "/js/libs/jquery.tokenize.js", ["jquery"]);
+        wp_enqueue_style("vividcrest-jquery-tokenize", get_template_directory_uri() . "/css/jquery.tokenize.css");
+        
         wp_enqueue_script("vividcrest-widgets-mortgage_calculator", get_template_directory_uri() . "/js/widgets/mortgage_calculator.js", ["jquery"]);
+        wp_enqueue_script("vividcrest-handlers-search_form", get_template_directory_uri() . "/js/handlers/search_form.js", ["jquery"]); 
     }
     
     
@@ -101,10 +117,7 @@ add_filter("query_vars", function($vars) {
 });
 
 add_filter("rewrite_rules_array", function($rules) { 
-    $newrules['properties/search/([0-9A-Fa-f]{8})'] = 'index.php?pagename=properties&search_hash=$matches[1]';
 	$newrules['properties/([0-9]{1,10})'] = 'index.php?pagename=properties&property_id=$matches[1]';
-    //$newrules['compare'] = 'index.php?pagename=compare';
-    // $newrules['rets/'] = 'index.php?pagename=rets';
     
 	return $newrules + $rules;
 });
