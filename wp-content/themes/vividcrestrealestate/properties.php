@@ -6,7 +6,7 @@
 
 <section class="universal-wrapper block-wrapper--light-grey">
 	<div class="universal-wrapper--inner search_form--wide">
-        <?= \Vividcrestrealestate\Core\Template::renderPart("search_form_horizontal", ['action'=>"/properties"]); ?>		
+        <?= \Vividcrestrealestate\Core\Template::renderPart("search_form_horizontal", ['action'=>"/properties", 'search'=>$search]); ?>		
 	</div>
 </section>
 

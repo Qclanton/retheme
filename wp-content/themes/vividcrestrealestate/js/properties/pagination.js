@@ -16,13 +16,13 @@
         
         
         // Set marker "current"
-        $(this).parent().find('li.current').removeClass('current');
-        $(this).parent().find('li.page-button[data-page="' + page + '"]').addClass('current');
+        $('ul.pagintaion li.current').removeClass('current');
+        $('ul.pagintaion li.page-button[data-page="' + page + '"]').addClass('current');
         
         
         
         // Set "previous" button
-        var previousButton = $(this).parent().find('.previous')
+        var previousButton = $('ul.pagintaion .previous')
         
         if (previousButton.length > 0) {
              previousButton.attr('data-page', page-1);
@@ -37,7 +37,7 @@
         
         
         // Set "next" button
-        var nextButton = $(this).parent().find('.next');
+        var nextButton = $('ul.pagintaion li .next');
         
         if (nextButton.length > 0) {
              nextButton.attr('data-page', page+1);
@@ -53,29 +53,29 @@
         
         // Show or hide first separator
         if (page > 4) {
-            $(this).parent().find('li.separator:first').show()
+            $('ul.pagintaion li.separator:first').show()
         } else {
-            $(this).parent().find('li.separator:first').hide()
+            $('ul.pagintaion li.separator:first').hide()
         }
         
         
         
         // Show or hide last separator
         if (page < (total-2)) {
-            $(this).parent().find('li.separator:last').show()
+            $('ul.pagintaion li.separator:last').show()
         } else {
-            $(this).parent().find('li.separator:last').hide()
+            $('ul.pagintaion li.separator:last').hide()
         }
         
         
         
         // Show only first, last and nearest buttons
-        $(this).parent().find('li.page-button').hide();
-        $(this).parent().find('li.page-button:first').show();
-        $(this).parent().find('li.page-button:last').show();
+        $('ul.pagintaion li.page-button').hide();
+        $('ul.pagintaion li.page-button:first').show();
+        $('ul.pagintaion li.page-button:last').show();
         
         for (var i=(page-2); i<=(page+2); i++) {
-            var button = $(this).parent().find('li.page-button[data-page="' + i + '"]');
+            var button = $('ul.pagintaion li.page-button[data-page="' + i + '"]');
             
             if (button.length > 0) {
                 button.show();

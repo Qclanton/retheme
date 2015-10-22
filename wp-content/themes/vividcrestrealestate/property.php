@@ -164,7 +164,7 @@
 			
 		</div>
 		<div class="layout__col layout__col-half layout__col_half--second">
-			<h2 class="property__price">$<?=$property->price ?> </h2>
+			<h2 class="property__price">$<?=ceil($property->price) ?> </h2>
 			<p class="property__placed">Placed <?=$property->publish_date ?></p> 
 			<div class="property__description property__description--big">
 				<ul>
