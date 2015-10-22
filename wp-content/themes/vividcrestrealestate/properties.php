@@ -42,12 +42,12 @@
 		<div class="col--right">
 			<ul>
 				<li class="current">
-					<a>
+					<a href="/properties" class="view-toggle">
 						<i class="fa fa-th"></i> Gallery
 					</a>
 				</li>
 				<li>
-					<a href="/map">
+					<a href="/map" class="view-toggle" >
 						<i class="fa fa-map-marker"></i> 
 						Map
 					</a>

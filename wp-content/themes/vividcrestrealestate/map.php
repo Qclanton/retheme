@@ -12,17 +12,16 @@
 
 
 <section class="universal-wrapper universal-wrapper--transparent">
-	<div class="universal-wrapper--inner clearfix two_cols">
-		
+	<div class="universal-wrapper--inner clearfix two_cols">		
 		<div class="col--right">
 			<ul>
-				<li class="current">
-					<a>
+				<li>
+					<a href="/properties" class="view-toggle">
 						<i class="fa fa-th"></i> Gallery
 					</a>
 				</li>
-				<li>
-					<a href="/map">
+				<li class="current">
+					<a href="/map" class="view-toggle" >
 						<i class="fa fa-map-marker"></i> 
 						Map
 					</a>
@@ -33,4 +32,4 @@
 </section>
 
 
-<div id="map" class="map--wide" style=" "></div>
+<div id="map" class="map--wide"></div>

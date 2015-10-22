@@ -12,7 +12,7 @@ add_action("wp_enqueue_scripts", function() {
         
         // Load handlers
         wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/map.js", ["jquery"]);
-        wp_enqueue_script("vividcrest-handlers-search_form", get_template_directory_uri() . "/js/handlers/search_form.js", ["jquery"]); 
+        wp_enqueue_script("vividcrest-handlers-view_toggle", get_template_directory_uri() . "/js/handlers/view_toggle.js", ["jquery"]); 
     
     
     
@@ -22,7 +22,9 @@ add_action("wp_enqueue_scripts", function() {
         
         wp_enqueue_script("vividcrest-properties-pagination", get_template_directory_uri() . "/js/properties/pagination.js", ["jquery"]);
         wp_enqueue_script("vividcrest-properties-compare", get_template_directory_uri() . "/js/properties/compare.js", ["jquery"]);
-        wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/sort.js", ["jquery"]);    
+        wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/sort.js", ["jquery"]);
+        
+        wp_enqueue_script("vividcrest-handlers-view_toggle", get_template_directory_uri() . "/js/handlers/view_toggle.js", ["jquery"]);     
     
     
     
@@ -37,8 +39,7 @@ add_action("wp_enqueue_scripts", function() {
     
     
     } elseif ($template_part == "main") {        
-        wp_enqueue_script("vividcrest-widgets-mortgage_calculator", get_template_directory_uri() . "/js/widgets/mortgage_calculator.js", ["jquery"]);
-        wp_enqueue_script("vividcrest-handlers-search_form", get_template_directory_uri() . "/js/handlers/search_form.js", ["jquery"]); 
+        wp_enqueue_script("vividcrest-widgets-mortgage_calculator", get_template_directory_uri() . "/js/widgets/mortgage_calculator.js", ["jquery"]); 
     }
     
     
@@ -98,7 +99,7 @@ require __DIR__ . "/Core/Libs/ThirdParty/autoload.php";
 
 // Rewrite rules
 add_filter("query_vars", function($vars) { 
-    array_push($vars, "property_id", "search_hash");
+    array_push($vars, "property_id");
     
     return $vars;
 });
