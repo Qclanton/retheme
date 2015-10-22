@@ -88,8 +88,27 @@ class Router
                 
             case "property":
                 global $wp_query;
+                
+                // Fetch property
                 $property_id = $wp_query->query_vars['property_id'];
-                $data->property = $Properties->getDetailed($property_id);
+                $property = $Properties->getDetailed($property_id);
+                
+                // Fetch simlar properties
+                $range = 50000;
+                $min_price = $property->price - $range;
+                $max_price = $property->price + $range;
+                $similar_properties = $Properties->get([
+                    'confines' => [
+                        "`city`='{$property->city}'",
+                        "`price`>={$min_price}",
+                        "`price`<={$max_price}"
+                    ],
+                    'limit' => 4
+                ]);
+                
+                // Assign data
+                $data->property = $property;
+                $data->similar_properties = $similar_properties;
                 break;
             
             case "content":
@@ -173,7 +192,7 @@ class Router
         
 
         $criterion['confines'] = $confines;
-        $criterion['limit'] = 120;
+        $criterion['limit'] = 320;
 
         
         
