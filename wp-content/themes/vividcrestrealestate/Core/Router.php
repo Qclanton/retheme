@@ -28,6 +28,19 @@ class Router
                 break;
                 
             default: 
+                // Part "category" does not have template for display
+                if ($wp_query->is_category) {         
+                    $main_post = $wp_query->posts[0];
+                    
+                    // Redirect to main page if category is empty
+                    if (empty($main_post)) {
+                        wp_redirect(get_site_url());
+                    }
+                    
+                    // Redirect to post page int the other case
+                    wp_redirect(get_permalink($main_post->id));
+                }
+                
                 $template_part = (is_front_page() ? "main" : "content");
         }
         
