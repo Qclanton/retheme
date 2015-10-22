@@ -12,10 +12,11 @@
             </div>
             
             <div class="universal_line-wrapper">
-                <select name="search_property[types][]" multiple>
-                    <option value="0" <?= empty($search->types) ? "selected='selected'" : "" ?>>Property Type</option>
-                    <option value="House" <?= isset($search->types) && in_array("House", $search->types) ? "selected='selected'" : "" ?>>House</option>
-                    <option value="Condo" <?= isset($search->types) && in_array("Condo", $search->types) ? "selected='selected'" : "" ?>>Condo</option>
+                <select name="search_property[type]">
+                    <option value="0" <?= empty($search->deal_type) ? "selected='selected'" : "" ?>>Type</option>
+                    <option value="ResidentialProperty" <?= isset($search->type) && $search->type == "ResidentialProperty" ? "selected='selected'" : "" ?>>Residential</option>
+                    <option value="CommercialProperty" <?= isset($search->type) && $search->type == "CommercialProperty" ? "selected='selected'" : "" ?>>Commercial</option>
+                    <option value="CondoProperty" <?= isset($search->type) && $search->type == "CondoProperty" ? "selected='selected'" : "" ?>>Condo</option>
                 </select>
             </div>	
 

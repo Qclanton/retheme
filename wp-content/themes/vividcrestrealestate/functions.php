@@ -3,11 +3,7 @@
 add_action("wp_enqueue_scripts", function() {
     $template_part = \Vividcrestrealestate\Core\Router::definePart();
     
-    if ($template_part == "map") {
-        // Load lib for cute multiselect
-        wp_enqueue_script("vividcrest-libs-tokenize", get_template_directory_uri() . "/js/libs/jquery.tokenize.js", ["jquery"]);
-        wp_enqueue_style("vividcrest-jquery-tokenize", get_template_directory_uri() . "/css/jquery.tokenize.css");
-        
+    if ($template_part == "map") {        
         // Load Google Maps Api Library
         wp_enqueue_script("google-maps-api", "https://maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry");
         
@@ -24,15 +20,9 @@ add_action("wp_enqueue_scripts", function() {
         // Load lib for cookie
         wp_enqueue_script("jquery-cookies",  get_template_directory_uri() . "/js/libs/jquery.cookie.js", ["jquery"]);
         
-        // Load lib for cute multiselect
-        wp_enqueue_script("vividcrest-libs-tokenize", get_template_directory_uri() . "/js/libs/jquery.tokenize.js", ["jquery"]);
-        wp_enqueue_style("vividcrest-jquery-tokenize", get_template_directory_uri() . "/css/jquery.tokenize.css");
-        
         wp_enqueue_script("vividcrest-properties-pagination", get_template_directory_uri() . "/js/properties/pagination.js", ["jquery"]);
         wp_enqueue_script("vividcrest-properties-compare", get_template_directory_uri() . "/js/properties/compare.js", ["jquery"]);
-        wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/sort.js", ["jquery"]);
-        
-        wp_enqueue_script("vividcrest-handlers-search_form", get_template_directory_uri() . "/js/handlers/search_form.js", ["jquery"]); 
+        wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/sort.js", ["jquery"]);    
     
     
     
@@ -46,11 +36,7 @@ add_action("wp_enqueue_scripts", function() {
     
     
     
-    } elseif ($template_part == "main") {
-        // Load lib for cute multiselect
-        wp_enqueue_script("vividcrest-libs-tokenize", get_template_directory_uri() . "/js/libs/jquery.tokenize.js", ["jquery"]);
-        wp_enqueue_style("vividcrest-jquery-tokenize", get_template_directory_uri() . "/css/jquery.tokenize.css");
-        
+    } elseif ($template_part == "main") {        
         wp_enqueue_script("vividcrest-widgets-mortgage_calculator", get_template_directory_uri() . "/js/widgets/mortgage_calculator.js", ["jquery"]);
         wp_enqueue_script("vividcrest-handlers-search_form", get_template_directory_uri() . "/js/handlers/search_form.js", ["jquery"]); 
     }

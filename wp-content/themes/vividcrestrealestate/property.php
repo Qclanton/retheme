@@ -141,7 +141,7 @@
 						<span>Amortization Period</span>
 						<select name="amortization_period">
                             <?php for ($i=1; $i<=25; $i++) { ?>
-                                <option value="1"> <?=$i ?> year<?=$i !=1 ? "s" : ""?> </option>
+                                <option value="<?=$i ?>"> <?=$i ?> year<?=$i !=1 ? "s" : ""?> </option>
                             <?php } ?>
 						</select>
 					</div>

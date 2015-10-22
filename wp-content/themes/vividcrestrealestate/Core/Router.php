@@ -192,10 +192,9 @@ class Router
         if (!empty($search->max_price)) {
             $confines[] = "`price`<='{$search->max_price}'";
         }
-        
-        if (!empty($search->types) && $search->types !== ["0"]) {
-            $types = implode("', '", $search->types);
-            $confines[] = "`type` IN ('{$types}')";
+                
+        if (!empty($search->type)) {
+            $confines[] = "`type`='{$search->type}'";
         }
         
         if (!empty($search->deal_type)) {
