@@ -387,10 +387,14 @@ article ul {
 
 /*Testimonials*/
 
+.testimonials-wrapper > .title__border-bottom {
+	margin-bottom: 5px;
+}
+
 .testimonial-wrapper {
 	clear: both;
 	border-bottom: 1px dashed rgba(0, 151, 214, 0.8);
-	padding: 10px 0;
+	padding: 15px 0;
 }
 
 .testimonial__image {
@@ -421,6 +425,8 @@ article ul {
 	clear: both;
 	margin-bottom: 30px;
 }
+
+
 
 /*Colored lines*/
 
