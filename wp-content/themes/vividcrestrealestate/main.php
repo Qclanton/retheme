@@ -1,5 +1,5 @@
 <section class="universal-wrapper map-block-wrapper clearfix">
-		<div id="map" class="map--wide map--main"></div>
+	<div id="map" class="map--wide map--main"></div>
 	<div class="universal-wrapper--inner">
 		<?= \Vividcrestrealestate\Core\Template::renderPart("search_form", ['search'=>$search]); ?>
 	</div>
