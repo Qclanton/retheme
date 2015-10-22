@@ -262,7 +262,7 @@
 							<p>Provide referred legal services to initiate and review contracts.</p>
 						</li>
 					</ul>
-					<a class="blue_button universal-button universal-button--small" data-action="recalculate" href="#">Contact us today</a>
+					<a class="blue_button universal-button universal-button--small" href="/contact-us">Contact us today</a>
 				</article>
 			</div>
 			<div class="testimonials-wrapper">
@@ -338,7 +338,6 @@
 						</select>
 					</div>	
 					<h2 class="title--underlined">Your mortgage payment would be - <strong> 889.02$ / Weekly </strong></h2>
-					<a class="blue_button universal-button" href="#" data-action="recalculate">Calculate</a>
 				</div>
 			
 			</div>

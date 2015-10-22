@@ -56,6 +56,10 @@
 	background-color: #fff;
 	
 }
+.col--right ul li a {
+	color: #707070;
+	
+}
 .col--right ul li:last-child {
 	margin-right: 0;
 }
@@ -66,6 +70,15 @@
 	border: 1px solid #0092cc;
 	cursor: pointer;
 	transition: all 0.3s ease 0s;
+}
+
+
+.col--right ul li.current a {
+	color: #0092cc;	
+}
+.col--right ul li:hover a {
+	color: #0092cc;
+	text-decoration: none;
 }
 
 .col--right ul li.separator {

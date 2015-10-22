@@ -23,8 +23,9 @@ $data = \Vividcrestrealestate\Core\Router::loadData($part);
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/calculator.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/jquery.arcticmodal-0.3.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/page_inner.css" />
-	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/property__page.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/properties.css" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/map.css" />
+	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/property__page.css" />
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/compare.css" />
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="<?php echo get_template_directory_uri(); ?>/css/jquery-ui.css" />
@@ -62,11 +63,11 @@ $data = \Vividcrestrealestate\Core\Router::loadData($part);
 		<div class="universal-wrapper sup-header clearfix">
 			<div class="universal-wrapper--inner">
 				<div class="header-wrapper header-wrapper--left">
-					youremail@mail.com
+					<a href="mailto:salequick.ca@gmail.com"><i class="fa fa-envelope-o"></i> salequick.ca@gmail.com</a>
 				</div>
 				<div class="header-wrapper header-wrapper--right">
 					<div class="menu-wrapper menu-wrapper--top">
-					+1545445555
+						<a href="tel:416-939-6376"><i class="fa fa-phone"></i>416-939-6376</a>
 					</div>
 				</div>
 			</div>

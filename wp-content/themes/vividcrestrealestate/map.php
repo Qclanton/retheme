@@ -10,4 +10,27 @@
 	</div>
 </section>
 
-<div id="map" style="width:640px; height:480px"></div>
+
+<section class="universal-wrapper universal-wrapper--transparent">
+	<div class="universal-wrapper--inner clearfix two_cols">
+		
+		<div class="col--right">
+			<ul>
+				<li class="current">
+					<a>
+						<i class="fa fa-th"></i> Gallery
+					</a>
+				</li>
+				<li>
+					<a href="/map">
+						<i class="fa fa-map-marker"></i> 
+						Map
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+
+<div id="map" class="map--wide" style=" "></div>

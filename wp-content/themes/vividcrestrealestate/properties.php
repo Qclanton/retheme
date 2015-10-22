@@ -41,8 +41,17 @@
 		</div>
 		<div class="col--right">
 			<ul>
-				<li class="current"><i class="fa fa-th"></i> Gallery</li>
-				<li><i class="fa fa-map-marker"></i> Map</li>
+				<li class="current">
+					<a>
+						<i class="fa fa-th"></i> Gallery
+					</a>
+				</li>
+				<li>
+					<a href="/map">
+						<i class="fa fa-map-marker"></i> 
+						Map
+					</a>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -117,4 +126,5 @@
 			<? } ?>
 		</div>
 	</div>
+	
 </section>

@@ -38,6 +38,15 @@ header {
 	width: 40%;
 }
 
+
+.header-wrapper a:hover {
+	text-decoration: none;
+	color: #0c82ba;
+}
+.header-wrapper a i {
+	padding-right: 5px;
+}
+
 /*Header*/
 
 .universal-wrapper.header {

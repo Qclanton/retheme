@@ -159,7 +159,6 @@
 						</select>
 					</div>	
 					<h2 class="title--underlined">Your mortgage payment would be - <strong> 889.02$ / Weekly </strong></h2>
-					<a class="blue_button universal-button" href="#" data-action="recalculate">Recalculate</a>
 				</div>
 			</div>
 			
