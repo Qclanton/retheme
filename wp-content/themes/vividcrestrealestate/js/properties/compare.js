@@ -26,7 +26,7 @@
             
             html += '<section id="compare-block" class="universal-wrapper compare-block-wrapper">'
             html += '   <div class="block-wrapper--light-grey block-wrapper--small">';
-            html += '       <a class="expand-compare" href="#">Expand Compare</a>';
+            html += '       <a class="expand-compare" href="#"><i class="fa fa-expand"></i> Expand Compare</a>';
             html += '   </div>';
             html += '</section>';
             

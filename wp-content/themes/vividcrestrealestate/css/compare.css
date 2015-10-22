@@ -233,3 +233,10 @@
 	font-family: "Roboto",sans-serif;
 	font-weight: 300;
 }
+
+.block-wrapper--light-grey.block-wrapper--small i {
+    font-size: 15px;
+    padding-right: 3px;
+    position: relative;
+    top: 1px;
+}
