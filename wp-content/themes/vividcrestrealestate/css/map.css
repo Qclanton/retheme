@@ -43,7 +43,7 @@
 	min-height: 450px;
 	height: 70vh;
 	position: absolute;
-	z-index: 25;
+	z-index: 2;
 }
 
 .map-block-wrapper > .universal-wrapper--inner {
