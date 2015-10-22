@@ -79,6 +79,7 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
             return false;
         }
         
+        $start = new \Datetime();
         $batch_size = $_POST['batch_size'];       
         $credentials = Connection::getStoredOptions();
         
@@ -92,10 +93,13 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
         
         
         $Rets->processProperties($batch_size);
+        $end = new \Datetime();
+        $interval = $start->diff($end);
+        $spent_seconds = $interval->format("%s");
         
         self::$positive_messages = [
             "There is " . (new \Vividcrestrealestate\Core\Structures\ProcessingProperties())->getNumberOfUnprocessed() . " unprocessed propertires",
-            "{$batch_size} properties has been processed"
+            "{$batch_size} properties has been processed for the {$spent_seconds} seconds"
         ];
     }    
 }
