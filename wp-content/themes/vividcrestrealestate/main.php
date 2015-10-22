@@ -1,4 +1,5 @@
 <section class="universal-wrapper map-block-wrapper">
+    <div id="map" class="map--wide"></div>
 	<div class="universal-wrapper--inner">
 		<?= \Vividcrestrealestate\Core\Template::renderPart("search_form", ['search'=>$search]); ?>
 	</div>

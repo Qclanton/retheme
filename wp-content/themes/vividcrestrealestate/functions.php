@@ -38,8 +38,16 @@ add_action("wp_enqueue_scripts", function() {
     
     
     
-    } elseif ($template_part == "main") {        
-        wp_enqueue_script("vividcrest-widgets-mortgage_calculator", get_template_directory_uri() . "/js/widgets/mortgage_calculator.js", ["jquery"]); 
+    } elseif ($template_part == "main") {
+        // Load Google Maps Api Library
+        wp_enqueue_script("google-maps-api", "https://maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry");
+        
+        // Load clusteriztion library
+        wp_enqueue_script("google-maps-clusterization", "https://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js");
+              
+                
+        wp_enqueue_script("vividcrest-widgets-mortgage_calculator", get_template_directory_uri() . "/js/widgets/mortgage_calculator.js", ["jquery"]);
+        wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/map.js", ["jquery"]); 
     }
     
     
