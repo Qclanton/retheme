@@ -36,20 +36,19 @@
 			</div>
 			
 			<div class="property__contact-form property__blocks">
-				<h2 class="title--colored">Linda Richardson</h2>
+				<h2 class="title--colored">Sale Quick</h2>
 				<div class="property__blocks--inner clearfix">
 					<div class="clearfix">
 						<div class="agent__contact-image">
-							<img src="<?= get_template_directory_uri(); ?>/images/real-estate-agent.jpg" />
+							<img src="<?= get_template_directory_uri(); ?>/images/logo.png" />
 						</div>
 						<div class="agent__contact-info">
-							<h2 class="title--underlined">RealEstate Agent</h2>
-							<p>6850 Yonge St</p>
-							<p>Toronto ON L5N 4J9 Canada</p>
-							<p>Mobile: (416)366-5555</p>
-							<p>Fax: (416)366-5555</p>
-							<p>Skype: linda.richardson</p>
-							<p>Email: linda.richardson@gmail.com</p>
+							<h2 class="title--underlined">Velev Group Inc.</h2>
+							<p>10 Walsh Avenue,</p>
+							<p>Toronto, ON, M9M 1B6a</p>
+							<p>Mobile: 416-939-6376 </p>
+							<p>Fax: 416-747-9855 </p>
+							<p>Email: salequick.ca@gmail.com</p>
 						</div>
 					</div>
 					<div class="agent__contact-form">
