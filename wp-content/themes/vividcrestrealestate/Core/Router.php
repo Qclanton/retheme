@@ -41,7 +41,12 @@ class Router
                     wp_redirect(get_permalink($main_post->id));
                 }
                 
-                $template_part = (is_front_page() ? "main" : "content");
+                $template_part = (is_front_page() ? 
+                    "main" 
+                    : (!empty($wp_query->query_vars['s']) 
+                        ? "search_posts" 
+                        : "content")
+                );
         }
         
         return $template_part;
@@ -133,6 +138,18 @@ class Router
                 // Assign data
                 $data->property = $property;
                 $data->similar_properties = $similar_properties;
+                break;
+            
+            case "search_posts":
+                global $wp_query;
+                
+                $search_query = new \WP_Query([
+                    's' => $wp_query->query_vars['s'],
+                    'posts_per_page' => 999,
+                ]);	
+                
+                $data->posts = $search_query->posts;
+                $data->search_query = $wp_query->query_vars['s'];
                 break;
             
             case "content":
