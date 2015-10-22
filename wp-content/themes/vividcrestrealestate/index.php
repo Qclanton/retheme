@@ -58,6 +58,7 @@ $data = \Vividcrestrealestate\Core\Router::loadData($part);
       document.createElement('footer');
    </script>
 <![endif]-->
+	
 <body>
 	<header>
 		<div class="universal-wrapper sup-header clearfix">
@@ -85,6 +86,14 @@ $data = \Vividcrestrealestate\Core\Router::loadData($part);
 					</nav>
 				</div>
 			</div>
+		</section>
+		
+	
+		<section id="menu-mobile">
+			<div class="menu-toggle">menu <i class="fa fa-bars"></i> </div>
+			<nav class="menu-mobile">
+				<? wp_nav_menu(['theme_location'=>"top-menu"]); ?>
+			</nav>
 		</section>
 	</header>
 
@@ -151,8 +160,18 @@ $data = \Vividcrestrealestate\Core\Router::loadData($part);
 				</div>
 				
 				<div class="universal__cell footer footer--last">
-					<h2>Subscribe to Newsletter </h2>
+					<h2>Search for more information </h2>
+					<form class="footer-searchform " action=" " method="get" role="search">
+						<input class="footer-search" type="text" placeholder="search" value="" name="s">
+						<input class="footer-bt-search" type="submit" value="">
+						<i class="fa fa-search"></i>
+					</form>
 				</div>
+			</div>
+		</div>
+		<div class="copyright-wrapper">
+			<div class="universal-wrapper--inner">
+				<span>Copyright &#169; <?php echo date('Y'); ?> SaleQuick. All Rights Reserved. </span>
 			</div>
 		</div>
 	</footer>

@@ -447,6 +447,7 @@ article ul {
 
 .footer-block-wrapper {
 	background-color: #252525;
+	padding-bottom: 0;
 }
 
 .background-shadow {
@@ -459,7 +460,7 @@ footer img.logo_footer {
 }
 
 .universal__cell.footer {
-	margin: 0 10px 30px;
+	margin: 0 10px 15px;
 }
 
 
@@ -467,4 +468,22 @@ footer img.logo_footer {
 	color: #fff;
 	font-size: 25px;
 	padding-bottom: 10px;
+}
+
+.footer-block-wrapper > .universal-wrapper--inner {
+	padding-bottom: 0;
+}
+
+
+.copyright-wrapper {
+	background-color: rgba(0,0,0,0.2);
+}
+.copyright-wrapper > .universal-wrapper--inner {
+	padding: 10px 0;
+}
+
+.copyright-wrapper > .universal-wrapper--inner span {
+	display: block;
+	font-size: 14px;
+	text-align: center;
 }

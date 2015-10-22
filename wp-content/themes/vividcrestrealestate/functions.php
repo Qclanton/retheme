@@ -59,6 +59,7 @@ add_action("wp_enqueue_scripts", function() {
     
     
     
+    wp_enqueue_script("vividcrest-tabs", get_template_directory_uri() . "/js/mobile-menu.js", ["jquery"]); 
     wp_enqueue_script("vividcrest-tabs", get_template_directory_uri() . "/js/tabs.js", ["jquery"]);   
 });
 

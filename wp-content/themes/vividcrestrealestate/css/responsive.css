@@ -62,6 +62,14 @@
 
 
 @media (max-width: 1025px) {
+	
+	.logo-wrapper {
+		display: block !important;
+		margin: 0 auto;
+		width: 100% !important;
+		text-align: center !important;
+	}
+	
 	.layout__col,
 	.layout__col.layout__col--wide,
 	.layout__col.layout__col--small {
@@ -103,6 +111,48 @@
 	}
 	
 	
+/*	mobile menu*/
+	
+	
+	#menu-mobile {
+		display: block !important;
+		cursor: pointer;
+		border-top: 1px solid #d5d9dd; 
+		background: #efefef;
+		border-bottom: 1px solid #d5d9dd;
+		padding: 0 !important;
+	}
+	
+	nav.menu-mobile {
+		display: none;
+	}
+	
+	nav.menu-mobile a, nav.menu-mobile:before, nav.menu-mobile div:before {
+		width: 100%; /* пункты меню растягиваются на всю ширину блока */
+		position: relative;
+	}
+	
+	.header-menu {
+		display: none !important;
+	}
+		
+	.menu-toggle {
+		color: #0c82ba;
+		font-size: 16px;
+		font-weight: 300;
+		padding: 0.5em;
+		text-decoration: none;
+		text-transform: uppercase;
+		text-align:center;
+		font-family: "Roboto",sans-serif;
+		
+	}
+	
+	.menu-toggle i {
+		position: relative;
+		top: -1px;
+	}
+	
 }
 
 @media (max-width: 950px) {
@@ -139,14 +189,6 @@
 		padding: 5px;
 	}
 	
-	.logo-wrapper,
-	.header-menu  {
-		display: block !important;
-		margin: 0 auto;
-		width: 100% !important;
-		text-align: center !important;
-	}
-	
 	.testimonials-wrapper {
 		width: 80%;
 		display: block;
@@ -172,12 +214,65 @@
 	}
 }
 
+/*Mobile Menu*/
 
 #menu-mobile { 
 	display: none;
 }
 
 
+nav.menu-mobile a, nav.menu-mobile:before, nav.menu-mobile div:before {
+	display: inline-block;
+	padding: 10px 20px;
+	color: #707070;
+	text-align: left;
+	cursor: pointer; /* курсор в виде руки, обязателен для Opera Mini */
+	background: #d4d4d4; /* цвет фона кнопки "меню" */
+}
+nav.menu-mobile ul {
+    padding: 0;
+    margin: 0;
+}
+nav.menu-mobile ul li {
+    list-style: none;
+}
+nav.menu-mobile li a {
+	width: 100%; 
+	background-color: #fff; /* фон пунктов меню */
+	text-decoration: none;
+	text-transform: capitalize;
+	border-bottom: 1px solid #d5d9dd;
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+}
+nav.menu-mobile a:hover {
+	background: #0092cc; /* фон пунктов при наведении */
+	color: #fff;
+}
+
+
+nav.menu-mobile ul > li > ul > li {
+	list-style: none;
+}
+
+nav.menu-mobile ul > li > ul > li > a {
+	padding: 10px 50px;	
+}
+
+nav.menu-mobile ul > li > ul > li > a:before {
+	content: "-";
+	padding-right: 5px;
+}
+
+
+nav.menu-mobile ul > li > ul > li > ul.sub-menu > li > a {
+	padding-left: 70px;
+}
+nav.menu-mobile ul > li > ul > li > ul.sub-menu > li > a:before {
+	content: "--";
+	padding-right: 5px;
+}
+	
 @media (max-width: 800px) { 
 	
 	

@@ -80,10 +80,10 @@
 }
 
 .header-menu ul > li > ul > li.menu-item-has-children > a:after {
-content: '»';
-padding-left: 10px;
-position: absolute;
-right: 5px;
+	content: '»';
+	padding-left: 10px;
+	position: absolute;
+	right: 5px;
 }
 
 .header-menu ul > li > ul > li > ul.sub-menu {
