@@ -67,7 +67,7 @@ $data = \Vividcrestrealestate\Core\Router::loadData($part);
 				</div>
 				<div class="header-wrapper header-wrapper--right">
 					<div class="menu-wrapper menu-wrapper--top">
-						<a href="tel:416-939-6376"><i class="fa fa-phone"></i>416-939-6376</a>
+						<a href="tel:416-939-6376"><i class="fa fa-phone"></i> Call Us Today: 416-939-6376</a>
 					</div>
 				</div>
 			</div>

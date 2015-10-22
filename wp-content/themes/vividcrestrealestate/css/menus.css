@@ -30,7 +30,9 @@
 
 .header-menu ul > li > a:hover,
 .header-menu ul > li > a:active,
-.header-menu ul > li.current-menu-item > a  {
+.header-menu ul > li.current-menu-item > a,
+.header-menu ul > li.current-menu-parent > a,
+.header-menu ul > li.current-post-ancestor > a  {
 	color: #0092cc;
 }
 
