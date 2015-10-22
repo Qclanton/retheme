@@ -205,7 +205,7 @@
             <?php foreach ($similar_properties as $i=>$similar_property) { ?>         
                 <div class="universal__cell property <?= $i==0 ? "property--first" : "" ?>">
                     <div class="property__image">
-                        <a href="">
+                        <a href="/properties/<?=$similar_property->id ?>">
                             <span class="label__icon--small icon--green">Open House</span>						
                             <img src="<?=$similar_property->main_image ?>" />
                         </a>
@@ -215,14 +215,14 @@
                         </div>
                     </div>
                     <div class="property__info-line">
-                        <a href="">
+                        <a href="/properties/<?=$similar_property->id ?>">
                             <p class="property__price">
                                 $<?=number_format(ceil($similar_property->price)) ?>
                             </p>
                         </a>		
                     </div>
                     <div class="property__description">
-                        <a href="">
+                        <a href="/properties/<?=$similar_property->id ?>">
                             <ul>
                                 <li><?=$similar_property->bedrooms ?> beds </li>
                                 <li><?=$similar_property->bathrooms ?> baths</li>

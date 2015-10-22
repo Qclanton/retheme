@@ -117,9 +117,13 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
         // Get the property
         $property = $this->get($id);
         
+        
+        
         // Init additional section
         $PropertyInfo = new PropertyInfo();
         $property->additional = new \stdClass();
+        
+        
         
         // Get additional info
         $info = $PropertyInfo->get([
@@ -129,6 +133,8 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
             ]
         ]);
         
+        
+        
         // Attach additional info to the property
         foreach ($info as $param) {
             $property->additional->{$param->key} = (object)[
@@ -136,6 +142,43 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
                 'value' => $param->value
             ];
         }
+        
+        
+        
+        // Attach images
+        $images = [];
+        $credentials = \Vividcrestrealestate\Core\Administration\Connection::getStoredOptions();
+        $Rets = new \Vividcrestrealestate\Core\Libs\Rets($credentials->url, $credentials->login, $credentials->password);      
+        
+        if ($Rets->login()) {
+            $images_ids_data = $PropertyInfo->get([
+                'confines' => [
+                    "`property_id`='{$property->id}'",
+                    "`key`='images_ids'"
+                ]
+            ]);
+            
+            if (!empty($images_ids_data[0])) {
+                $images_ids = explode(",", $images_ids_data[0]->value);
+                
+                foreach ($images_ids as $image_id) {
+                    $image = $Rets->getCachedImage($image_id, $property->mls_id);
+                    
+                    if (!empty($image)) {
+                        $images[] = $image;
+                    }
+                }
+            }
+        }
+        
+        if (empty($images)) {
+            $images = [$property->main_image];
+        }
+        
+        $property->images = $images;
+        
+        
+        
         
         return $property;  
     }

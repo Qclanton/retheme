@@ -194,7 +194,11 @@ class Rets
         }
     }
     
-    protected function saveImages($images, $property_id)
+    
+    
+    
+    
+    protected function saveImages($images, $mls_id)
     {
         $ids = [];
         
@@ -212,7 +216,7 @@ class Rets
             if ($i == 0) {
                 // Define vars
                 $name = "{$id}.jpg";
-                $path = "images/rets/{$property_id}";
+                $path = "images/rets/{$mls_id}";
                 $dir = get_template_directory() . "/{$path}";
                 
                 // Create directory		
@@ -234,7 +238,7 @@ class Rets
         }
         
         return $ids;
-    }
+    } 
     
     public function saveImage($binary, $file, $width=640, $height=480, $quality=70)
     {        
@@ -252,5 +256,58 @@ class Rets
         $result = $Imagick->writeImage($file);
         
         return $result;
+    }
+    
+    public function cacheImages($mls_id)
+    {
+        $images = $this->connection->GetObject($this->resource, "Photo", $mls_id);
+        $result = false;
+        
+        if (!empty($images)) {
+            foreach ($images as $image) {
+                // Check object
+                $id = $image->getObjectId();         
+                
+                if (empty($id) || $id === "null") {
+                    continue;
+                }
+                
+                // Define vars
+                $name = "{$id}.jpg";
+                $path = "images/rets_cached/{$mls_id}";
+                $dir = get_template_directory() . "/{$path}";
+                
+                // Create directory		
+                if (!is_dir($dir)) {
+                    $is_created = mkdir($dir, 0777, true);
+                    
+                    if (!$is_created) {
+                        return false;
+                    }
+                }  
+                
+                // Save image
+                $result = $this->saveImage($image->getContent(), "{$dir}/{$name}");
+            }      
+        } 
+        
+        return $result;
+    }
+    
+    public function getCachedImage($id, $mls_id)
+    {
+        $path = "images/rets_cached/{$mls_id}/{$id}.jpg";
+        $file = get_template_directory() . "/{$path}";
+        $url = get_template_directory_uri() . "/{$path}";
+        
+        if (!file_exists($file)) {
+            $result = $this->cacheImages($mls_id);
+            
+            if (!$result) {
+                return false;
+            }
+        }
+        
+        return $url;
     }
 }
