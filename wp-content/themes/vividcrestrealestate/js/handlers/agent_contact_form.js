@@ -1,10 +1,11 @@
 (function($) { $(function() { 
     'use strict';
     
-    // Show necessary forms
+    // Show necessary forms    
     $('.agent__contact-form a[data-action="request-information"]').on('click', function(ev) {
         ev.preventDefault();
         
+        $('#agent__contact-appointment').hide();
         $('#agent__contact').toggle();
         
     });
@@ -12,7 +13,8 @@
     $('.agent__contact-form a[data-action="request-showing"]').on('click', function(ev) {
         ev.preventDefault();
         
-       $('#agent__contact-appointment').toggle();
+        $('#agent__contact').hide();
+        $('#agent__contact-appointment').toggle();
     });
     
     
@@ -32,7 +34,7 @@
         
         // Perepare 
         var form = $(this);
-        var data = $(this).serialize() + '&action=vividcrest_send_form&contact[property_link]=' + document.location.href;
+        var data = $(this).serialize() + '&action=vividcrest_send_form&form_id=' + form.attr('id') + '&contact[property_link]=' + document.location.href;
         var url = '/wp-admin/admin-ajax.php';
         
         // Make request
