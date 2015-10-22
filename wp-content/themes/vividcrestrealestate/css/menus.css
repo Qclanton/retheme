@@ -92,3 +92,64 @@
 	top: -1px;
 	border-top: 1px solid #0092cc; 
 }
+
+
+
+/*Mobile Menu*/
+
+#menu-mobile { 
+	display: none;
+}
+
+
+nav.menu-mobile a, nav.menu-mobile:before, nav.menu-mobile div:before {
+	display: inline-block;
+	padding: 10px 20px;
+	color: #707070;
+	text-align: left;
+	cursor: pointer; /* курсор в виде руки, обязателен для Opera Mini */
+	background: #d4d4d4; /* цвет фона кнопки "меню" */
+}
+nav.menu-mobile ul {
+    padding: 0;
+    margin: 0;
+}
+nav.menu-mobile ul li {
+    list-style: none;
+}
+nav.menu-mobile li a {
+	width: 100%; 
+	background-color: #fff; /* фон пунктов меню */
+	text-decoration: none;
+	text-transform: capitalize;
+	border-bottom: 1px solid #d5d9dd;
+	font-family: "Roboto", sans-serif;
+	font-size: 15px;
+}
+nav.menu-mobile a:hover {
+	background: #0092cc; /* фон пунктов при наведении */
+	color: #fff;
+}
+
+
+nav.menu-mobile ul > li > ul > li {
+	list-style: none;
+}
+
+nav.menu-mobile ul > li > ul > li > a {
+	padding: 10px 50px;	
+}
+
+nav.menu-mobile ul > li > ul > li > a:before {
+	content: "-";
+	padding-right: 5px;
+}
+
+
+nav.menu-mobile ul > li > ul > li > ul.sub-menu > li > a {
+	padding-left: 70px;
+}
+nav.menu-mobile ul > li > ul > li > ul.sub-menu > li > a:before {
+	content: "--";
+	padding-right: 5px;
+}
