@@ -173,8 +173,9 @@ function generate_excerpt($content, $more_text="More", $max_symbols=false, $post
 		$excerpt = explode("<!--more", $content)[0];
 	}
 
-	if ($max_symbols) {
-		$excerpt = substr($excerpt, 0, $max_symbols) . "...";
+	if ($max_symbols && strlen($content) > $max_symbols) {
+        $max_symbols = strpos($content, " ", $max_symbols);
+		$excerpt = substr($excerpt, 0, $max_symbols);
 	}
 
     if (!empty($more_button)) {

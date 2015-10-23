@@ -16,14 +16,14 @@
                         <img src="<?= $recent_property->main_image ?>" />
                     </div>
                     <div class="property__info-line">
-                        <a href="">
+                        <a href="/properties/<?=$recent_property->id ?>">
                             <p class="property__price">
                                 $<?=number_format(ceil($recent_property->price)) ?>
                             </p>
                         </a>		
                     </div>
                     <div class="property__description">
-                        <a href="">
+                        <a href="/properties/<?=$recent_property->id ?>">
                             <ul>
                                 <li><?=$recent_property->bedrooms ?> beds </li>
                                 <li><?=$recent_property->bathrooms ?> baths</li>
@@ -125,7 +125,8 @@
 					<h2>Selling Your Property</h2>
 				</div>
 				<article>
-					<img src="http://wpestatetheme.org/wp-content/uploads/2013/06/photodune-317366-family-having-fun-in-countryside-xs.jpg" />
+<!--					<img src="http://wpestatetheme.org/wp-content/uploads/2013/06/photodune-317366-family-having-fun-in-countryside-xs.jpg" />-->
+					<iframe src="https://player.vimeo.com/video/17882714" width="100%" height="auto" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					<p>
 						The Sale Quick team–unlike any other real estate company–invests 100 percent of our time and resources on Toronto and surrounding area properties.
 					</p>
