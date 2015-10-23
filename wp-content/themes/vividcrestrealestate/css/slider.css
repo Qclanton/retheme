@@ -1,9 +1,9 @@
-.carousel-arrows--small {
+.small-slider-arrows {
 	position: absolute;
 	width: 100%;
 	top: 40%;
 }
-.carousel-arrows--small > .carousel-arrow--prev {
+.small-slider-arrows > .small-slider-prev {
 	background-image: url("../images/slider-arrows.png");
 	background-position: -5px -5px;
 	background-repeat: no-repeat;
@@ -18,7 +18,7 @@
 	text-indent: 100%;
 	width: 30px;
 }
-.carousel-arrows--small > .carousel-arrow--next {
+.small-slider-arrows > .small-slider-next {
 	background-image: url("../images/slider-arrows.png");
 	background-position: -5px -5px;
 	background-repeat: no-repeat;
@@ -35,3 +35,8 @@
 	transform: rotate(180deg);
 }
 
+
+.small-slider-arrows > .small-slider-next:hover,
+.small-slider-arrows > .small-slider-prev:hover {
+	opacity: 1;
+}

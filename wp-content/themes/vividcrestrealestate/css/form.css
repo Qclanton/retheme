@@ -238,6 +238,7 @@ input[type=number]::-webkit-outer-spin-button {
 .contact__form-image {
 	background-color: #fff;
 	background-position: center center;
+	background-repeat: no-repeat;
 	border-radius: 50%;
 	display: block;
 	float: left;
@@ -415,4 +416,35 @@ input[type=number]::-webkit-outer-spin-button {
 	position: absolute;
 	right: 15px;
 	top: 10px;
+}
+
+/*searchform*/
+
+.searchform {
+	margin: 0 auto 30px;
+}
+.searchform .universal_line-wrapper {
+	position: relative;
+}
+.searchform .universal_line-wrapper input {
+	display: inline-block;
+}
+.searchform .universal_line-wrapper input:first-child {
+	position: relative;
+	height: 42px;
+	padding-right: 133px;
+}
+.searchform .universal_line-wrapper input.universal-button {
+	background-color: #0092cc;
+	border: 1px solid #b3b3b3;
+	font-size: 16px;
+	font-weight: 400;
+	height: 42px;
+	position: absolute;
+	right: 0;
+	width: 130px;
+}
+.searchform .universal_line-wrapper input.universal-button:hover {
+	background-color: #544d54;
+	color: #fff;
 }

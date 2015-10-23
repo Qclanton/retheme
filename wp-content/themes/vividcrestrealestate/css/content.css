@@ -492,3 +492,13 @@ footer img.logo_footer {
 	font-size: 14px;
 	text-align: center;
 }
+
+/*Search Result*/
+
+.search__result-wrapper {
+	padding: 15px 0;
+	border-bottom: 1px dashed #94ca4c;
+}
+.search__result-wrapper h4 {
+	color: #0c82ba;
+}
