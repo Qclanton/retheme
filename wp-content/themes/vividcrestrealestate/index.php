@@ -2,7 +2,6 @@
 $part = \Vividcrestrealestate\Core\Router::definePart();
 $data = \Vividcrestrealestate\Core\Router::loadData($part);
 ?>
-
 <!doctype html>
 <html lang=ru>
 <head>
@@ -38,8 +37,8 @@ $data = \Vividcrestrealestate\Core\Router::loadData($part);
     
     <script>
         var Vividcrest = {            
-            properties: <?= (isset($data->properties) ? "JSON.parse('" . stripcslashes(json_encode($data->properties, JSON_HEX_APOS | JSON_HEX_QUOT)) . "')" : "null") ?>,
-            property: <?= (isset($data->property) ? "JSON.parse('" . stripcslashes(json_encode($data->property, JSON_HEX_APOS | JSON_HEX_QUOT)) . "')" : "null") ?>
+            properties: <?= (isset($data->properties) ? "JSON.parse('" . str_replace("\\t", "/t", stripslashes(json_encode($data->properties, JSON_HEX_APOS | JSON_HEX_QUOT))) . "')" : "null") ?>,
+            property: <?= (isset($data->property) ? "JSON.parse('" . str_replace("\\t", "/t", stripslashes(json_encode($data->property, JSON_HEX_APOS | JSON_HEX_QUOT))) . "')" : "null") ?>
         };
     </script>
 	<?= wp_head() ?>
@@ -58,7 +57,6 @@ $data = \Vividcrestrealestate\Core\Router::loadData($part);
       document.createElement('footer');
    </script>
 <![endif]-->
-	
 <body>
 	<header>
 		<div class="universal-wrapper sup-header clearfix">

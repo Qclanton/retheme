@@ -75,13 +75,22 @@ class Router
         
         
         // Extract necessary data
-        switch ($part) {
+        switch ($part) {            
             case "main":
+                $criterion = self::makeCriterion($search);            
+                $data->properties = $Properties->get($criterion);
+                $data->recent_properties = $Properties->get([
+                    'orderby' => "publish_date",
+                    'order' => "DESC",
+                    'limit' => 4
+                ]);
+                break;
+                
             case "map":                  
             case "properties":
                 $criterion = self::makeCriterion($search);            
                 $data->properties = $Properties->get($criterion);
-                break;            
+                break;
             
             case "compare":
                 $comparsions = [];

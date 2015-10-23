@@ -10,135 +10,34 @@
 			<h1>Recent Properties</h1>
 		</div>
 		<div class="universal_line-wrapper four__cols">
-			<div class="universal__cell property property--first">
-				<div class="property__image">
-					<a href="">
-						<span class="label__icon--small icon--green">Open House</span>						
-						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-					</a>
-					<div class="carousel-arrows--small">
-						<div class="carousel-arrow--prev"></div>
-						<div class="carousel-arrow--next"></div>
-					</div>
-				</div>
-				<div class="property__info-line">
-					<a href="">
-						<p class="property__price">
-							$850 000
-						</p>
-					</a>		
-				</div>
-				<div class="property__description">
-					<a href="">
-						<ul>
-							<li>3 beds </li>
-							<li>2 baths</li>
-							<li>1500 sq.ft.</li>
-						</ul>
+            <?php foreach ($recent_properties as $i=>$recent_property) { ?>
+                <div class="universal__cell property slidered-property <?= $i==0 ? "property--first" : "" ?>" data-property-id="<?=$recent_property->id ?>">
+                    <div class="property__image">
+                        <img src="<?= $recent_property->main_image ?>" />
+                    </div>
+                    <div class="property__info-line">
+                        <a href="">
+                            <p class="property__price">
+                                $<?=number_format(ceil($recent_property->price)) ?>
+                            </p>
+                        </a>		
+                    </div>
+                    <div class="property__description">
+                        <a href="">
+                            <ul>
+                                <li><?=$recent_property->bedrooms ?> beds </li>
+                                <li><?=$recent_property->bathrooms ?> baths</li>
+                                <li><?=!empty($recent_property->size) ? $recent_property->size : "N/A" ?> sq.ft.</li>
+                            </ul>
 
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
-					</a>
-				</div>
-			</div>
-			<div class="universal__cell property">
-				<div class="property__image">
-					<a href="">
-						<span class="label__icon--small icon--blue">New Offer</span>
-						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-					</a>
-					<div class="carousel-arrows--small">
-						<div class="carousel-arrow--prev"></div>
-						<div class="carousel-arrow--next"></div>
-					</div>
-				</div>
-				<div class="property__info-line">
-					<a href="">
-						<p class="property__price">
-							$850 000
-						</p>
-					</a>		
-				</div>
-				<div class="property__description">
-					<a href="">
-						<ul>
-							<li>3 beds </li>
-							<li>2 baths</li>
-							<li>1500 sq.ft.</li>
-						</ul>
-
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
-					</a>
-				</div>
-			</div>
-			<div class="universal__cell property">
-				<div class="property__image">
-					<a href="">
-						<span class="label__icon--small icon--green">Open House</span>
-						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-					</a>
-					<div class="carousel-arrows--small">
-						<div class="carousel-arrow--prev"></div>
-						<div class="carousel-arrow--next"></div>
-					</div>
-				</div>
-				<div class="property__info-line">
-					<a href="">
-						<p class="property__price">
-							$850 000
-						</p>
-					</a>		
-				</div>
-				<div class="property__description">
-					<a href="">
-						<ul>
-							<li>3 beds </li>
-							<li>2 baths</li>
-							<li>1500 sq.ft.</li>
-						</ul>
-
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
-					</a>
-				</div>
-			</div>
-			<div class="universal__cell property property--last">
-				<div class="property__image">
-					<a href="">
-						<span class="label__icon--small icon--red">New Offer</span>
-						<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-					</a>
-					<div class="carousel-arrows--small">
-						<div class="carousel-arrow--prev"></div>
-						<div class="carousel-arrow--next"></div>
-					</div>
-				</div>
-				<div class="property__info-line">
-					<a href="">
-						<p class="property__price">
-							$850 000
-						</p>
-					</a>		
-				</div>
-				<div class="property__description">
-					<a href="">
-						<ul>
-							<li>3 beds </li>
-							<li>2 baths</li>
-							<li>1500 sq.ft.</li>
-						</ul>
-
-						<p>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-						</p>
-					</a>
-				</div>
-			</div>
-		</div>
+                            <p>
+                                 <?= generate_excerpt($recent_property->description, "...", 100) ?>
+                            </p>
+                        </a>
+                    </div>
+                </div>
+			<?php } ?>
+        </div>
 		
 		<div class="layout__col layout__col--wide">
 			<div class="title__border-bottom">

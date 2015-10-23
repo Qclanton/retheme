@@ -48,7 +48,8 @@ add_action("wp_enqueue_scripts", function() {
               
                 
         wp_enqueue_script("vividcrest-widgets-mortgage_calculator", get_template_directory_uri() . "/js/widgets/mortgage_calculator.js", ["jquery"]);
-        wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/map.js", ["jquery"]); 
+        wp_enqueue_script("vividcrest-properties-map", get_template_directory_uri() . "/js/properties/map.js", ["jquery"]);
+        wp_enqueue_script("vividcrest-properties-slider", get_template_directory_uri() . "/js/properties/slider.js", ["jquery", "jquery-effects-core", "jquery-effects-slide"]); 
     }
     
     
