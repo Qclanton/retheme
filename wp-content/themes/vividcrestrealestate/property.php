@@ -9,7 +9,7 @@
 		<div class="layout__col layout__col-half">
 			
 			
-			<div class="property__visual-wrapper">
+			<div class="property__visual-wrapper slidered-property" data-property-id="<?=$property->id ?>">
 <!--
 				<ul class="tabs">
 					<li id="tab1" class="current">
@@ -203,16 +203,9 @@
 		
 		<div class="universal_line-wrapper four__cols">
             <?php foreach ($similar_properties as $i=>$similar_property) { ?>         
-                <div class="universal__cell property <?= $i==0 ? "property--first" : "" ?>">
-                    <div class="property__image">
-                        <a href="/properties/<?=$similar_property->id ?>">
-                            <span class="label__icon--small icon--green">Open House</span>						
-                            <img src="<?=$similar_property->main_image ?>" />
-                        </a>
-                        <div class="carousel-arrows--small">
-                            <div class="carousel-arrow--prev"></div>
-                            <div class="carousel-arrow--next"></div>
-                        </div>
+                <div class="universal__cell property slidered-property <?= $i==0 ? "property--first" : "" ?>" data-property-id="<?=$similar_property->id ?>">
+                    <div class="property__image">	
+                        <img src="<?=$similar_property->main_image ?>" />
                     </div>
                     <div class="property__info-line">
                         <a href="/properties/<?=$similar_property->id ?>">

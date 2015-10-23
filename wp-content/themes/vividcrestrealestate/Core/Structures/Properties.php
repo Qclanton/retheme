@@ -141,15 +141,20 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
                 'title' => $param->title,
                 'value' => $param->value
             ];
-        }
+        }   
         
         
         
-        // Attach images
-        $images = [];
+        return $property;  
+    }
+    
+    public function getImages($property_id) 
+    {
+        $property = $this->get($property_id);
         $credentials = \Vividcrestrealestate\Core\Administration\Connection::getStoredOptions();
+        $PropertyInfo = new PropertyInfo();        
         $Rets = new \Vividcrestrealestate\Core\Libs\Rets($credentials->url, $credentials->login, $credentials->password);      
-        
+
         if ($Rets->login()) {
             $images_ids_data = $PropertyInfo->get([
                 'confines' => [
@@ -175,12 +180,7 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
             $images = [$property->main_image];
         }
         
-        $property->images = $images;
-        
-        
-        
-        
-        return $property;  
+        return $images;
     }
     
     

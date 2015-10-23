@@ -54,11 +54,9 @@
     
     
             if (this.isCollapsed) {
-                console.log(this.isCollapsed);
                 this.renderCollapsed();
                 return;
             }
-
             
             if (this.list.length == 0) {
                 return;

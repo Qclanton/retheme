@@ -33,7 +33,8 @@ add_action("wp_enqueue_scripts", function() {
         
         // Datepicker for forms
         wp_enqueue_style("vividcrest-jquery-ui", "//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css");
-        
+
+        wp_enqueue_script("vividcrest-properties-slider", get_template_directory_uri() . "/js/properties/slider.js", ["jquery", "jquery-effects-core", "jquery-effects-slide"]);
         wp_enqueue_script("vividcrest-handlers-agent_contact_form", get_template_directory_uri() . "/js/handlers/agent_contact_form.js", ["jquery", "jquery-ui-datepicker"]);
     
     
@@ -144,6 +145,14 @@ add_action("admin_menu", function() {
 // Ajax handlers for forms
 add_action("wp_ajax_nopriv_vividcrest_send_form", ["\Vividcrestrealestate\Core\Ajax", "sendFormToAdmin"]);
 add_action("wp_ajax_vividcrest_send_form", ["\Vividcrestrealestate\Core\Ajax", "sendFormToAdmin"]);
+
+
+
+
+
+// Ajax handlers for propery actions
+add_action("wp_ajax_nopriv_vividcrest_get_property_images", ["\Vividcrestrealestate\Core\Ajax", "getPropertyImages"]);
+add_action("wp_ajax_vividcrest_get_property_images", ["\Vividcrestrealestate\Core\Ajax", "getPropertyImages"]);
 
 
 
