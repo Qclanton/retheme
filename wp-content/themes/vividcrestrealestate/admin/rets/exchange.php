@@ -34,7 +34,7 @@
                     <input 
                         name="start"
                         type="text" 
-                        value="<?= date("Y-m-d\T00:00:00", strtotime("-2 day")) ?>" 
+                        value="<?= date("Y-m-d\T00:00:00", strtotime("-3 days")) ?>" 
                         class="regular-text"
                     />
                 </td>                  

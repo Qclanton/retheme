@@ -113,11 +113,11 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
     
     
     
-    public static function fetchRawData()
+    public static function fetchRawData($class=null)
     {
         // Check params
-        if (empty($_POST['start']) || empty($_POST['end']) || empty($_POST['class'])) {
-            self::$negative_messages[] = "Invalid params";
+        if (empty($class) && empty($_POST['class'])) {
+            self::$negative_messages[] = "Class is not defined";
             return false;
         }
         
@@ -125,9 +125,9 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
         
         // Define vars
         $ignore_daily_restrictions = (!empty($_POST['ignore_daily_restrictions'])); 
-        $start = $_POST['start'];
-        $end = $_POST['end'];
-        $class = $_POST['class'];        
+        $start = (!empty($_POST['start']) ? $_POST['start'] : date("Y-m-d\T00:00:00", strtotime("-3 days")));
+        $end = (!empty($_POST['end']) ? $_POST['end'] : date("Y-m-d\T00:00:00", strtotime("-1 day")));
+        $class = (!empty($class) ? $class : $_POST['class']);        
         $credentials = Connection::getStoredOptions();
         
         
@@ -169,24 +169,24 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
         self::$positive_messages[] = "Saved {$fetched_qty} properties";
     }
     
-    public static function processData()
+    public static function processData($batch_size=null)
     {
         // Check params
-        if (empty($_POST['batch_size'])) {
-            self::$negative_messages[] = "Invalid params";
+        if (empty($batch_size) && empty($_POST['batch_size'])) {
+            self::$negative_messages[] = "Batch size is not defined";
             return false;
         }
         
         
         
-        // Fix the time of start
+        // Pin the time of start
         $start = new \Datetime();
         
         
         
         // Define vars
         $options = self::getStoredOptions();
-        $batch_size = $_POST['batch_size'];       
+        $batch_size = (!empty($batch_size) ? $batch_size : $_POST['batch_size']);        
         $credentials = Connection::getStoredOptions();
         
         
@@ -197,31 +197,51 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
             return;
         } else {
             self::storeOptions(['is_processing_in_progress'=>true]);
+        }      
+        
+        
+
+        // Init Libs
+        $ProcessingProperties = new Structures\ProcessingProperties();
+        
+        
+        
+        // Define quantity of processing properties
+        $unprocecced_qty = $ProcessingProperties->getNumberOfUnprocessed();
+        $processed_qty = ($batch_size >= $unprocecced_qty ? $batch_size : $unprocecced_qty);  
+            
+            
+            
+        // Define necessity of processing
+        if ($unprocecced_qty == 0) {
+            // Inform if nothing to do
+            self::$negative_messages[] = "There is no unprocessed properties";
+            
+            // Remove processing lock
+            self::storeOptions(['is_processing_in_progress'=>false]);
+            
+            // Stop working
+            return;
         }
         
         
         
-        // Init Libs
-        $ProcessingProperties = new Structures\ProcessingProperties();
-        $Rets = new Libs\Rets($credentials->url, $credentials->login, $credentials->password);
-        
-        if (!$Rets->login()) { 
-            self::$negative_messages[] = "Can't connect to RETS server";
-            return false;
-        }   
-        
-        
-
-        // Define quantity of processing properties
-        $unprocecced_qty = $ProcessingProperties->getNumberOfUnprocessed();
-        $processed_qty = ($batch_size >= $unprocecced_qty ? $batch_size : $unprocecced_qty);        
-        
-        
-        
         // Process properties 
-        $Rets->processProperties($batch_size);
-              
+        try {    
+            $Rets = new Libs\Rets($credentials->url, $credentials->login, $credentials->password);
+            
+            if (!$Rets->login()) { 
+                self::$negative_messages[] = "Can't connect to RETS server";
+                return false;
+            }   
                 
+            $Rets->processProperties($batch_size);
+        } catch (\Exception $e) {
+            self::$negative_messages[] = "Error due processing properties: {$e->getMessage()}";
+            $processed_qty = 0;
+        }                
+        
+               
         
         // Change processing progress status
         self::storeOptions(['is_processing_in_progress'=>false]);
