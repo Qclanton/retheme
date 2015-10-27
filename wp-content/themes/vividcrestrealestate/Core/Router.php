@@ -64,7 +64,7 @@ class Router
         $search = (isset($_POST['search_property']) ? (object)Forms::sanitize($_POST['search_property']) : new \stdClass);
         
         if (empty($search->address)) {
-            $search->address = $coordinates->city;
+            // $search->address = $coordinates->city;
         }
         
         // Set default data
@@ -241,7 +241,7 @@ class Router
         
         
         $criterion['confines'] = $confines;
-        $criterion['limit'] = 320;
+        $criterion['limit'] = 1000;
 
         
         
