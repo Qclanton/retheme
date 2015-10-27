@@ -72,4 +72,30 @@ class ProcessingProperties extends \Vividcrestrealestate\Core\Libs\Data
         
         return $this->Db->get_var($query);
     }
+    
+    public function getNumberOfFetched($start, $end=null)
+    {
+        $start = (new \Datetime($start))->format("Y-m-d H:i:s");
+        $end = (!empty($end) 
+            ? (new \Datetime($end))->format("Y-m-d H:i:s")
+            : (new \Datetime($start))->modify("+1 day")->format("Y-m-d H:i:s")
+        );
+        
+        $query = "SELECT COUNT(`id`) FROM {$this->Db->prefix}{$this->table} WHERE `creation_date`>='{$start}' AND `creation_date`<'{$end}'";
+        
+        return $this->Db->get_var($query);
+    }
+    
+    public function getNumberOfProcessed($start, $end=null)
+    {
+        $start = (new \Datetime($start))->format("Y-m-d H:i:s");
+        $end = (!empty($end) 
+            ? (new \Datetime($end))->format("Y-m-d H:i:s")
+            : (new \Datetime($start))->modify("+1 day")->format("Y-m-d H:i:s")
+        );
+        
+        $query = "SELECT COUNT(`id`) FROM {$this->Db->prefix}{$this->table} WHERE `status`!='NEW' AND `creation_date`>='{$start}' AND `creation_date`<'{$end}'";
+        
+        return $this->Db->get_var($query);
+    }
 }

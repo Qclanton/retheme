@@ -110,7 +110,7 @@ abstract class Administration
         return $options;
     }
     
-    private static function mergeWithDefaultValues($name, $value)
+    public static function mergeWithDefaultValues($name, $value)
     {           
         return $value;
     }

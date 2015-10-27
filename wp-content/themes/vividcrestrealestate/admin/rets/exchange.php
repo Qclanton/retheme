@@ -23,7 +23,7 @@
     <!-- Form for fetching data -->  
     <h3>Fetch Data</h3>  
     <form id="fetch_data" name="fetch_data" method="POST" action="">
-        <input type="hidden" name="action" value="fetchRawData">    
+        <input type="hidden" name="action" value="fetchRawData">
         
         <table class="form-table">
             <tr>
@@ -61,8 +61,22 @@
                 <td>
                     <select name="class">
                         <option value="ResidentialProperty">Residential Property</option>
+                        <!--
                         <option value="CommercialProperty">Commercial Property</option>
                         <option value="CondoProperty">Condo Property</option>
+                        -->
+                    </select>
+                </td>                 
+            </tr>
+            
+            <tr>
+                <th scope="row">
+                    <label for="class">Ignore daily restrictions</label>
+                </th>
+                <td>
+                    <select name="ignore_daily_restrictions">
+                        <option value="1">Yes</option>
+                        <option value="0" selected>No</option>
                     </select>
                 </td>                 
             </tr>
