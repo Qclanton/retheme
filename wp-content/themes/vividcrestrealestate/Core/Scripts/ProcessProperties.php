@@ -4,6 +4,11 @@ require_once( __DIR__ . "/../../../../../wp-load.php" );
 
 
 
+// Set system params
+date_default_timezone_set(get_option("timezone_string"));
+
+
+
 // Set params
 $classes = ["ResidentialProperty"];
 
@@ -27,7 +32,7 @@ if ($interval->format("%d") > 0) {
 
 
 // Process properties
-$Exchange->processData(50);
+$Exchange->processData(200);
 
 
 

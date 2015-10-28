@@ -213,9 +213,12 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
             
             
         // Define necessity of processing
-        if ($unprocecced_qty == 0) {
+        if ($unprocecced_qty == 0 || $processed_qty > 2300) {
             // Inform if nothing to do
-            self::$negative_messages[] = "There is no unprocessed properties";
+            self::$negative_messages[] = ($unprocecced_qty == 0 
+                ? "There is no unprocessed properties"
+                : "Daily limit for processing properties is exceeded"
+            );
             
             // Remove processing lock
             self::storeOptions(['is_processing_in_progress'=>false]);
