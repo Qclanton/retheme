@@ -209,15 +209,16 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
         // Define quantity of processing properties
         $unprocecced_qty = $ProcessingProperties->getNumberOfUnprocessed();
         $processed_qty = ($batch_size >= $unprocecced_qty ? $batch_size : $unprocecced_qty);  
-            
+        $processed_today_qty = $ProcessingProperties->getNumberOfProcessed(date("Y-m-d"));    
+           
             
             
         // Define necessity of processing
-        if ($unprocecced_qty == 0 || $processed_qty > 2300) {
+        if ($unprocecced_qty == 0 || $processed_today_qty >= 2000) {
             // Inform if nothing to do
             self::$negative_messages[] = ($unprocecced_qty == 0 
                 ? "There is no unprocessed properties"
-                : "Daily limit for processing properties is exceeded"
+                : "Daily limit for processing properties is exceeded (limit: 2000, processed: {$processed_today_qty})"
             );
             
             // Remove processing lock
