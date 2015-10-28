@@ -28,7 +28,10 @@ if ($interval->format("%d") > 0) {
     foreach ($classes as $class) {
         $Exchange->fetchRawData($class);
     }
+} else {
+    echo date("Y-m-d H:i:s"). " | There is no properties to fetch: Last Fetch Date: " . $last_fetch_date->format("Y-m-d H:i:s")  . "; Interval: " . $interval->format("%d") . " days" . PHP_EOL;
 }
+
 
 
 // Process properties
