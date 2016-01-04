@@ -3,7 +3,7 @@ namespace Vividcrestrealestate\Core;
 
 class Ajax 
 {   
-    public static function sendFormToAdmin($data)
+    public static function sendFormToAdmin()
     {
         if (!isset($_POST['contact'])) {
             die(0);
@@ -12,7 +12,7 @@ class Ajax
         die(Forms::sendToAdmin($_POST['contact']));
     }
     
-    public static function getPropertyImages($data)
+    public static function getPropertyImages()
     {
         if (!isset($_POST['property_id'])) {
             die("Where is property id?");

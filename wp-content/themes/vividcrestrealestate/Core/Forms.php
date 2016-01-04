@@ -55,7 +55,7 @@ class Forms
         // Create text
         $subject = "Customer used form on the site \"{$site}\"";
         $message = Template::renderPart("email/form", ['site'=>$site, 'data'=>$data]);
-
+        
 
         // Create headers
         $headers[] = "From: {$name} <{$from}>";

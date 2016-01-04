@@ -34,11 +34,12 @@
         
         // Perepare 
         var form = $(this);
-        var data = $(this).serialize() + '&action=vividcrest_send_form&form_id=' + form.attr('id') + '&contact[property_link]=' + document.location.href;
+        var propertyId = form.data('property-id');
+        var data = $(this).serialize() + '&action=vividcrest_send_form&form_id=' + form.attr('id') + '&contact[property_id]=' + propertyId;
         var url = '/wp-admin/admin-ajax.php';
         
         // Make request
-        $.post(url, data, function(response) {
+        $.post(url, data, function(response) {            
             if (response == 1) {
                 form.find('input[type="submit"]')
                     .after('<p>Form sent</p>')
