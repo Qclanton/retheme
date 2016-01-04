@@ -29,7 +29,7 @@
     
     
     // Send form
-    $('#agent__contact-form, #agent__contact-appointment').on('submit', function(ev) { 
+    $('#agent__contact, #agent__contact-appointment').on('submit', function(ev) { 
         ev.preventDefault();
         
         // Perepare 
