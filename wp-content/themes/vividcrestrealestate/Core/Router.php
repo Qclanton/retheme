@@ -2,7 +2,7 @@
 namespace Vividcrestrealestate\Core;
 
 class Router 
-{
+{        
     public static function definePart()
     {
         global $wp_query;
@@ -29,16 +29,35 @@ class Router
                 
             default: 
                 // Part "category" does not have template for display
-                if ($wp_query->is_category) {         
-                    $main_post = $wp_query->posts[0];
+                if ($wp_query->is_category) {
+                    $menu_items = wp_get_nav_menu_items("top-menu");
+                    $category_id = $wp_query->queried_object_id;
+                    $category_menu_item_id = null;
+                    $main_post_id = null;
                     
-                    // Redirect to main page if category is empty
-                    if (empty($main_post)) {
+                    // Find menu link, assigned to category
+                    foreach ($menu_items as $menu_item) {
+                        if ($menu_item->object == "category" && $menu_item->object_id == $category_id) {
+                            $category_menu_item_id = $menu_item->ID;
+                            break;
+                        }
+                    }
+                    
+                    // Find first post-children of category menu item
+                    foreach ($menu_items as $menu_item) {
+                        if ($menu_item->object == "post" && $menu_item->menu_item_parent == $category_menu_item_id) {
+                            $main_post_id = $menu_item->object_id;
+                            break;
+                        }
+                    }                    
+                    
+                    // Redirect to main page if category is empty or does not exists
+                    if (empty($main_post_id)) {
                         wp_redirect(get_site_url());
                     }
                     
-                    // Redirect to post page int the other case
-                    wp_redirect(get_permalink($main_post->id));
+                    // Redirect to the post page in the other case
+                    wp_redirect(get_permalink($main_post_id));
                 }
                 
                 $template_part = (is_front_page() ? 
