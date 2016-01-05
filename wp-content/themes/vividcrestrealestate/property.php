@@ -122,45 +122,9 @@
 			
 			
             <!-- Mortgage calculator -->
-			<div class="mortgage__calc property__blocks">
-				<h2 class="title--colored">Mortgage Calculator</h2>
-				<div class="mortgage__calc-line clearfix">
-					<div class="mortgage__calc-cell">
-						<span>Mortgage Amount</span>
-						<input type="number" placeholder="Mortgage Amount" value="<?= ceil($property->price) ?>" name="mortage_sum" >
-					</div>
-					<div class="mortgage__calc-cell">
-						<span>Interest Rate</span>
-						<select name="rate">
-                                <option value="2.7900"> 2.79% in 1 years </option>
-                                <option value="2.3400"> 2.34% in 2 years </option>
-                                <option value="2.4000"> 2.40% in 3 years </option>
-                                <option value="2.1000" selected="selected"> 2.10% in 5 years </option>
-						</select>
-					</div>
-					<div class="mortgage__calc-cell">
-						<span>Amortization Period</span>
-						<select name="amortization_period">
-                            <?php for ($i=1; $i<=25; $i++) { ?>
-                                <option value="<?=$i ?>"> <?=$i ?> year<?=$i !=1 ? "s" : ""?> </option>
-                            <?php } ?>
-						</select>
-					</div>
-					<div class="mortgage__calc-cell">
-						<span>Payment Frequency </span>
-						<select name="payment_frequency">
-							<option value="weekly" selected="selected">Weekly</option>
-							<option value="rapid_weekly">Rapid Weekly</option>
-							<option value="biweekly">Bi-Weekly</option>
-							<option value="rapid_biweekly">Rapid Bi-Weekly</option>
-							<option value="monthly">Monthly</option>
-						</select>
-					</div>	
-					<h2 class="title--underlined">Your mortgage payment would be - <strong> 889.02$ / Weekly </strong></h2>
-				</div>
-			</div>
-			
+            <?= get_mortgage_calculator(['amount'=>ceil($property->price), 'template'=>"property_mortgage_calculator.php"]) ?>
 		</div>
+        
 		<div class="layout__col layout__col-half layout__col_half--second">
 			<h2 class="property__price">$<?=number_format(ceil($property->price)) ?> </h2>
 			<p class="property__placed">Placed <?=$property->publish_date ?></p> 

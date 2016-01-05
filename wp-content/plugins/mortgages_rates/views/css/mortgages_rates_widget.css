@@ -1,0 +1,58 @@
+.mort_rates {
+	text-align: center;
+}
+
+.mort_rates h3 {
+	font-size: 24px;
+}
+
+
+.mort_rates_table {
+	width: 100%;
+	background-color: #eaeaea;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: left;
+	border-radius: 5px;
+}
+
+.mort_rates_table > thead > tr > th {
+	font-weight: 700;
+	padding: 10px 0;
+}
+
+
+
+.mort_rates_table > tbody > tr > td,
+.mortgages_rates_full > tbody > tr > td {
+	border-bottom: 1px solid #d0d0d0;
+	margin: 10px 0;
+	line-height: 2;
+}
+.mort_rates_table > tbody > tr > td.rates_down,
+.mort_rates_table > tbody > tr > td.rates_up {
+	background: url("../images/sprites_arrows.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	width: 15px;
+}
+
+
+.mort_rates_table > tbody > tr > td.rates_up {
+	background-position: 0 8px;
+}
+.mort_rates_table > tbody > tr > td.rates_down {
+	background-position: -43px 8px;
+}
+
+.mortgages_rates_full {
+	width: 100%;
+	background-color: #eaeaea;
+	padding: 10px;
+	box-sizing: border-box;
+	text-align: left;
+	border-radius: 5px;
+}
+
+.mortgages_rates_full > thead > tr > th {
+	font-weight: 700;
+	padding: 10px 0;
+}

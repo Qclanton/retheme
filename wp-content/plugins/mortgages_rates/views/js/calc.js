@@ -7,7 +7,7 @@
         var mortgageSum = Number(calculator.find('input[name="mortage_sum"]').val());        
         var yearRate = Number(calculator.find('select[name="rate"]').val())
         var period = Number(calculator.find('select[name="amortization_period"]').val());
-        var frequency = Number(calculator.find('select[name="payment_frequency"]').val());
+        var frequency = calculator.find('select[name="payment_frequency"]').val();
         var frequencyTitle = calculator.find('select[name="payment_frequency"] option:selected').html();
         
         // Check params

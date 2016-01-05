@@ -28,9 +28,7 @@ add_action("wp_enqueue_scripts", function() {
     
     
     
-    } elseif ($template_part == "property") {   
-        wp_enqueue_script("vividcrest-widgets-mortgage_calculator", get_template_directory_uri() . "/js/widgets/mortgage_calculator.js", ["jquery"]);
-        
+    } elseif ($template_part == "property") {           
         // Datepicker for forms
         wp_enqueue_style("vividcrest-jquery-ui", "//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css");
 
@@ -47,7 +45,6 @@ add_action("wp_enqueue_scripts", function() {
         wp_enqueue_script("google-maps-clusterization", "https://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js");
               
                 
-        wp_enqueue_script("vividcrest-widgets-mortgage_calculator", get_template_directory_uri() . "/js/widgets/mortgage_calculator.js", ["jquery"]);
         wp_enqueue_script("vividcrest-properties-map", get_template_directory_uri() . "/js/properties/map.js", ["jquery"]);
         wp_enqueue_script("vividcrest-properties-slider", get_template_directory_uri() . "/js/properties/slider.js", ["jquery", "jquery-effects-core", "jquery-effects-slide"]); 
     }
