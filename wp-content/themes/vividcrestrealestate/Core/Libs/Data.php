@@ -256,7 +256,7 @@ abstract class Data {
 	
 	protected function markAsDeleted($id) 
     {
-		$query = "UPDATE " . $this->Db->prefix . $this->table . " SET `" . $this->deleted_marker_column . "`='YES' WHERE `id`=%d";
+		$query = "UPDATE " . $this->Db->prefix . $this->table . " SET `" . $this->deleted_marker_column . "`='YES' WHERE `{$this->primary_field}`={$this->primary_field_type}";
 		$result = $this->Db->query($this->Db->prepare($query, $id));
 		
 		return $result;
@@ -264,7 +264,7 @@ abstract class Data {
     
 	protected function remove($id) 
     {
-		$query = "DELETE FROM " . $this->Db->prefix . $this->table . " WHERE `id`=%d";		
+		$query = "DELETE FROM " . $this->Db->prefix . $this->table . " WHERE `{$this->primary_field}`={$this->primary_field_type}";		
 		$result = $this->Db->query($this->Db->prepare($query, $id));
 		
 		return $result;

@@ -137,8 +137,8 @@ add_action("admin_menu", function() {
     
     
     
-    
-    add_menu_page("Customer Requests", "Customer Requests", "edit_posts", "customer_requests", ["\Vividcrestrealestate\Core\Administration\CustomerRequests", "show"], "dashicons-admin-users", "6.6");
+    add_menu_page("Featured Properties", "Featured Properties", "edit_posts", "featured_properties", ["\Vividcrestrealestate\Core\Administration\FeaturedProperties", "show"], "dashicons-admin-home", "6.6");
+    add_menu_page("Customer Requests", "Customer Requests", "edit_posts", "customer_requests", ["\Vividcrestrealestate\Core\Administration\CustomerRequests", "show"], "dashicons-admin-users", "6.7");
 });
 
 
