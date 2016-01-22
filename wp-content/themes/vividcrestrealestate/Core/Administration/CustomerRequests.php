@@ -15,7 +15,6 @@ class CustomerRequests extends \Vividcrestrealestate\Core\Libs\Administration
         return "admin/customer_requests";
     }
     
-
     
     
     
@@ -36,29 +35,5 @@ class CustomerRequests extends \Vividcrestrealestate\Core\Libs\Administration
         
         // Do the regular action 
         parent::show(['requests'=>$requests]);
-    }
-    
-    public static function mergeWithDefaultValues($name, $value)
-    {  
-        // Define default values
-        $default = [
-            'last_fetch_date' => "2000-01-01 00:00:00",
-            'is_processing_in_progress' => false
-        ];
-        
-        
-        
-        // Set default values against of undefnid options
-        if (array_key_exists($name, $default)) {  
-            $value = (is_array($default[$name])
-                ? array_replace_recursive($default[$name], (array)$value)
-                : (empty($value) ? $default[$name] : $value)
-            );            
-        }   
-        
-        
-        
-        // Return result       
-        return $value;
     }
 }
