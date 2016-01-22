@@ -22,7 +22,7 @@ abstract class Administration
     public static function getView()
     {
         return "admin/manage";
-    }
+    } 
     
     public static function getPositiveMessages()
     {
@@ -37,7 +37,7 @@ abstract class Administration
     
     
     // Actions
-    public static function show()
+    public static function show($params=null)
     {   
         // Define actual action 
         $action = (isset($_POST['action']) && in_array($_POST['action'], static::getAllowedActions()) ? $_POST['action'] : "show");
@@ -50,12 +50,15 @@ abstract class Administration
         // Get options   
         $options = static::getStoredOptions();
         
-        // Get messafes
+        // Combine vars
+        $vars = (!empty($params) ? Ancillary::mergeObjects($params, $options) : $options);
+        
+        // Get messages
         $options->positive_messages = static::getPositiveMessages();
         $options->negative_messages = static::getNegativeMessages();
         
         // Show content
-        echo \Vividcrestrealestate\Core\Template::renderPart(static::getView(), $options);
+        echo \Vividcrestrealestate\Core\Template::renderPart(static::getView(), $vars);
     }
     
     public static function set()

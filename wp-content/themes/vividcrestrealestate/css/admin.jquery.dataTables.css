@@ -1,0 +1,42 @@
+.paging_simple_numbers {
+	display: block;
+	width: 100%;
+	padding: 5px;
+	border: 1px solid #e1e1e1;
+	box-sizing: border-box;
+	background-color: #f9f9f9;
+	text-align: center;
+	margin: 5px 0;
+}
+
+
+
+.paging_simple_numbers a {
+	color: #555;
+	display: inline-block;
+	padding: 0 10px;
+}
+
+.paging_simple_numbers a:hover {
+	color: #3366bb;
+	cursor: pointer;
+}
+.paging_simple_numbers a.paginate_button.previous::before {
+
+	position: relative;
+	content: '<';
+	padding-right: 10px;
+}	
+.paging_simple_numbers a.paginate_button.next::after {
+
+	position: relative;
+	content: '>';
+	padding-left: 10px;
+}	
+.paging_simple_numbers a.paginate_button.next::after:hover {
+}
+
+a.paginate_button.current {
+	font-weight: 800;
+	color: #3366bb;
+}

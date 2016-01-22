@@ -47,7 +47,7 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
     
     
     
-    public static function show()
+    public static function show($params=null)
     {
         // Init libs
         $ProcessingProperties = new Structures\ProcessingProperties();

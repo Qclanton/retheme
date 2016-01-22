@@ -108,7 +108,13 @@ abstract class Data {
     { 
 		if (empty($exemplar->{$this->primary_field})) { 
             $exemplar->{$this->primary_field} = null; 
-        }		
+        }
+        
+        foreach ($this->fields as $name=>$field) {
+            if (!isset($exemplar->{$name})) {
+                $exemplar->{$name} = $this->default_exemplar->{$name};
+            }
+        }
 		
 		if (!empty($this->date_fields)) {
 			foreach ($this->date_fields as $name=>$field) {

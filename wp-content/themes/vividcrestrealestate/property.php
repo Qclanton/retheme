@@ -57,19 +57,21 @@
 						<a class="button--small grey universal-button" data-action="request-information" href="#">Request information</a>
 						<a class="button--small blue_button universal-button" data-action="request-showing" href="#">Request showing</a>
 						<form id="agent__contact" class="form" data-property-id="<?= $property->id ?>">
+                            <input type="hidden" value="INFO" name="contact[type]">
+                        
 							<h2 class="title--underlined title--small">Request More Information about <strong> <?=$property->address ?></strong></h2>
 							<div class="universal_line-wrapper">
 								<span>Your Name</span>
-								<input type="text" required="" placeholder="Name" value="" title="Your Name" name="contact[name]">
+								<input type="text" placeholder="Name" value="" title="Your Name" name="contact[name]" required>
 							</div>
 							<div class="universal_line-wrapper">
 								<div class="universal_cell-wrapper">
 									<span>Your Phone</span>
-									<input type="tel" required="" placeholder="Phone" pattern="\+1[0-9]{10}" value="" title="+14165852626" name="contact[phone]">
+									<input type="tel" placeholder="Phone" pattern="\+1[0-9]{10}" value="" title="+14165852626" name="contact[phone]" required>
 								</div>
 								<div class="universal_cell-wrapper">
 									<span>Your Email</span>
-									<input type="email" required="" placeholder="Email" value="" title="Your Email" name="contact[email]">
+									<input type="email" placeholder="Email" value="" title="Your Email" name="contact[email]" required>
 								</div>
 							</div>
 							<div class="universal_line-wrapper">
@@ -81,6 +83,8 @@
 							</div>
 						</form>
 						<form id="agent__contact-appointment" class="form" data-property-id="<?= $property->id ?>"> 
+                            <input type="hidden" value="SHOW" name="contact[type]">
+                            
 							<h2 class="title--underlined title--small">Request Showing <strong> <?=$property->address ?></strong></h2>
 							<div class="universal_line-wrapper">
 								<span>Your Name</span>
@@ -99,11 +103,11 @@
 							<div class="universal_line-wrapper">
 								<div class="universal_cell-wrapper">
 									<span>1st Preferred Date</span>
-									<input type="text" class="date" required placeholder="1st Preferred Date" value="" title="Preferred Date" name="contact[prefered_date_1]">
+									<input type="text" class="date" required placeholder="First Preferred Date" value="" title="Preferred Date" name="contact[first_referred_date]">
 								</div>
 								<div class="universal_cell-wrapper">
 									<span>2nd Preffered Date</span>
-									<input type="text" class="date" required placeholder="2 Preferred Date" value="" title="Preferred Date " name="contact[prefered_date_2]">
+									<input type="text" class="date" required placeholder="Second Preferred Date" value="" title="Preferred Date " name="contact[second_preferred_date]">
 								</div>
 							</div>
 							<div class="universal_line-wrapper">
@@ -113,10 +117,8 @@
 							<div class="universal_line-wrapper">
 								<input class="agent__contact-submit universal-button" type="submit" name="submit" value="Send">
 							</div>
-						</form>
-					
-					</div>
-					
+						</form>					
+					</div>					
 				</div>
 			</div>
 			

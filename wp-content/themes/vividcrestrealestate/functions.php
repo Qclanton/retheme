@@ -134,6 +134,11 @@ add_action("admin_menu", function() {
     add_submenu_page("rets", "Exchange", "Exchange", "edit_posts", "rets_exchange", ["\Vividcrestrealestate\Core\Administration\Exchange", "show"]);
 	
 	remove_submenu_page("rets", "rets");
+    
+    
+    
+    
+    add_menu_page("Customer Requests", "Customer Requests", "edit_posts", "customer_requests", ["\Vividcrestrealestate\Core\Administration\CustomerRequests", "show"], "dashicons-admin-users", "6.6");
 });
 
 
@@ -141,8 +146,8 @@ add_action("admin_menu", function() {
 
 
 // Ajax handlers for forms
-add_action("wp_ajax_nopriv_vividcrest_send_form", ["\Vividcrestrealestate\Core\Ajax", "sendFormToAdmin"]);
-add_action("wp_ajax_vividcrest_send_form", ["\Vividcrestrealestate\Core\Ajax", "sendFormToAdmin"]);
+add_action("wp_ajax_nopriv_vividcrest_send_form", ["\Vividcrestrealestate\Core\Ajax", "saveCustomerRequest"]);
+add_action("wp_ajax_vividcrest_send_form", ["\Vividcrestrealestate\Core\Ajax", "saveCustomerRequest"]);
 
 
 
