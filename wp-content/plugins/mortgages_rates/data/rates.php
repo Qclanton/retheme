@@ -1,4 +1,4 @@
-<?
+<?php
 namespace MortgagesRates;
 
 class Rates extends Data {
@@ -97,4 +97,3 @@ class Rates extends Data {
 		return $this->Db->get_results($query);
 	}
 }
-?>

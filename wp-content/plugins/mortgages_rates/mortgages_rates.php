@@ -1,8 +1,8 @@
-<?
+<?php
 /*
-Plugin Name: Motgages Rates
+Plugin Name: Mortgages Rates
 Description: Widget for current mortages rates
-Version: 103
+Version: 104
 Author: Vividcrest
 */
 
@@ -83,4 +83,3 @@ function get_mortgage_calculator(array $params=[]) {
 	
 	echo \MortgagesRates\Helpers::render($template, $vars);
 }
-?>

@@ -1,4 +1,4 @@
-<?
+<?php
 namespace MortgagesRates;
 
 abstract class Data {
@@ -108,6 +108,12 @@ abstract class Data {
     { 
 		if (empty($exemplar->{$this->primary_field})) { 
             $exemplar->{$this->primary_field} = null; 
+        }
+        
+        foreach ($this->fields as $name=>$field) {
+            if (!isset($exemplar->{$name})) {
+                $exemplar->{$name} = $this->default_exemplar->{$name};
+            }
         }		
 		
 		if (!empty($this->date_fields)) {
@@ -297,4 +303,3 @@ abstract class Data {
 		return $simplified;
 	}
 }
-?>

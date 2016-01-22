@@ -76,4 +76,3 @@ class Manager {
 		$wpdb->query("DROP TABLE IF EXISTS {$wpdb->prefix}mortgages_rates");
 	}
 }
-?>
