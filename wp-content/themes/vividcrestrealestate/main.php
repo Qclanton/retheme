@@ -45,78 +45,31 @@
 			</div>
 
 			<div class="universal_line-wrapper three__cols">
-				<div class="universal__cell property property--first">
-					<div class="property__image">
-						<a href="">
-							<span class="label__icon--small icon--green">Open House</span>						
-							<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-						</a>
-					</div>
-					<div class="property__info-line">
-						<a href="">
-							<p class="property__price">
-								$850 000
-							</p>
-						</a>		
-					</div>
-					<div class="property__description">
-						<a href="">
-							<ul>
-								<li>3 beds </li>
-								<li>2 baths</li>
-								<li>1500 sq.ft.</li>
-							</ul>
-						</a>
-					</div>
-				</div>
-				<div class="universal__cell property">
-					<div class="property__image">
-						<a href="">
-							<span class="label__icon--small icon--blue">New Offer</span>
-							<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-						</a>
-					</div>
-					<div class="property__info-line">
-						<a href="">
-							<p class="property__price">
-								$850 000
-							</p>
-						</a>		
-					</div>
-					<div class="property__description">
-						<a href="">
-							<ul>
-								<li>3 beds </li>
-								<li>2 baths</li>
-								<li>1500 sq.ft.</li>
-							</ul>
-						</a>
-					</div>
-				</div>
-				<div class="universal__cell property">
-					<div class="property__image">
-						<a href="">
-							<span class="label__icon--small icon--green">Open House</span>
-							<img src="<?= get_template_directory_uri(); ?>/images/property.jpg" />
-						</a>
-					</div>
-					<div class="property__info-line">
-						<a href="">
-							<p class="property__price">
-								$850 000
-							</p>
-						</a>		
-					</div>
-					<div class="property__description">
-						<a href="">
-							<ul>
-								<li>3 beds </li>
-								<li>2 baths</li>
-								<li>1500 sq.ft.</li>
-							</ul>
-						</a>
-					</div>
-				</div>
+                <?php foreach ($featured_properties as $i=>$featured_property) { ?>
+                    <div class="universal__cell slidered-property property <?= $i==0 ? "property--first" : "" ?>" data-property-id="<?= $featured_property->id ?>">
+                        <div class="property__image">
+                            <a href="/properties/<?= $featured_property->id ?>">		
+                                <img src="<?= $featured_property->main_image ?>" />
+                            </a>
+                        </div>
+                        <div class="property__info-line">
+                            <a href="">
+                                <p class="property__price">
+                                    $<?=number_format(ceil($featured_property->price)) ?>
+                                </p>
+                            </a>		
+                        </div>
+                        <div class="property__description">
+                            <a href="/properties/<?= $featured_property->id ?>">
+                                <ul>
+                                    <li><?=$featured_property->bedrooms ?> beds </li>
+                                    <li><?=$featured_property->bathrooms ?> baths</li>
+                                    <li><?=!empty($featured_property->size) ? $featured_property->size : "N/A" ?> sq.ft.</li>
+                                </ul>
+                            </a>
+                        </div>
+                    </div>
+                <?php } ?>
 			</div>
 
 

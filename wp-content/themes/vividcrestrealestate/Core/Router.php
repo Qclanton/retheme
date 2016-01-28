@@ -78,6 +78,7 @@ class Router
               
         // Load structures
         $Properties = new Structures\Properties();
+        $FeaturedProperties = new Structures\FeaturedProperties();
         
         // Handle search form
         $search = (isset($_POST['search_property']) ? (object)Forms::sanitize($_POST['search_property']) : new \stdClass);
@@ -95,7 +96,7 @@ class Router
         
         // Extract necessary data
         switch ($part) {            
-            case "main":
+            case "main":            
                 $criterion = self::makeCriterion($search);            
                 $data->properties = $Properties->get($criterion);
                 $data->recent_properties = $Properties->get([
@@ -103,6 +104,7 @@ class Router
                     'order' => "DESC",
                     'limit' => 4
                 ]);
+                $data->featured_properties = $FeaturedProperties->getDetailed(['limit'=>3]);
                 break;
                 
             case "map":                  

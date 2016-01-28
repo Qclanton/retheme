@@ -53,14 +53,9 @@ class FeaturedProperties extends \Vividcrestrealestate\Core\Libs\Administration
         
         
         // Get featured properties
-        $featured_properties = $FeaturedProperties->get();
+        $featured_properties = $FeaturedProperties->getDetailed();
         
-        // Attach info about properties
-        foreach ($featured_properties as &$property) {
-            $property = $Properties->get($property->property_id);
-        }
-    
-        
+                
                 
         // Prepare vars
         $vars = (object)[
