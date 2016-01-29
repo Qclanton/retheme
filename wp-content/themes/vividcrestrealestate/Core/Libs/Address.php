@@ -21,13 +21,13 @@ class Address
         
         // Fetch Google API key
         $key = get_option("rets_connection_google_api_key", "");
-        $key_url_part = (!empty($key) ? "key={$key}&signed_in=true" : "");
+        $key_url_part = (!empty($key) ? "key={$key}&signed_in=true&" : "");
         
         
         
         
         // Send request to api
-        $api_url = "https://maps.googleapis.com/maps/api/geocode/json?{$key_url_part}&address=";
+        $api_url = "https://maps.googleapis.com/maps/api/geocode/json?{$key_url_part}address=";
         $context = stream_context_create(['http'=>['timeout'=>5]]);         
         $api_data = json_decode(@file_get_contents($api_url . urlencode($addrress_string), false, $context)); 
         

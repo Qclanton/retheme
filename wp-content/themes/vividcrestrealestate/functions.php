@@ -3,14 +3,21 @@
 add_action("wp_enqueue_scripts", function() {
     $template_part = \Vividcrestrealestate\Core\Router::definePart();
     
+    // Fetch Google API key
+    $key = get_option("rets_connection_google_api_key", "");
+    $key_url_part = (!empty($key) ? "key={$key}&" : "");
+    
+    
+    
     if ($template_part == "map") {        
         // Load Google Maps Api Library
-        wp_enqueue_script("google-maps-api", "https://maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry");
+        wp_enqueue_script("google-maps-api", "https://maps.googleapis.com/maps/api/js?{$key_url_part}libraries=places,drawing,geometry");
         
         // Load clusteriztion library
         wp_enqueue_script("google-maps-clusterization", "https://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js");
         
         // Load handlers
+        wp_enqueue_script("vividcrest-google-map-autocomplete", get_template_directory_uri() . "/js/handlers/google_map_autocomplete.js", ["jquery"]);
         wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/map.js", ["jquery"]);
         wp_enqueue_script("vividcrest-handlers-view_toggle", get_template_directory_uri() . "/js/handlers/view_toggle.js", ["jquery"]); 
     
@@ -24,6 +31,7 @@ add_action("wp_enqueue_scripts", function() {
         wp_enqueue_script("vividcrest-properties-compare", get_template_directory_uri() . "/js/properties/compare.js", ["jquery"]);
         wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/sort.js", ["jquery"]);
         
+        wp_enqueue_script("vividcrest-google-map-autocomplete", get_template_directory_uri() . "/js/handlers/google_map_autocomplete.js", ["jquery"]);
         wp_enqueue_script("vividcrest-handlers-view_toggle", get_template_directory_uri() . "/js/handlers/view_toggle.js", ["jquery"]);     
     
     
@@ -39,7 +47,7 @@ add_action("wp_enqueue_scripts", function() {
     
     } elseif ($template_part == "main") {
         // Load Google Maps Api Library
-        wp_enqueue_script("google-maps-api", "https://maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry");
+        wp_enqueue_script("google-maps-api", "https://maps.googleapis.com/maps/api/js?{$key_url_part}libraries=places,drawing,geometry");
         
         // Load clusteriztion library
         wp_enqueue_script("google-maps-clusterization", "https://google-maps-utility-library-v3.googlecode.com/svn/trunk/markerclusterer/src/markerclusterer_compiled.js");
@@ -47,6 +55,8 @@ add_action("wp_enqueue_scripts", function() {
                 
         wp_enqueue_script("vividcrest-properties-map", get_template_directory_uri() . "/js/properties/map.js", ["jquery"]);
         wp_enqueue_script("vividcrest-properties-slider", get_template_directory_uri() . "/js/properties/slider.js", ["jquery", "jquery-effects-core", "jquery-effects-slide"]); 
+        
+        wp_enqueue_script("vividcrest-google-map-autocomplete", get_template_directory_uri() . "/js/handlers/google_map_autocomplete.js", ["jquery"]);
     }
     
     

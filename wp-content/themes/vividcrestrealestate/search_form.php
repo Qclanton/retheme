@@ -1,6 +1,7 @@
-<form class="search_form-main search_form search_form--small form" name="search-properties" action="/properties" method="POST">
+<form class="search_form-main search_form search_form--small form" name="search-properties" action="/map" method="POST">
     <div class="universal_line-wrapper">
         <input 
+            class="address"
             type="text" 
             placeholder="City, Postal Code, Neighborhood or District" 
             name="search_property[address]" 
@@ -53,7 +54,7 @@
         <select name="search_property[type]">
             <option value="0" <?= empty($search->deal_type) ? "selected='selected'" : "" ?>>Type</option>
             <option value="ResidentialProperty" <?= isset($search->type) && $search->type == "ResidentialProperty" ? "selected='selected'" : "" ?>>Residential</option>
-            <option value="CommercialProperty" <?= isset($search->type) && $search->type == "CommercialProperty" ? "selected='selected'" : "" ?>>Commercial</option>
+            <!-- <option value="CommercialProperty" <?= isset($search->type) && $search->type == "CommercialProperty" ? "selected='selected'" : "" ?>>Commercial</option> -->
             <option value="CondoProperty" <?= isset($search->type) && $search->type == "CondoProperty" ? "selected='selected'" : "" ?>>Condo</option>
         </select>
     </div>	
