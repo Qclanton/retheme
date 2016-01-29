@@ -153,7 +153,7 @@ class Router
                 $property = $Properties->getDetailed($property_id);
                 
                 // Fetch simlar properties
-                $range = 50000;
+                $range = ($property->deal_type == "buy" ? 50000 : 300);
                 $min_price = $property->price - $range;
                 $max_price = $property->price + $range;
                 $similar_properties = $Properties->get([
