@@ -33,7 +33,7 @@
                 </td>                  
             </tr>
             
-                            <tr>
+            <tr>
                 <th scope="row">
                     <label for="options[password]">Password</label>
                 </th>
@@ -42,6 +42,20 @@
                         name="options[password]" 
                         type="text" 
                         value="<?= $password ?>" 
+                        class="regular-text"
+                    />
+                </td>                  
+            </tr>
+            
+            <tr>
+                <th scope="row">
+                    <label for="options[google_api_key]">Google API key</label>
+                </th>
+                <td>
+                    <input 
+                        name="options[google_api_key]" 
+                        type="text" 
+                        value="<?= $google_api_key ?>" 
                         class="regular-text"
                     />
                 </td>                  
