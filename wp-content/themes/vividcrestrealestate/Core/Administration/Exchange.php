@@ -20,8 +20,7 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
     
     public static function getOptionsList()
     {
-        $Rets = new Libs\Rets();
-        $possible_classes = $Rets->getPossibleClasses();
+        $possible_classes = Libs\Rets::getPossibleClasses();
         
         $last_fetch_dates = [];        
         foreach ($possible_classes as $class) {
@@ -155,17 +154,17 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
         // Check the neceessity of fetch properties
         if (!$ignore_daily_restrictions) {
             $options = self::getStoredOptions();
-            
+
             $current_date = new \Datetime("now", $timezone);
             $fetch_date_option_name = "last_fetch_date_{$class}"; 
             $last_fetch_date = new \Datetime($options->{$fetch_date_option_name}); 
             $interval = $current_date->diff($last_fetch_date);
             
             if ($interval->format("%d") == 0) {
-                self::$negative_messages[] = "Properties has been already fetched today";
+                self::$negative_messages[] = "Properties for class \"{$class}\" has been already fetched today";
                 return;
             } else {
-                self::storeOptions(['last_fetch_date'=>$current_date->format("Y-m-d H:i:s")]);
+                self::storeOptions([$fetch_date_option_name=>$current_date->format("Y-m-d H:i:s")]);
             } 
         }        
         

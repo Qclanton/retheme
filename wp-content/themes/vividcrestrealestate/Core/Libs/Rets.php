@@ -53,7 +53,7 @@ class Rets
         return (bool)$result;
     }
     
-    public function getPossibleClasses()
+    public static function getPossibleClasses()
     {
         // return ["ResidentialProperty", "CommercialProperty", "CondoProperty"];
         // return ["ResidentialProperty"];
@@ -143,7 +143,7 @@ class Rets
             'Count'  => 1,
             'Select' => $fields
         ]);
-            
+
         return $result->toArray();
     }
 
