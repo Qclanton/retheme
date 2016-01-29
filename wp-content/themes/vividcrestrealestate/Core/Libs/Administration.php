@@ -56,7 +56,7 @@ abstract class Administration
         // Get messages
         $vars->positive_messages = static::getPositiveMessages();
         $vars->negative_messages = static::getNegativeMessages();
-        
+
         // Show content
         echo \Vividcrestrealestate\Core\Template::renderPart(static::getView(), $vars);
     }

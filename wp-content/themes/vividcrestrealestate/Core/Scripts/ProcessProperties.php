@@ -10,7 +10,7 @@ date_default_timezone_set(get_option("timezone_string"));
 
 
 // Set params
-$classes = ["ResidentialProperty"];
+$classes = ["ResidentialProperty", "CondoProperties"];
 
 
 

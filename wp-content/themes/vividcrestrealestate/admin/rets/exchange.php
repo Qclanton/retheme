@@ -60,10 +60,10 @@
                 </th>
                 <td>
                     <select name="class">
-                        <option value="ResidentialProperty">Residential Property</option>
+                        <option <?= $class == "ResidentialProperty" ? "selected" : "" ?> value="ResidentialProperty">Residential Property</option>
+                        <option <?= $class == "CondoProperty" ? "selected" : "" ?> value="CondoProperty">Condo Property</option>
                         <!--
                         <option value="CommercialProperty">Commercial Property</option>
-                        <option value="CondoProperty">Condo Property</option>
                         -->
                     </select>
                 </td>                 

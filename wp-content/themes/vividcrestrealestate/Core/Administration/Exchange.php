@@ -54,6 +54,11 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
         
         
         
+        // Define timezone
+        $timezone = new \DateTimeZone(get_option("timezone_string"));
+        
+        
+        
         // Add info about unprocessed properties
         $unprocessed_qty = $ProcessingProperties->getNumberOfUnprocessed();
         
@@ -64,25 +69,25 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
         
         
         // Add info about fetched today properties
-        $fetched_today_qty = $ProcessingProperties->getNumberOfFetched(date("Y-m-d"));
-        
+        $fetched_today_qty = $ProcessingProperties->getNumberOfFetched((new \Datetime("now", $timezone))->format("Y-m-d"));
+
         if ($fetched_today_qty > 0) {
             self::$positive_messages[] = "There is {$fetched_today_qty} fetched properties today";
         }
         
         
         
-        // Add info about processed today properties
-        $processed_today_qty = $ProcessingProperties->getNumberOfProcessed(date("Y-m-d"));
-        
+        // Add info about processed today properties        
+        $processed_today_qty = $ProcessingProperties->getNumberOfProcessed((new \Datetime("now", $timezone))->format("Y-m-d"));
+
         if ($processed_today_qty > 0) {
             self::$positive_messages[] = "There is {$processed_today_qty} processed properties today";
         }
-        
+
         
         
         // Do the regular action 
-        parent::show();
+        parent::show(['class'=>(!empty($_POST['class']) ? $_POST['class'] : null)]);
     }
     
     public static function mergeWithDefaultValues($name, $value)
@@ -166,7 +171,7 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
         
         
         // Add message info about fetched properties  
-        self::$positive_messages[] = "Saved {$fetched_qty} properties";
+        self::$positive_messages[] = "Saved {$fetched_qty} properties with class \"{$class}\"";
     }
     
     public static function processData($batch_size=null)
@@ -214,11 +219,11 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
             
             
         // Define necessity of processing
-        if ($unprocecced_qty == 0 || $processed_today_qty >= 2000) {
+        if ($unprocecced_qty == 0 || $processed_today_qty >= 10000) {
             // Inform if nothing to do
             self::$negative_messages[] = ($unprocecced_qty == 0 
                 ? "There is no unprocessed properties"
-                : "Daily limit for processing properties is exceeded (limit: 2000, processed: {$processed_today_qty})"
+                : "Daily limit for processing properties is exceeded (limit: 10000, processed: {$processed_today_qty})"
             );
             
             // Remove processing lock

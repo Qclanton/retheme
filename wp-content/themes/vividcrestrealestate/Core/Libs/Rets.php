@@ -56,7 +56,8 @@ class Rets
     public function getPossibleClasses()
     {
         // return ["ResidentialProperty", "CommercialProperty", "CondoProperty"];
-        return ["ResidentialProperty"];
+        // return ["ResidentialProperty"];
+        return ["ResidentialProperty", "CondoProperty"];
     }
     
     public function setClasses(array $classes)
@@ -100,6 +101,27 @@ class Rets
                 "Rms",
                 "Sqft",
                 "Yr_built"
+            ],           
+            
+            'CondoProperty' => [
+                "Ml_num",
+                "Ad_text",
+                "Addr",
+                "S_r",
+                "Extras",
+                "Community",
+                "Bsmt1_out",
+                "Br",
+                "Bath_tot",
+                "Area",
+                "County",
+                "Timestamp_sql",
+                "Gar_type",
+                "Zip",
+                "Lp_dol",
+                "Rms",
+                "Sqft",
+                "Yr_built"
             ]
         ];
         
@@ -133,7 +155,7 @@ class Rets
         $ProcessingProperties = new \Vividcrestrealestate\Core\Structures\ProcessingProperties();
         
         $properties = $this->getProperties($class, $start, $end);
-        $ProcessingProperties->set($properties);
+        $ProcessingProperties->set($properties, $class);
         
         return count($properties);
     }

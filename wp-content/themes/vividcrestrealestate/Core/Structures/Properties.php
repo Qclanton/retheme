@@ -188,7 +188,7 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
     {
         // Normalize vars
         $property = (object)$property;
-        $class = $property->type; // Need to change
+        $class = $property->type;
         
         
         // Recognize address
@@ -212,7 +212,7 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
             'bedrooms' => $property->Br,
             'bathrooms' => $property->Bath_tot,
             'type' => $class,
-            'deal_type' => "buy",
+            'deal_type' => ($property->Lp_dol > 10000 ? "buy" : "rent"),
             'price' => $property->Lp_dol,
             'size' => (!empty($property->Sqft) ? $property->Sqft : "0"),
             'description' => $property->Ad_text,

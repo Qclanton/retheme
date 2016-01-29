@@ -48,19 +48,23 @@ class ProcessingProperties extends \Vividcrestrealestate\Core\Libs\Data
     
     
         
-    protected function setAll($properties)
+    protected function setAll($properties, $class=null)
     {        
         foreach ($properties as $property) {
             $property = (object)$property;
+            $existed_properties = $this->get(['external_id'=>$property->Ml_num]);
             
-            $this->setOne((object)[
-                'external_id' => $property->Ml_num,
-                'creation_date' => date("Y-m-d H:i:s"),
-                'processing_date' => date("Y-m-d H:i:s"),
-                'class' => "ResidentialProperty", // <-BAD
-                'data' => json_encode($property),
-                'status' => "NEW"
-            ]);
+            // Set data only for new properties
+            if (empty($existed_properties[0])) {
+                $this->setOne((object)[
+                    'external_id' => $property->Ml_num,
+                    'creation_date' => date("Y-m-d H:i:s"),
+                    'processing_date' => date("Y-m-d H:i:s"),
+                    'class' => $class,
+                    'data' => json_encode($property),
+                    'status' => "NEW"
+                ]);
+            }
         }
         
         return $this;
@@ -82,7 +86,7 @@ class ProcessingProperties extends \Vividcrestrealestate\Core\Libs\Data
         );
         
         $query = "SELECT COUNT(`id`) FROM {$this->Db->prefix}{$this->table} WHERE `creation_date`>='{$start}' AND `creation_date`<'{$end}'";
-        
+
         return $this->Db->get_var($query);
     }
     
@@ -95,7 +99,7 @@ class ProcessingProperties extends \Vividcrestrealestate\Core\Libs\Data
         );
         
         $query = "SELECT COUNT(`id`) FROM {$this->Db->prefix}{$this->table} WHERE `status`!='NEW' AND `creation_date`>='{$start}' AND `creation_date`<'{$end}'";
-        
+
         return $this->Db->get_var($query);
     }
 }
