@@ -20,7 +20,15 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
     
     public static function getOptionsList()
     {
-        return ["last_fetch_date", "is_processing_in_progress"];
+        $Rets = new Libs\Rets();
+        $possible_classes = $Rets->getPossibleClasses();
+        
+        $last_fetch_dates = [];        
+        foreach ($possible_classes as $class) {
+            $last_fetch_dates[] = "last_fetch_date_{$class}";
+        }
+        
+        return (array_merge($last_fetch_dates, ["is_processing_in_progress"]));
     }    
     
     public static function getAllowedActions()
@@ -93,10 +101,16 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
     public static function mergeWithDefaultValues($name, $value)
     {  
         // Define default values
-        $default = [
-            'last_fetch_date' => "2000-01-01 00:00:00",
-            'is_processing_in_progress' => false
-        ];
+        $options = self::getOptionsList();
+        $default = [];
+        
+        foreach ($options as $option) {
+            if (substr($option, 0, 16) == "last_fetch_date_") {
+                $default[$option] = "2000-01-01 00:00:00";
+            } else {
+                $default[$option] = false;
+            }
+        }
         
         
         
@@ -129,9 +143,10 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
         
         
         // Define vars
+        $timezone = new \DateTimeZone(get_option("timezone_string"));
         $ignore_daily_restrictions = (!empty($_POST['ignore_daily_restrictions'])); 
-        $start = (!empty($_POST['start']) ? $_POST['start'] : date("Y-m-d\T00:00:00", strtotime("-3 days")));
-        $end = (!empty($_POST['end']) ? $_POST['end'] : date("Y-m-d\T00:00:00", strtotime("-1 day")));
+        $start = (!empty($_POST['start']) ? $_POST['start'] : (new \Datetime("-3 days", $timezone))->format("Y-m-d\T00:00:00"));
+        $end = (!empty($_POST['end']) ? $_POST['end'] : (new \Datetime("-1 day", $timezone))->format("Y-m-d\T00:00:00"));
         $class = (!empty($class) ? $class : $_POST['class']);        
         $credentials = Connection::getStoredOptions();
         
@@ -141,15 +156,16 @@ class Exchange extends \Vividcrestrealestate\Core\Libs\Administration
         if (!$ignore_daily_restrictions) {
             $options = self::getStoredOptions();
             
-            $current_date = new \Datetime();
-            $last_fetch_date = new \Datetime($options->last_fetch_date);            
+            $current_date = new \Datetime("now", $timezone);
+            $fetch_date_option_name = "last_fetch_date_{$class}"; 
+            $last_fetch_date = new \Datetime($options->{$fetch_date_option_name}); 
             $interval = $current_date->diff($last_fetch_date);
             
             if ($interval->format("%d") == 0) {
                 self::$negative_messages[] = "Properties has been already fetched today";
                 return;
             } else {
-                self::storeOptions(['last_fetch_date'=>date("Y-m-d H:i:s")]);
+                self::storeOptions(['last_fetch_date'=>$current_date->format("Y-m-d H:i:s")]);
             } 
         }        
         

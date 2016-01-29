@@ -21,15 +21,16 @@ $Exchange = new \Vividcrestrealestate\Core\Administration\Exchange();
 
 // Fetch properties for all classes if it necessary
 $current_date = new \Datetime();
-$last_fetch_date = new \Datetime(get_option("rets_exchange_last_fetch_date", "2000-01-01"));            
-$interval = $current_date->diff($last_fetch_date);
 
-if ($interval->format("%d") > 0) {
-    foreach ($classes as $class) {
+foreach ($classes as $class) {
+    $last_fetch_date = new \Datetime(get_option("rets_exchange_last_fetch_date_{$class}", "2000-01-01"));            
+    $interval = $current_date->diff($last_fetch_date);
+    
+    if ($interval->format("%d") > 0) {
         $Exchange->fetchRawData($class);
+    } else {
+        echo date("Y-m-d H:i:s"). " | There is no properties to fetch for class \"{$class}\": Last Fetch Date: " . $last_fetch_date->format("Y-m-d H:i:s")  . "; Interval: " . $interval->format("%d") . " days" . PHP_EOL;
     }
-} else {
-    echo date("Y-m-d H:i:s"). " | There is no properties to fetch: Last Fetch Date: " . $last_fetch_date->format("Y-m-d H:i:s")  . "; Interval: " . $interval->format("%d") . " days" . PHP_EOL;
 }
 
 
