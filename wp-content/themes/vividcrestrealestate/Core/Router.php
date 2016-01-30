@@ -92,12 +92,16 @@ class Router
             'search' => $search
         ];             
         
+        // Make criterion
+        $criterion = self::makeCriterion($search);  
+        
+        // Fetch wp_query
+        global $wp_query;
         
         
         // Extract necessary data
         switch ($part) {            
             case "main":            
-                $criterion = self::makeCriterion($search);            
                 $data->properties = $Properties->get($criterion);
                 $data->recent_properties = $Properties->get([
                     'orderby' => "publish_date",
@@ -107,10 +111,19 @@ class Router
                 $data->featured_properties = $FeaturedProperties->getDetailed(['limit'=>3]);
                 break;
                 
-            case "map":                  
-            case "properties":
-                $criterion = self::makeCriterion($search);            
+            case "map":
                 $data->properties = $Properties->get($criterion);
+                break;
+                
+            case "properties":
+                $pagination = new Structures\Pagination($Properties->count($criterion));
+                $criterion['order'] = $pagination->order;
+                $criterion['orderby'] = $pagination->orderby;
+                $criterion['limit'] = $pagination->per_page;
+                $criterion['limitstart'] = $pagination->current*$pagination->per_page-$pagination->per_page;
+                
+                $data->properties = $Properties->get($criterion);
+                $data->pagination = $pagination;
                 break;
             
             case "compare":
@@ -146,8 +159,6 @@ class Router
                 break;
                 
             case "property":
-                global $wp_query;
-                
                 // Fetch property
                 $property_id = $wp_query->query_vars['property_id'];
                 $property = $Properties->getDetailed($property_id);
@@ -170,9 +181,7 @@ class Router
                 $data->similar_properties = $similar_properties;
                 break;
             
-            case "search_posts":
-                global $wp_query;
-                
+            case "search_posts":                
                 $search_query = new \WP_Query([
                     's' => $wp_query->query_vars['s'],
                     'posts_per_page' => 999,
@@ -183,7 +192,6 @@ class Router
                 break;
             
             case "content":
-                global $wp_query;
                 $data->post = get_post($wp_query->queried_object_id);
                 break;
                 

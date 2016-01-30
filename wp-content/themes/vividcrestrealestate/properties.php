@@ -55,31 +55,11 @@
 			</ul>
 		</div>
 	</div>
-	<div class="universal-wrapper--inner clearfix two_cols">
-		<div class="col--left">
-			<div class="universal_line-wrapper">
-				1 - 8 of <?= count($properties) ?>
-			</div>
-		</div>
-		<div class="col--right">
-			<ul class="pagintaion">
-                <?php $total_pages =  ceil(count($properties)/8); ?>
-                    <li data-page="0" class="previous" style="display:none">«</li>
-                    <li data-page="1" class="page-button page-button-first current">1</li>
-                    <li class="separator" style="display:none">...</li>                    
-                
-                <?php for ($page=2; $page<ceil(count($properties)/8); $page++) { ?>
-                    <li data-page="<?=$page ?>" class="page-button" <?=$page > 3 ? "style='display:none'" : "" ?>><?=$page ?></li>
-                <?php } ?>
-                
-                    <li class="separator">...</li>
-                    <li data-page="<?=$total_pages ?>" class="page-button page-button-last" <?=$total_pages < 5 ? "style='display:none'" : "" ?>><?=$total_pages ?></li>
-                    <li data-page="4" class="next" <?=$total_pages < 4 ? "style='display:none'" : "" ?>>»</li>
-            </ul>
-		</div>
-	</div>
-	<div class="universal-wrapper--inner clearfix ">
-		
+    
+    <!-- Top Pagination  -->
+    <?= \Vividcrestrealestate\Core\Template::renderPart("pagination", ['pagination'=>$pagination]); ?>
+	
+    <div class="universal-wrapper--inner clearfix ">		
 		<div class="universal_line-wrapper four__cols properties-list">
 			<?php foreach ($properties as $i=>$property) { ?>
                 <?php $page = ceil(($i+1)/8); ?>
@@ -126,28 +106,7 @@
 			<? } ?>
 		</div>
 	</div>
-	<div class="universal-wrapper--inner clearfix two_cols">
-		<div class="col--left">
-			<div class="universal_line-wrapper">
-				1 - 8 of <?= count($properties) ?>
-			</div>
-		</div>
-		<div class="col--right">
-			<ul class="pagintaion">
-                <?php $total_pages =  ceil(count($properties)/8); ?>
-                    <li data-page="0" class="previous" style="display:none">«</li>
-                    <li data-page="1" class="page-button page-button-first current">1</li>
-                    <li class="separator" style="display:none">...</li>                    
-                
-                <?php for ($page=2; $page<ceil(count($properties)/8); $page++) { ?>
-                    <li data-page="<?=$page ?>" class="page-button" <?=$page > 3 ? "style='display:none'" : "" ?>><?=$page ?></li>
-                <?php } ?>
-                
-                    <li class="separator">...</li>
-                    <li data-page="<?=$total_pages ?>" class="page-button page-button-last" <?=$total_pages < 5 ? "style='display:none'" : "" ?>><?=$total_pages ?></li>
-                    <li data-page="4" class="next" <?=$total_pages < 4 ? "style='display:none'" : "" ?>>»</li>
-            </ul>
-		</div>
-	</div>
-	
+    
+    <!-- Bottom Pagination -->
+    <?= \Vividcrestrealestate\Core\Template::renderPart("pagination", ['pagination'=>$pagination]); ?>	
 </section>

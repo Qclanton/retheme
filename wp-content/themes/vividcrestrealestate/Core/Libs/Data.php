@@ -196,17 +196,22 @@ abstract class Data {
 		return $exemplar;
 	}
 	
-	protected function getAll($criterion=null) 
+    protected function prepareQuery($criterion=null, $fields=[])
     {
-		$query = "SELECT * FROM " . $this->Db->prefix . $this->table;
+        $fields = (array)$fields;
+        $fields_list = (empty($fields) ? "*" : implode(", ", $fields));
+         
+        $query = "SELECT {$fields_list} FROM {$this->Db->prefix}{$this->table}";
         
-		if (!empty($criterion)) {
-			if (isset($criterion[0]) && count($criterion) == 1) {
+        
+        
+        if (!empty($criterion)) {
+            if (isset($criterion[0]) && count($criterion) == 1) {
                 $criterion['custom'] = $criterion[0];
             }
             
 			if (isset($criterion['custom'])) {
-				$query .= " WHERE " . $criterion['custom'];
+				$query .= " WHERE {$criterion['custom']}";
 			}
 			
             
@@ -222,24 +227,47 @@ abstract class Data {
 			
             
 			if (isset($criterion['orderby'])) {
-				$query .= " ORDER BY `" . $criterion['orderby'] . "`";
+				$query .= " ORDER BY `{$criterion['orderby']}`";
 				
 				if (isset($criterion['order'])) {
-					$query .= " " . $criterion['order'];
+					$query .= " {$criterion['order']}";
 				}
 			}
 			
 			if (isset($criterion['limit'])) {
-				$query .= " LIMIT " . $criterion['limit'];
-			}
-		}
+                $limitstart = (isset($criterion['limitstart']) ? $criterion['limitstart'] : 0);
+				$query .= " LIMIT {$limitstart}, {$criterion['limit']}";
+			}  
+        } 
         
-		$exemplars = $this->Db->get_results($query);
-		
+        
+        
+        return $query;   
+    }
+    
+	protected function getAll($criterion=null) 
+    {
+        $query = $this->prepareQuery($criterion);
+		$exemplars = $this->Db->get_results($query);		
         
 		return $exemplars;
 	}
 	
+    public function count($criterion=null)
+    {
+        if (is_array($criterion) || is_object($criterion) || !$criterion) {
+            $query = $this->prepareQuery($criterion, "COUNT({$this->primary_field})");
+            $quantity = $this->Db->get_var($query);            
+            $limitstart = (isset($criterion['limitstart']) ? $criterion['limitstart'] : 0);          
+   
+            return (isset($criterion['limit']) && ($criterion['limit'] - $limitstart) < $quantity
+                ? $criterion['limit']-$limitstart
+                : $quantity
+            );
+        } 
+        
+        return 1;
+    }
     
     
 	
