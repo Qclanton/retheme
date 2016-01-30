@@ -147,6 +147,7 @@ add_action("admin_menu", function() {
     add_menu_page("RETS", "RETS", "edit_posts", "rets", null, "dashicons-admin-multisite", "6.5");
     
     add_submenu_page("rets", "Connection", "Connection", "edit_posts", "rets_connection", ["\Vividcrestrealestate\Core\Administration\Connection", "show"]);
+    add_submenu_page("rets", "Expiration", "Expiration", "edit_posts", "rets_expiration", ["\Vividcrestrealestate\Core\Administration\Expiration", "show"]);
     add_submenu_page("rets", "Exchange", "Exchange", "edit_posts", "rets_exchange", ["\Vividcrestrealestate\Core\Administration\Exchange", "show"]);
 	
 	remove_submenu_page("rets", "rets");
