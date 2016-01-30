@@ -170,8 +170,10 @@
 		<div class="universal_line-wrapper four__cols">
             <?php foreach ($similar_properties as $i=>$similar_property) { ?>         
                 <div class="universal__cell property slidered-property <?= $i==0 ? "property--first" : "" ?>" data-property-id="<?=$similar_property->id ?>">
-                    <div class="property__image">	
-                        <img src="<?=$similar_property->main_image ?>" />
+                    <div class="property__image">
+                        <a href="/properties/<?=$similar_property->id ?>">
+                            <img src="<?=$similar_property->main_image ?>" />
+                        </a>
                     </div>
                     <div class="property__info-line">
                         <a href="/properties/<?=$similar_property->id ?>">

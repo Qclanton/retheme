@@ -86,13 +86,17 @@
 		
 		
 		// Set handler for arrows
-		this.on('click', 'div.small-slider-prev', function() {
+		this.on('click', 'div.small-slider-prev', function(ev) {
+            ev.preventDefault();
+            
 			if (wrapper.find('.small-slider-slide').is(':animated') == false) {
 				slides.setActive('prev');
 			}		
 		});
         
-		this.on('click', 'div.small-slider-next', function() { 
+		this.on('click', 'div.small-slider-next', function(ev) {
+            ev.preventDefault();
+             
 			if (wrapper.find('.small-slider-slide').is(':animated') == false) {
 				slides.setActive('next');	
 			}	
