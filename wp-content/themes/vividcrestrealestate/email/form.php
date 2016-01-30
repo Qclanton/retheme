@@ -14,7 +14,13 @@
         <?php foreach ($data as $field=>$value) { ?>
             <tr>
                 <td style="border: solid 1px"><?=$field ?></td>
-                <td style="border: solid 1px"><?=$value ?></td>
+                <td style="border: solid 1px">
+                    <?php if ($field == "link") { ?>
+                        <a href="<?=$value ?>"><?=$value ?></a>
+                    <?php } else { ?>
+                        <?=$value ?>
+                    <?php } ?>
+                </td>
             </tr>
         <?php } ?>
     </tbody>

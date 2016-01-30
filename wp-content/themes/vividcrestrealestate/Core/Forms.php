@@ -1,6 +1,8 @@
 <?php
 namespace Vividcrestrealestate\Core;
 
+use Mailgun\Mailgun;
+
 class Forms 
 {   
     private static function sanitizeOne($element)
@@ -38,37 +40,29 @@ class Forms
     
     public static function sendToAdmin(array $data)
     {
-        // Activate possibility to use HTML in letter
-        add_filter("wp_mail_content_type", function() { 
-            return "text/html";
-        });
-                
-        
         // Define properties
         $data = self::sanitize($data);
         $site = get_option("blogname");
-        $name = "System Message";
-        $from = get_option("admin_email");
+        $from = "System Message <" . get_option("admin_email") . ">";
         $to = get_option("admin_email");
                 
         
         // Create text
         $subject = "Customer used form on the site \"{$site}\"";
         $message = Template::renderPart("email/form", ['site'=>$site, 'data'=>$data]);
+
         
-
-        // Create headers
-        $headers[] = "From: {$name} <{$from}>";
-
-
-        // Send mail
-        $result = wp_mail($to, $subject, $message, $headers);
-
-
-        // Set default settings to other functions
-        remove_filter("wp_mail_content_type", function() { 
-            return "text/html";
-        });
+        // Send mail        
+        $Mailgun = new Mailgun(get_option("mailgun_key"));
+        $result = $Mailgun->sendMessage(
+            get_option("mailgun_domain"),
+            [
+                'from' => $from,
+                'to' => $to,
+                'subject' => $subject,
+                'html' => $message
+            ]
+        );
         
         
         // Return sending result

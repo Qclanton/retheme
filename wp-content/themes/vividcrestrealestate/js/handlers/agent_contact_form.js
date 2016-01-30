@@ -35,7 +35,7 @@
         // Perepare 
         var form = $(this);
         var propertyId = form.data('property-id');
-        var data = $(this).serialize() + '&action=vividcrest_send_form&form_id=' + form.attr('id') + '&contact[property_id]=' + propertyId;
+        var data = $(this).serialize() + '&action=vividcrest_send_form&form_id=' + form.attr('id') + '&contact[property_id]=' + propertyId + '&contact[link]=' + window.location.origin + '/properties/' + propertyId;
         var url = '/wp-admin/admin-ajax.php';
         
         // Make request

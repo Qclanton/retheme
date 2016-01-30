@@ -11,19 +11,17 @@ class Ajax
         
         $CustomerRequests = new Structures\CustomerRequests();
     
-        $request = (object)Forms::sanitize($_POST['contact']);
-        $result = $CustomerRequests->set($request);
+        $request = Forms::sanitize($_POST['contact']);
+        $result = $CustomerRequests->set((object)$request);
+        
+        
+        
+        // Also notify admin
+        Forms::sendToAdmin($request);
+        
+        
         
         die(!empty($result));
-    }
-    
-    public static function sendFormToAdmin()
-    {
-        if (!isset($_POST['contact'])) {
-            die(0);
-        }
-        
-        die(Forms::sendToAdmin($_POST['contact']));
     }
     
     public static function getPropertyImages()
