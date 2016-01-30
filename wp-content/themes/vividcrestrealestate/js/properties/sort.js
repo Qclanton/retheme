@@ -1,88 +1,22 @@
 (function($) { $(function() { 
     'use strict';
     
-    function redraw(properties) {
-        var properties_html = '';
+    $('select[name="properties-per-page"').on('change', function() {
+        var perPage = $(this).val();
+        var sort = (typeof urlParams.sort !== typeof undefined
+            ? encodeURIComponent(urlParams.sort)
+            : encodeURIComponent('publish_date|DESC')
+        );
+        var redirectionUrl = window.location.origin + window.location.pathname +  '?sort=' + sort + '&per_page=' + perPage;
         
-        properties.forEach(function(property, i) {
-            // Pagination params
-            var page = Math.ceil((i+1)/8);
-            var hidden = (page == 1 ? 'style="display:none"' : '');
-            
-            // Property params
-            property.link = '/properties/' + property.id;
-            property.size = (property.size != 0 ? property.size : 'N/A');
-            property.excerpt = property.description.substring(0, 100) + "...";
-            property.formattedPrice = Math.ceil(property.price).toString().split(/(?=(?:\d{3})+$)/).join(',');      
-            
-            // New property block
-            properties_html += '<div data-page="' + page + '" ' + hidden + ' class="universal__cell property">';
-            properties_html += '   <div class="property__image">';
-            properties_html += '       <a class="property-link" data-property-id="' + property.id + '" href="' + property.link + '">';
-            properties_html += '           <span class="label__icon--small icon--green">Open House</span>';
-            properties_html += '           <img src="' + property.main_image + '" />';
-            properties_html += '       </a>';
-           	properties_html += '       <div class="carousel-arrows--small">';
-			properties_html += '           <div class="carousel-arrow--prev"></div>';
-			properties_html += '           <div class="carousel-arrow--next"></div>';
-			properties_html += '       </div>';
-            properties_html += '   </div>';
-            properties_html += '   <div class="property__info-line">';
-            properties_html += '       <a href="' + property.link + '">';
-            properties_html += '           <p class="property__price">$' + property.formattedPrice + '</p>';
-            properties_html += '       </a>';
-            properties_html += '   </div>';
-            properties_html += '   <div class="property__description">';
-            properties_html += '       <a href="' + property.link + '">';
-            properties_html += '           <ul>';
-            properties_html += '               <li>' + property.bedrooms + ' beds</li>';
-            properties_html += '               <li>' + property.bathrooms + ' baths</li>';
-            properties_html += '               <li>' + property.size + ' sq.ft.</li>';
-            properties_html += '           </ul>';
-            properties_html += '           <p class="property__description-city">';
-            properties_html += '               <strong>' + property.address + '</strong>';
-            properties_html += '           </p>';
-            properties_html += '           <p class="property__description-city">';
-            properties_html +=                     property.excerpt;
-            properties_html += '           </p>';
-            properties_html += '       </a>';
-            properties_html += '   </div>';
-            properties_html += '</div>';
-        });
-        
-        
-        // Redraw all properties
-        $('div.properties-list').html(properties_html);
-        
-        
-        // Set first page
-        $('ul.pagintaion li.page-button[data-page="1"]').click();
-        
-        
-        // Add comparsion
-        $('.property').addCompareLinks();
-    }
-    
+        window.location.replace(redirectionUrl);
+    });
     
     $('select[name="properties-sorting"').on('change', function() {
-        var params = $(this).val().split('|');        
-        var field = params[0];
-        var side = params[1];
-        var type =  params[2] || "string";
+        var perPage = urlParams.per_page || 8;
+        var sort = encodeURIComponent($(this).val());
+        var redirectionUrl = window.location.origin + window.location.pathname +  '?sort=' + sort + '&per_page=' + perPage;
         
-        Vividcrest.properties.sort(function(some, other) { 
-            if (type == "number") {
-                some[field] = Number(some[field]);
-                other[field] = Number(other[field]);
-            }
-            
-            if (some[field] > other[field]) {
-                return (side === 'asc' ? 1 : -1);
-            } else {
-                return (side === 'asc' ? -1 : 1);
-            }
-        });
-        
-        redraw(Vividcrest.properties);     
+        window.location.replace(redirectionUrl);
     });
 }) })(jQuery)

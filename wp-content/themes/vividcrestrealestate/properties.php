@@ -15,25 +15,22 @@
 		<div class="col--left">
 			<div class="universal_line-wrapper">
 				<div class="universal_cell-wrapper">
-					<select name=" ">
-						<option selected="selected" value="0">Items per page</option>
-						<option value="15">15</option>
-						<option value="25">25</option>
-						<option value="35">55</option>
+					<select name="properties-per-page">
+						<option <?= $pagination->per_page == 8 ? "selected" : "" ?> value="8">8 per page</option>
+						<option <?= $pagination->per_page == 24 ? "selected" : "" ?> value="24">24 per page</option>
+						<option <?= $pagination->per_page == 48 ? "selected" : "" ?> value="48">48 per page</option>
 					</select>
 				</div>
 				<div class="universal_cell-wrapper">
-					<select name="properties-sorting">
-                        <option selected="selected" style="display:none">Sorting</option>
-                        
+					<select name="properties-sorting">                        
                         <optgroup label="Ascending">						
-                            <option value="price|asc|number">Price</option>
-                            <option value="publish_date|asc">Date</option>
+                            <option <?= $pagination->sort == "price|ASC" ? "selected" : "" ?> value="price|ASC">Price ASC sorting</option>
+                            <option <?= $pagination->sort == "publish_date|ASC" ? "selected" : "" ?> value="publish_date|ASC">Date ASC sorting</option>
                         </optgroup>
                         
                         <optgroup label="Descending">						
-                            <option value="price|desc|number">Price</option>
-                            <option value="publish_date|desc">Date</option>
+                            <option <?= $pagination->sort == "price|DESC" ? "selected" : "" ?> value="price|DESC">Price DESC sorting</option>
+                            <option <?= $pagination->sort == "publish_date|DESC" ? "selected" : "" ?> value="publish_date|DESC">Date DESC sorting</option>
                         </optgroup>
 					</select>
 				</div>
@@ -62,12 +59,10 @@
     <div class="universal-wrapper--inner clearfix ">		
 		<div class="universal_line-wrapper four__cols properties-list">
 			<?php foreach ($properties as $i=>$property) { ?>
-                <?php $page = ceil(($i+1)/8); ?>
-
-				<div data-page="<?=$page ?>" <?=$page != 1 ? "style='display:none'" : "" ?> class="universal__cell property">
+				<div class="universal__cell property">
 					<div class="property__image">
-						<a class="property-link" data-property-id="<?=$property->id ?>" href="<?= site_url(); ?>/properties/<?=$property->id ?>">
-							<span class="label__icon--small icon--green">Open House</span>						
+						<a class="property-link" data-property-id="<?=$property->id ?>" href="<?= site_url("/properties/{$property->id}") ?>">
+							<!-- <span class="label__icon--small icon--green">Open House</span>	-->					
 							<img src="<?=$property->main_image ?> " />
 						</a>
 						<div class="carousel-arrows--small">
@@ -76,14 +71,14 @@
 						</div>
 					</div>
 					<div class="property__info-line">
-						<a href="<?= site_url(); ?>/properties/<?=$property->id ?>">
+						<a href="<?= site_url("/properties/{$property->id}") ?>">
 							<p class="property__price">
 								$<?= number_format(ceil($property->price)) ?>
 							</p>
 						</a>		
 					</div>
 					<div class="property__description">
-						<a href="<?= site_url(); ?>/properties/<?=$property->id ?>">
+						<a href="<?= site_url("/properties/{$property->id}") ?>">
 							<ul>
 								<li><?=$property->bedrooms ?> beds </li>
 								<li><?=$property->bathrooms ?> baths</li>

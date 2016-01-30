@@ -30,9 +30,12 @@ add_action("wp_enqueue_scripts", function() {
         // Load lib for cookie
         wp_enqueue_script("jquery-cookies",  get_template_directory_uri() . "/js/libs/jquery.cookie.js", ["jquery"]);
         
-        // wp_enqueue_script("vividcrest-properties-pagination", get_template_directory_uri() . "/js/properties/pagination.js", ["jquery"]);
+        // Load lib for url params
+        wp_enqueue_script("url-params", get_template_directory_uri() . "/js/libs/url_params.js");
+        
+
         wp_enqueue_script("vividcrest-properties-compare", get_template_directory_uri() . "/js/properties/compare.js", ["jquery"]);
-        // wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/sort.js", ["jquery"]);
+        wp_enqueue_script("vividcrest-properties-sort", get_template_directory_uri() . "/js/properties/sort.js", ["jquery", "url-params"]);
         
         wp_enqueue_script("vividcrest-google-map-autocomplete", get_template_directory_uri() . "/js/handlers/google_map_autocomplete.js", ["jquery"]);
         wp_enqueue_script("vividcrest-handlers-view_toggle", get_template_directory_uri() . "/js/handlers/view_toggle.js", ["jquery"]);     
