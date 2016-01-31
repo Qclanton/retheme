@@ -14,4 +14,17 @@ class Ancillary
         
         return (object)array_merge((array)$some_object, (array)$other_object);
     }
+    
+    public static function removeDirectory($dir) 
+    {
+        if (is_dir($dir)) {
+            if ($objs = glob($dir."/*")) {
+                foreach($objs as $obj) {
+                    is_dir($obj) ? removeDirectory($obj) : unlink($obj);
+                }
+            }
+            
+            rmdir($dir);
+        }
+    }
 }
