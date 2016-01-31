@@ -8,13 +8,13 @@ class Address
         // Set default data
         $default_info = (object)[
             'address' => $addrress_string,
-            'country' => "",
-            'city' => "",
+            'country' => "Canada",
+            'city' => "Toronto",
             'sublocality' => "",
             'neighborhood' => "",
             'postal_code' => "",
-            'latitude' => 0,
-            'longitude' => 0            
+            'latitude' => 43.666667,
+            'longitude' => -79.416667            
         ];
         
         
