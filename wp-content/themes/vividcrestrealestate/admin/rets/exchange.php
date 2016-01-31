@@ -62,9 +62,7 @@
                     <select name="class">
                         <option <?= $class == "ResidentialProperty" ? "selected" : "" ?> value="ResidentialProperty">Residential Property</option>
                         <option <?= $class == "CondoProperty" ? "selected" : "" ?> value="CondoProperty">Condo Property</option>
-                        <!--
-                        <option value="CommercialProperty">Commercial Property</option>
-                        -->
+                        <option <?= $class == "CommercialProperty" ? "selected" : "" ?> value="CommercialProperty">Commercial Property</option>
                     </select>
                 </td>                 
             </tr>

@@ -55,9 +55,7 @@ class Rets
     
     public static function getPossibleClasses()
     {
-        // return ["ResidentialProperty", "CommercialProperty", "CondoProperty"];
-        // return ["ResidentialProperty"];
-        return ["ResidentialProperty", "CondoProperty"];
+        return ["ResidentialProperty", "CommercialProperty", "CondoProperty"];
     }
     
     public function setClasses(array $classes)
@@ -101,7 +99,27 @@ class Rets
                 "Rms",
                 "Sqft",
                 "Yr_built"
-            ],           
+            ],
+            
+            'CommercialProperty' => [
+                "Ml_num",
+                "Ad_text",
+                "Addr",
+                "S_r",
+                "Extras",
+                "Community",
+                "Bsmt1_out",
+                "Bath_tot",
+                "Area",
+                "County",
+                "Timestamp_sql",
+                "Gar_type",
+                "Zip",
+                "Lotsz_code",
+                "Lp_dol",
+                "Tot_area",
+                "Yr_built"
+            ],          
             
             'CondoProperty' => [
                 "Ml_num",

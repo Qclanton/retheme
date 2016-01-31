@@ -209,12 +209,12 @@ class Properties extends \Vividcrestrealestate\Core\Libs\Data
             'address' => $recognized->address,
             'latitude' => $recognized->latitude,
             'longitude' => $recognized->longitude,
-            'bedrooms' => $property->Br,
+            'bedrooms' => (isset($property->Br) ? $property->Br : "0"),
             'bathrooms' => $property->Bath_tot,
             'type' => $class,
             'deal_type' => ($property->Lp_dol > 10000 ? "buy" : "rent"),
             'price' => $property->Lp_dol,
-            'size' => (!empty($property->Sqft) ? $property->Sqft : "0"),
+            'size' => (!empty($property->Sqft) ? $property->Sqft : (!empty($property->Tot_area) ? $property->Tot_area : "0")),
             'description' => $property->Ad_text,
             'main_image' => (!empty($property->main_image) ? $property->main_image : get_template_directory_uri() . "/images/property.jpg")
         ]);
