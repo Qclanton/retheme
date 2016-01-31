@@ -184,12 +184,15 @@ abstract class Data {
 		return $result;		
 	}
 	
-	protected function getOne($primary) 
+	public function getOne($unique_value, $return_default=true, $field=null, $type="%s")
     {
-		$query = "SELECT * FROM " . $this->Db->prefix . $this->table . " WHERE `" . $this->primary_field . "`=" . $this->primary_field_type;
-		$exemplar = $this->Db->get_row($this->Db->prepare($query, $primary));
+        $field = (in_array($field, array_keys($this->fields)) ? $field : $this->primary_field);
+        $type = ($field !== $this->primary_field ? $type : $this->primary_field_type);
+        
+        $query = "SELECT * FROM {$this->Db->prefix}{$this->table} WHERE `{$field}`={$type}";
+        $exemplar = $this->Db->get_row($this->Db->prepare($query, $unique_value));
 		
-		if (empty($exemplar)) { 
+		if (empty($exemplar) && $return_default) { 
             $exemplar = $this->default_exemplar; 
         }
 		

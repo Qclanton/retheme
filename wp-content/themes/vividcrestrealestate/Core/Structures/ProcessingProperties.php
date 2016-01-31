@@ -47,15 +47,18 @@ class ProcessingProperties extends \Vividcrestrealestate\Core\Libs\Data
     
     
     
+    public function set($data, $class=null) {
+        return (is_object($data) ? $this->setOne($data) : $this->setAll($data, $class));
+    }
         
     protected function setAll($properties, $class=null)
     {        
         foreach ($properties as $property) {
             $property = (object)$property;
-            $existed_properties = $this->get(['external_id'=>$property->Ml_num]);
+            $existed = $this->getOne($property->Ml_num, false, "external_id");
             
             // Set data only for new properties
-            if (empty($existed_properties[0])) {
+            if (empty($existed)) {
                 $this->setOne((object)[
                     'external_id' => $property->Ml_num,
                     'creation_date' => date("Y-m-d H:i:s"),
