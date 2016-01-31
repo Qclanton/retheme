@@ -1,6 +1,10 @@
 <div class="wrap">
     <h1>Expiration Settings</h1>
     
+    <div class="card">
+        You can specify expiration periods according to deal type.
+    </div>
+    
     <form method="POST" action="">
         <input type="hidden" name="action" value="set">
         
