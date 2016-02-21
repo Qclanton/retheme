@@ -45,16 +45,18 @@ article ul {
 
 
 
+.universal__cell.four__cells,
 .universal__cell.property {
 	display: inline-block;
 	vertical-align: top;
-	width: 23.4%;   
-	margin: 0 10px 30px;
+	width: 23.6%;   
+	margin: 0 0.92% 3%;
 	text-align: justify;
 	min-width: 260px;
 }
 
-.universal__cell.property:first-child {
+.universal__cell.property:first-child,
+.universal_line-wrapper.three__cols .universal__cell:first-child {
 	margin-left: 0;
 }
 
@@ -190,7 +192,7 @@ article ul {
 
 
 .universal_line-wrapper.three__cols > .universal__cell {
-	width: 31.4%;
+	width: 32.1%;
 	display: inline-block;
 	vertical-align: top;
 	min-width: 260px;

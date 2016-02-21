@@ -35,7 +35,7 @@
 	text-decoration: underline;
 }
 
-.property__description--extra p {
+.property__description--extra p { 
 	font-size: 14px;
 }
 
@@ -54,5 +54,6 @@
 	z-index: 26;
 }
 
-.map-block-wrapper > .search_form--small {
+.map-block-wrapper .search_form--small {
+	pointer-events: auto;
 }
