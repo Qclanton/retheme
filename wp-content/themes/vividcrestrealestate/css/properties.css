@@ -42,13 +42,11 @@
 .two_cols ul.pagintaion li {
 	font-size: 14px;
 	margin-right: 5px;
-	padding: 5px 12px;
 }
 
 .col--right ul li {
 	list-style: none;
 	display: inline-block;
-	padding: 5px 15px;
 	border: 1px solid #d5d9dd;
 	border-radius: 3px;
 	margin-right: 10px;
@@ -58,7 +56,8 @@
 }
 .col--right ul li a {
 	color: #707070;
-	
+	padding: 5px 15px;
+	display: block;
 }
 .col--right ul li:last-child {
 	margin-right: 0;

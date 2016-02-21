@@ -21,12 +21,12 @@
 .layout__col-half {
 	max-width: 585px;
 	display: inline-block;
-	width: 47%;
+	width: 46.7%;
 }
 
 
 .layout__col-half.layout__col_half--second {
-	float: right;
+	margin-left: 6%;
 }
 
 
@@ -35,7 +35,6 @@
 .layout__col {
 	display: inline-block;
 	vertical-align: top;
-	float: left;
 }
 
 .layout__col--wide {
@@ -53,4 +52,20 @@
 .layout__col--second {
 	float: right;
 }
+
+
+/*COLS SETTINGS*/
+
+.universal_line-wrapper.four__cols,
+.universal_line-wrapper.three__cols,
+.universal-wrapper--inner.two_cols,
+.universal_line-wrapper.two_cols{
+	letter-spacing: -0.3em;
+}
+
+.universal__cell,
+.layout__col {
+	letter-spacing: normal;
+}
+
 

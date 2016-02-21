@@ -90,7 +90,10 @@
 		width: 100% !important;
 		min-width: 400px;
 		max-width: 1000px;
-		margin: 10px auto;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: auto !important;
+		margin-right: auto !important;
 	}
 	
 	.agent__contact-form  > a.universal-button {
@@ -182,10 +185,7 @@
 	}
 	
 	.content-block--inner article {
-		width: 80%;
 		text-align: left !important;
-		display: block;
-		margin: 0 auto;
 	}
 	
 }

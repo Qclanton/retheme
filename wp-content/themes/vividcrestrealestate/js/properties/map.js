@@ -10,6 +10,7 @@
     
     
     // Set center from the first property
+    /*
     if (typeof Vividcrest.properties != undefined && Vividcrest.properties.length > 0) {
         var firstProperty = Vividcrest.properties[0];
         
@@ -18,7 +19,7 @@
             longitude: firstProperty.longitude,
         };
     }
-    
+    */
     
     // Init map
     var centerMap = new google.maps.LatLng(centerPoint.latitude, centerPoint.longitude);

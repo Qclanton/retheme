@@ -1,15 +1,16 @@
 select {
-  -webkit-appearance: none;
-  background-image: url('../images/arrow.png');
-  background-position: right 12px center;
-  background-repeat: no-repeat;
-  /* for FF */
-  -moz-appearance: none;
-  text-indent: 0.01px; 
-  text-overflow: '';
-  /* for IE */
-  -ms-appearance: none;
-  appearance: none!important;
+	-webkit-appearance: none;
+	background-image: url('../images/arrow.png');
+	background-position: right 12px center;
+	background-repeat: no-repeat;
+	/* for FF */
+	-moz-appearance: none;
+	text-indent: 0.01px; 
+	text-overflow: '';
+	/* for IE */
+	-ms-appearance: none;
+	appearance: none!important;
+	cursor: pointer;
 }
 
 input::-webkit-outer-spin-button,
@@ -86,8 +87,7 @@ input[type=number]::-webkit-outer-spin-button {
 	text-align: center;
 	vertical-align: top;
 	width: 100%;
-	border-radius: 2px;
-	
+	border-radius: 2px;	
 	font-family: "Roboto", sans-serif;
 }
 

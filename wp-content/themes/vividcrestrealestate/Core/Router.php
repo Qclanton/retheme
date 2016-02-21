@@ -83,14 +83,15 @@ class Router
         // Handle search form
         $search = (isset($_POST['search_property']) ? (object)Forms::sanitize($_POST['search_property']) : new \stdClass);
         
-        if (empty($search->address)) {
-            // $search->address = $coordinates->city;
-        }
-        
         // Set default data
         $data = (object)[
             'search' => $search
-        ];             
+        ];
+        
+        // Hidden adding city for main page
+        if (empty($search->address) && $part=="main") {
+            $search->address = "Toronto"; //$coordinates->city;
+        }             
         
         // Make criterion
         $criterion = self::makeCriterion($search);  
@@ -112,6 +113,7 @@ class Router
                 break;
                 
             case "map":
+                // $criterion['limit'] = 10000;
                 $data->properties = $Properties->get($criterion);
                 break;
                 
@@ -266,6 +268,10 @@ class Router
         if (!empty($search->deal_type)) {
             $confines[] = "`deal_type`='{$search->deal_type}'";
         }
+        
+        
+        // Fix for exclude imprecise addresses
+        $confines[] = "`postal_code`!=''";
         
         
         
