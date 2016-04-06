@@ -1,4 +1,4 @@
-<form class="search_form-main search_form search_form--small form" name="search-properties" action="/map" method="POST">
+<form class="search_form-main search_form search_form--small form" name="search-properties" action="/map" method="GET">
     <div class="universal_line-wrapper">
         <input 
             class="address"

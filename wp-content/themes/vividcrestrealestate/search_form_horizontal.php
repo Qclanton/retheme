@@ -1,7 +1,6 @@
-<form class="search_form-inner search_form search_form--wide form" name="search-properties" action="<?= $action ?>" method="POST">
+<form class="search_form-inner search_form search_form--wide form" name="search-properties" action="<?= $action ?>" method="GET">
     <div class="universal__row-wrapper">
-        <div class="search__col search_col--wide">
-            
+        <div class="search__col search_col--wide">            
             <div class="universal_line-wrapper">
                 <input 
                     class="address"
@@ -20,7 +19,6 @@
                     <option value="CondoProperty" <?= isset($search->type) && $search->type == "CondoProperty" ? "selected" : "" ?>>Condo</option>
                 </select>
             </div>	
-
         </div>
         <div class="search__col search_col--short">
             <div class="universal_line-wrapper  universal_line-two-cols">

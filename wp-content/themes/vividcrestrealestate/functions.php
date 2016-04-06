@@ -205,3 +205,19 @@ function generate_excerpt($content, $more_text="More", $max_symbols=false, $post
     
 	return $excerpt;
 }
+
+function createLink($path, array $params = []) {
+    parse_str($_SERVER['QUERY_STRING'], $query);
+    $query = array_merge($query, $params);
+    
+    // Unset empty params
+    foreach ($query as $i=>$param) {
+        if (empty($param)) {
+            unset($query[$i]);
+        }
+    }
+    
+    $link = (empty($query) ? $path : $path. "?" . http_build_query($query));
+
+    return $link;      
+}

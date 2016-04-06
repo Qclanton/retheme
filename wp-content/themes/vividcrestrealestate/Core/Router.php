@@ -81,7 +81,7 @@ class Router
         $FeaturedProperties = new Structures\FeaturedProperties();
         
         // Handle search form
-        $search = (isset($_POST['search_property']) ? (object)Forms::sanitize($_POST['search_property']) : new \stdClass);
+        $search = (isset($_GET['search_property']) ? (object)Forms::sanitize($_GET['search_property']) : new \stdClass);
         
         // Set default data
         $data = (object)[
